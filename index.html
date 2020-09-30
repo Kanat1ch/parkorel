@@ -17,7 +17,8 @@
     <title>Орловский Парк Культуры и Отдыха</title>
 </head>
 <body>
-    <!-- <div class="preloader">
+    <!-- Preloader -->
+    <div class="preloader">
         <svg x="0" y="0" width="258" height="200">
   
             <g clip-path="url(#clip-path)">
@@ -113,7 +114,9 @@
               
         </svg>
         <p>Орловский Городской Парк Культуры и Отдыха</p>   
-    </div> -->
+    </div>
+    
+    <!-- Header -->
     <header class="header">
         <!-- MOBILE -->
         <!-- Menu button -->
@@ -185,6 +188,7 @@
         <h1>Добро пожаловать в парк!</h1>
         <a href="#afisha">Чем заняться?</a>
     </section>
+    
     <!-- BLOCK: Afisha -->
     <section class="afisha" id ="afisha">
         <div class="afisha__header">
@@ -229,57 +233,35 @@
         </div>        
     </section>
 
-    <!-- BLOCK: Attr -->
+    <!-- BLOCK: Attractions -->
     <section class="attr">
         <div class="attr__header">
             <h1>Аттракционы</h1>
-
             <a href="#">Все аттракционы <i class="fa fa-angle-right" aria-hidden="true"></i></a>
         </div>
-        <div class="attr__content">
-            <div class="attr-items">
-                <div class="attr-item">
-                    <div class="attr-img">
-                        <a href="#"><img src="img/attr1.png" alt="img"></a>
-                    </div>
-                    <h2><a href="#">Вихрь</a></h2>
-                </div>
-                <div class="attr-item">
-                    <div class="attr-img">
-                        <a href="#"><img src="img/attr2.png" alt="img"></a>
-                    </div>
-                    <h2><a href="#">Автодром</a></h2>
-                </div>
-                <div class="attr-item">
-                    <div class="attr-img">
-                        <a href="#"><img src="img/attr3.png" alt="img"></a>
-                    </div>
-                    <h2><a href="#">Экстрим</a></h2>
-                </div>
-                <div class="attr-item">
-                    <div class="attr-img">
-                        <a href="#"><img src="img/attr4.png" alt="img"></a>
-                    </div>
-                    <h2><a href="#">Круговой обзор</a></h2>
-                </div>
-                <div class="attr-item">
-                    <div class="attr-img">
-                        <a href="#"><img src="img/attr5.png" alt="img"></a>
-                    </div>
-                    <h2><a href="#">Железная дорога</a></h2>
-                </div>
-                <div class="attr-item">
-                    <div class="attr-img">
-                        <a href="#"><img src="img/attr6.jpg" alt="img"></a>
-                    </div>
-                    <h2><a href="#">Ракушки</a></h2>
-                </div>
 
+        <div class="attr__content">
+            <div class="attr__content-item active">
+                <img src="img/vihr.jpg" alt="img">
+                <a href="#">Вихрь</a>
+            </div>
+            <div class="attr__content-item">
+                <img src="img/avtodrom.jpg" alt="img">
+                <a href="#">Автодром</a>
+            </div>
+            <div class="attr__content-item">
+                <img src="img/extrime.jpg" alt="img">
+                <a href="#">Экстрим</a>
+            </div>
+            <div class="attr__content-item">
+                <img src="img/koleso.jpg" alt="img">
+                <a href="#">Круговой обзор</a>
             </div>
             <button class="nav-btn" id="btnLeft">&#8249;</button>
             <button class="nav-btn" id="btnRight">&#8250;</button>
         </div>
-    </section>
 
+        <div class="attr__navigation"></div>
+    </section>
 </body>
 </html>

@@ -1,13 +1,12 @@
-// // Preloader
-// document.body.onload = function() {
-//     setTimeout(function() {
-//         let preloader = document.querySelector('.preloader');
-//         if (!preloader.classList.contains('done')) {
-//             preloader.classList.add('done');
-//         }
-//     }, 1800);
-// };
-
+// Preloader
+document.body.onload = function() {
+    setTimeout(function() {
+        let preloader = document.querySelector('.preloader');
+        if (!preloader.classList.contains('done')) {
+            preloader.classList.add('done');
+        }
+    }, 1800);
+};
 
 // DOM Elements
 const body = document.querySelector('body'),
@@ -59,70 +58,106 @@ document.addEventListener('scroll', () => {
 
 });
 
-// Slider
-const track = document.querySelector('.attr-items');
-const slides = document.querySelectorAll('.attr-item');
+// Slider 2.0
+const attrContent = document.querySelector('.attr__content');
+const attrItems = document.querySelectorAll('.attr__content-item');
 const btnLeft = document.querySelector('#btnLeft');
 const btnRight = document.querySelector('#btnRight');
+const navList = document.querySelector('.attr__navigation');
+let position = 0;
 
+// Create dots
+attrItems.forEach(item => {
+    const navDot = document.createElement('div');
+    navDot.classList.add('attr__navigation-item');
+    navList.append(navDot);
+});
 
-let slidesToShow = 4; // Количество видимых слайдов
-const slidesToScroll = 1; // Количество прокручиваемых слайдов
-let position = 0; // Текущая позиция
+// First dot is active
+const navItems = document.querySelectorAll('.attr__navigation-item');
+navItems[0].classList.add('active');
 
-let itemWidth = slides[0].clientWidth;
-
-function getSlides() {
-    if (document.documentElement.clientWidth < 1200.02 && document.documentElement.clientWidth > 768.02) {
-        slidesToShow = 3;
-    } else if (document.documentElement.clientWidth <= 768.02 && document.documentElement.clientWidth > 456.02) {
-        slidesToShow = 2;
-    } else if (document.documentElement.clientWidth <= 456.02) {
-        slidesToShow = 1;
-    } else {    
-        slidesToShow = 4;
-    }
-    slides.forEach(function(item) {
-        item.style.minWidth = 100 / slidesToShow + '%';
+// Change position if navItem is clicked
+for (let i = 0; i < navItems.length; i++) {
+    navItems[i].addEventListener('click', () => {
+        position = i;
+        changeSlide();
     });
-    itemWidth = slides[0].clientWidth;
-    position = 0;
-    moveSlide(position);
 }
 
-getSlides();
+// Change slides
+function changeSlide() {
+    attrItems.forEach(item => {
+        item.classList.remove('active');
+    });
 
+    attrItems[position].classList.add('active');
+    
+    navItems.forEach(navItem => {
+        navItem.classList.remove('active');
+    });
 
-window.addEventListener('resize', getSlides);
+    navItems[position].classList.add('active');
+}
 
+// Mobile Touches
+let xDown = null;                                                        
+let yDown = null;
+function getTouches(event) {
+  return event.touches || event.originalEvent.touches; 
+}                                                     
+function handleTouchStart(event) {
+    const firstTouch = getTouches(event)[0];                                      
+    xDown = firstTouch.clientX;                                      
+}                                            
+function handleTouchMove(event) {
+    if (!xDown) {
+        return;
+    }
 
+    let xUp = event.touches[0].clientX;                                    
+    let xDiff = xDown - xUp;
+
+        if ( xDiff > 0 ) {
+            if (position < attrItems.length - 1) {
+                position++;
+                changeSlide();
+            } else {
+                position = 0;
+                changeSlide();
+            }
+        } else {
+            if (position > 0) {
+                position--;
+                changeSlide();
+            } else {
+                position = attrItems.length - 1;
+                changeSlide();
+            }
+        }         
+                      
+    /* reset values */
+    xDown = null;
+}
+
+// Event Listeners
 btnRight.addEventListener('click', () => {
-    btnLeft.style.opacity = '';
-    if (position < slides.length - slidesToShow) {
-        position += slidesToScroll;
-        moveSlide(position);
-
-        if (position == slides.length - slidesToShow) {
-            btnRight.style.opacity = '0.75';
-        }
+    if (position < attrItems.length - 1) {
+        position++;
+        changeSlide();
+    } else {
+        position = 0;
+        changeSlide();
     }
 });
-
 btnLeft.addEventListener('click', () => {
-    btnRight.style.opacity = '';
     if (position > 0) {
-        position -= slidesToScroll;
-        moveSlide(position);
-
-        if (position == 0) {
-            btnLeft.style.opacity = '0.75';
-        }
+        position--;
+        changeSlide();
+    } else {
+        position = attrItems.length - 1;
+        changeSlide();
     }
 });
- 
-function moveSlide(position) {
-    slides.forEach(function(item) {
-        item.style.transform = `translateX(-${position * itemWidth}px)`;
-    });
-}
-
+attrContent.addEventListener('touchstart', handleTouchStart, false);        
+attrContent.addEventListener('touchmove', handleTouchMove, false);
