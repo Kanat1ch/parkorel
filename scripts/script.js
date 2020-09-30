@@ -118,7 +118,7 @@ function handleTouchMove(event) {
     let xUp = event.touches[0].clientX;                                    
     let xDiff = xDown - xUp;
 
-        if ( xDiff > 0 ) {
+        if (xDiff > 8) {
             if (position < attrItems.length - 1) {
                 position++;
                 changeSlide();
@@ -126,7 +126,7 @@ function handleTouchMove(event) {
                 position = 0;
                 changeSlide();
             }
-        } else {
+        } else if (xDiff < -8) {
             if (position > 0) {
                 position--;
                 changeSlide();
