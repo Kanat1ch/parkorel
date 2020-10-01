@@ -798,9 +798,6 @@ section, header, footer {
 }
 
 // BLOCK: Clubs
-.clubs {
-
-}
 
 
 
@@ -1039,7 +1036,9 @@ section, header, footer {
         }
 
         .nav-btn {
-            display: none;
+            width: 35px;
+            height: 50px;
+            font-size: 30px;
         }
     }
 }

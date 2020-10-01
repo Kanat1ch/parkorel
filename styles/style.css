@@ -1091,7 +1091,9 @@ section, header, footer {
     height: 250px;
   }
   .attr .nav-btn {
-    display: none;
+    width: 35px;
+    height: 50px;
+    font-size: 30px;
   }
 }
 /*# sourceMappingURL=style.css.map */
