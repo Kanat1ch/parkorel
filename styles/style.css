@@ -298,7 +298,8 @@ section, header, footer {
   left: -100vw;
   top: 0;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   overflow: hidden;
   background: #fff;
   z-index: 9;
@@ -360,7 +361,6 @@ section, header, footer {
   width: 210px;
   height: 25px;
   margin-right: 5px;
-  border-radius: 3px;
   border: 1px solid #222;
   padding-left: 8px;
 }
@@ -376,7 +376,6 @@ section, header, footer {
   border: none;
   outline: none;
   background-color: #222;
-  border-radius: 3px;
   -webkit-transition: background .2s linear;
   transition: background .2s linear;
 }
@@ -1091,9 +1090,7 @@ section, header, footer {
     height: 250px;
   }
   .attr .nav-btn {
-    width: 35px;
-    height: 50px;
-    font-size: 30px;
+    display: none;
   }
 }
 /*# sourceMappingURL=style.css.map */

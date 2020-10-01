@@ -34,6 +34,7 @@ menuBtn.addEventListener('click', () => {
     if (mobileMenu.classList.contains('active')) {
         line.classList.add('active-arrow');
         body.style.overflowY = 'hidden';
+        mobileMenu.style.overflowY = 'scroll';
     } else {
         line.classList.remove('active-arrow');
         body.style.overflowY = '';
