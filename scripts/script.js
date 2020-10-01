@@ -162,3 +162,24 @@ btnLeft.addEventListener('click', () => {
 });
 attrContent.addEventListener('touchstart', handleTouchStart, false);        
 attrContent.addEventListener('touchmove', handleTouchMove, false);
+
+// TEST
+const mobSearchInput = document.querySelector('.search input');
+const mobSearch = document.querySelector('.mobile-menu .search');
+const ulMenu = document.querySelector('.mobile-menu ul');
+mobSearchInput.addEventListener('focus', showInput);
+mobSearchInput.addEventListener('blur', closeInput);
+
+
+function showInput() {
+    ulMenu.style.visibility = 'hidden';
+    mobSearch.style.cssText = `position: fixed; top: 100px; left: 50%; transform: translateX(-50%);`;
+}
+
+function closeInput() {
+    ulMenu.style.visibility = 'visible';
+    mobSearch.style.top = '200px';
+    mobSearch.style.position = '';
+    mobSearch.style.left = '';
+    mobSearch.style.transform = '';
+}

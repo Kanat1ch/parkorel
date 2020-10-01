@@ -293,10 +293,9 @@ section, header, footer {
     overflow: hidden;
     background: #fff;
     z-index: 9;
-    transition: all 0.4s ease-out;
+    transition: left 0.4s ease-out, opacity 0.4s ease-out;
 
     ul {
-        // position: absolute;
         margin-top: 80px;
         list-style: none;
 
@@ -335,9 +334,14 @@ section, header, footer {
         width: 250px;
         margin-top: 20px;
         margin: 20px auto 0;
+        position: static;
+        left: 0;
+        transform: none;
+        top: 200px;
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: top 0.3s linear;
 
         input {
             width: 210px;
@@ -482,28 +486,27 @@ section, header, footer {
 
     h1 {
         width: 70%;
-        font-size: 42px;
+        font-weight: 700;
+        font-size: 52px;
         color: #fff;
-        text-shadow: 3px 3px 10px #333;
-        letter-spacing: 4px;
         z-index: 6;
+        // font-family: 'Piazzolla', serif;
     }
 
     a {
         display: block;
-        width: 300px;
-        height: 50px;
+        width: 320px;
+        height: 60px;
         border: 2px solid #fff;
-        border-radius: 5px;
         text-decoration: none;
         color: #fff;
-        font-size: 14px;
+        font-size: 17px;
         text-transform: uppercase;
         display: flex;
         justify-content: center;
         align-items: center;
         margin-top: 15px;
-        font-weight: 700;
+        font-weight: 500;
         background-color: rgba(0, 0, 0, 0.5);
         transition: background-color 0.1s linear;
         z-index: 6;
@@ -777,13 +780,18 @@ section, header, footer {
         transform: translateY(-50%);
         width: 40px;
         height: 60px;
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(0, 0, 0, 0.5);
         color: #fff;
         font-size: 40px;
         border: none;
         outline: none;
         cursor: pointer;
         z-index: 1;
+        transition: background 0.2s linear;
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
     }
 
     #btnLeft {
