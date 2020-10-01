@@ -37,8 +37,11 @@ section, header, footer {
   transition: all .2s ease-out;
 }
 
-.header__logo img {
+.header__logo a {
+  display: block;
+  width: 190px;
   height: 55px;
+  background: url(../img/logo1.png) center center/cover no-repeat;
 }
 
 .header__navmenu {
@@ -181,6 +184,10 @@ section, header, footer {
   transition: -webkit-transform 0.3s linear;
   transition: transform 0.3s linear;
   transition: transform 0.3s linear, -webkit-transform 0.3s linear;
+}
+
+.header.fixed .header__logo a {
+  background: url(../img/logo2.png) center center/cover no-repeat;
 }
 
 .header.fixed .header__navmenu ul li a {
