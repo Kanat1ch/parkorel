@@ -168,24 +168,27 @@ const mobSearchInput = document.querySelector('.search input');
 const mobSearch = document.querySelector('.mobile-menu .search');
 const ulMenu = document.querySelector('.mobile-menu ul');
 mobSearchInput.addEventListener('focus', showInput);
-// mobSearchInput.addEventListener('blur', closeInput);
-
-
-// function showInput() {
-//     ulMenu.style.visibility = 'hidden';
-//     mobSearch.style.cssText = `position: fixed; top: 100px; left: 50%; transform: translateX(-50%);`;
-// }
-
-// function closeInput() {
-//     ulMenu.style.visibility = 'visible';
-//     mobSearch.style.top = '200px';
-//     mobSearch.style.position = '';
-//     mobSearch.style.left = '';
-//     mobSearch.style.transform = '';
-// }
+mobSearchInput.addEventListener('blur', closeInput);
+let clientX = document.documentElement.clientHeight;
 
 
 function showInput() {
-    mobSearchInput.value = document.documentElement.clientHeight;
+    ulMenu.style.visibility = 'hidden';
+    mobSearch.style.cssText = `position: fixed; top: 100px; left: 50%; transform: translateX(-50%);`;
+
+    setInterval(checkHeight, 1000);
 }
 
+function closeInput() {
+    ulMenu.style.visibility = 'visible';
+    mobSearch.style.top = '200px';
+    mobSearch.style.position = '';
+    mobSearch.style.left = '';
+    mobSearch.style.transform = '';
+}
+
+function checkHeight() {
+    if (clientX > document.documentElement.clientHeight) {
+        closeInput();
+    }
+}
