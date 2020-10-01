@@ -300,14 +300,13 @@ section, header, footer {
 }
 
 .mobile-menu ul {
-  position: absolute;
-  top: 80px;
+  margin-top: 80px;
   list-style: none;
 }
 
 .mobile-menu ul li {
   display: inline-block;
-  width: 100vw;
+  width: 100%;
   text-align: center;
   padding: 10px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
@@ -331,12 +330,56 @@ section, header, footer {
           transform: rotate(90deg) scale(1.7);
 }
 
-.mobile-menu ul li:last-child {
-  border-bottom: none;
+.mobile-menu ul li:last-child a {
+  color: #aaa;
 }
 
-.mobile-menu ul li:nth-child(9) a {
-  color: #aaa;
+.mobile-menu .search {
+  width: 250px;
+  margin-top: 20px;
+  margin: 20px auto 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mobile-menu .search input {
+  width: 210px;
+  height: 25px;
+  margin-right: 5px;
+  border-radius: 3px;
+  border: 1px solid #222;
+  padding-left: 8px;
+}
+
+.mobile-menu .search input:focus {
+  border: 1px solid #222;
+  outline: none;
+}
+
+.mobile-menu .search button {
+  width: 40px;
+  height: 25px;
+  border: none;
+  outline: none;
+  background-color: #222;
+  border-radius: 3px;
+  -webkit-transition: background .2s linear;
+  transition: background .2s linear;
+}
+
+.mobile-menu .search button:active {
+  background: #2f941b;
+}
+
+.mobile-menu .search button i.fa {
+  color: #fff;
 }
 
 .active {
@@ -467,16 +510,18 @@ section, header, footer {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  background: url(../img/intro1.jpg) center center/cover no-repeat;
 }
 
-.intro video {
+.intro:after {
   position: absolute;
+  display: block;
+  content: '';
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .intro h1 {
