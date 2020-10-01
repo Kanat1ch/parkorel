@@ -65,6 +65,7 @@ const attrItems = document.querySelectorAll('.attr__content-item');
 const btnLeft = document.querySelector('#btnLeft');
 const btnRight = document.querySelector('#btnRight');
 const navList = document.querySelector('.attr__navigation');
+const swipe = document.querySelector('.leftswipe');
 let position = 0;
 
 // Create dots
@@ -88,6 +89,7 @@ for (let i = 0; i < navItems.length; i++) {
 
 // Change slides
 function changeSlide() {
+    swipe.style.display = 'none';
     attrItems.forEach(item => {
         item.classList.remove('active');
     });
@@ -163,32 +165,3 @@ btnLeft.addEventListener('click', () => {
 attrContent.addEventListener('touchstart', handleTouchStart, false);        
 attrContent.addEventListener('touchmove', handleTouchMove, false);
 
-// TEST
-const mobSearchInput = document.querySelector('.search input');
-const mobSearch = document.querySelector('.mobile-menu .search');
-const ulMenu = document.querySelector('.mobile-menu ul');
-mobSearchInput.addEventListener('focus', showInput);
-mobSearchInput.addEventListener('blur', closeInput);
-let clientX = document.documentElement.clientHeight;
-
-
-function showInput() {
-    ulMenu.style.visibility = 'hidden';
-    mobSearch.style.cssText = `position: fixed; top: 100px; left: 50%; transform: translateX(-50%);`;
-
-    setInterval(checkHeight, 1000);
-}
-
-function closeInput() {
-    ulMenu.style.visibility = 'visible';
-    mobSearch.style.top = '200px';
-    mobSearch.style.position = '';
-    mobSearch.style.left = '';
-    mobSearch.style.transform = '';
-}
-
-function checkHeight() {
-    if (clientX > document.documentElement.clientHeight) {
-        closeInput();
-    }
-}
