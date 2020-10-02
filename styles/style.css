@@ -852,10 +852,10 @@ section, header, footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-transition: -webkit-transform .4s linear;
-  transition: -webkit-transform .4s linear;
-  transition: transform .4s linear;
-  transition: transform .4s linear, -webkit-transform .4s linear;
+  -webkit-transition: -webkit-transform .5s linear;
+  transition: -webkit-transform .5s linear;
+  transition: transform .5s linear;
+  transition: transform .5s linear, -webkit-transform .5s linear;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;

@@ -101,6 +101,31 @@ function changeSlide() {
     navItems[position / 100].classList.add('active');
 }
 
+function nextSlide() {
+    clearInterval(slideInterval);
+    if (position < (attrItems.length - 1) * 100) {
+        position += 100;
+        changeSlide();
+    } else {
+        position = 0;
+        changeSlide();
+    }
+    slideInterval = setInterval(nextSlide, 5000);
+}
+
+function prevSlide() {
+    if (position > 0) {
+        position -= 100;
+        changeSlide();
+    } else {
+        position = (attrItems.length - 1) * 100;
+        changeSlide();
+    }
+}
+
+let slideInterval = setInterval(nextSlide, 5000);
+
+
 // Mobile Touches
 let xDown = null;                                                        
 let yDown = null;
@@ -142,24 +167,8 @@ function handleTouchMove(event) {
 }
 
 // Event Listeners
-btnRight.addEventListener('click', () => {
-    if (position < (attrItems.length - 1) * 100) {
-        position += 100;
-        changeSlide();
-    } else {
-        position = 0;
-        changeSlide();
-    }
-});
-btnLeft.addEventListener('click', () => {
-    if (position > 0) {
-        position -= 100;
-        changeSlide();
-    } else {
-        position = (attrItems.length - 1) * 100;
-        changeSlide();
-    }
-});
+btnRight.addEventListener('click', nextSlide);
+btnLeft.addEventListener('click', prevSlide);
 attrContent.addEventListener('touchstart', handleTouchStart, false);        
 attrContent.addEventListener('touchmove', handleTouchMove, false);
 
