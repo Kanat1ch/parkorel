@@ -109,7 +109,7 @@ function nextSlide() {
         position = 0;
         changeSlide();
     }
-    slideInterval = setInterval(nextSlide, 5000);
+    slideInterval = setInterval(nextSlide, 6000);
 }
 
 function prevSlide() {
@@ -121,9 +121,10 @@ function prevSlide() {
         position = (attrItems.length - 1) * 100;
         changeSlide();
     }
+    slideInterval = setInterval(nextSlide, 6000);
 }
 
-let slideInterval = setInterval(nextSlide, 5000);
+let slideInterval = setInterval(nextSlide, 6000);
 
 
 // Mobile Touches
