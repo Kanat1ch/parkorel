@@ -1,12 +1,12 @@
 // Preloader
-document.body.onload = function() {
-    setTimeout(function() {
-        let preloader = document.querySelector('.preloader');
-        if (!preloader.classList.contains('done')) {
-            preloader.classList.add('done');
-        }
-    }, 1800);
-};
+// document.body.onload = function() {
+//     setTimeout(function() {
+//         let preloader = document.querySelector('.preloader');
+//         if (!preloader.classList.contains('done')) {
+//             preloader.classList.add('done');
+//         }
+//     }, 1800);
+// };
 
 // DOM Elements
 const body = document.querySelector('body'),
@@ -66,6 +66,7 @@ const btnLeft = document.querySelector('#btnLeft');
 const btnRight = document.querySelector('#btnRight');
 const navList = document.querySelector('.attr__navigation');
 const swipe = document.querySelector('.leftswipe');
+const slideProgress = document.querySelector('.slide-progress');
 let position = 0;
 
 // Create dots
@@ -89,6 +90,11 @@ for (let i = 0; i < navItems.length; i++) {
 
 // Change slides
 function changeSlide() {
+    slideProgress.classList.remove('active');
+    setTimeout(goes, 50);
+    function goes() {
+        slideProgress.classList.add('active');
+    }
     attrItems.forEach(item => {
         item.style.transform = `translateX(-${position}%)`;
     });
@@ -125,6 +131,7 @@ function prevSlide() {
 }
 
 let slideInterval = setInterval(nextSlide, 6000);
+slideProgress.classList.add('active');
 
 
 // Mobile Touches
@@ -145,7 +152,7 @@ function handleTouchMove(event) {
     let xUp = event.touches[0].clientX;                                    
     let xDiff = xDown - xUp;
     swipe.style.display = 'none';
-
+    clearInterval(slideInterval);
         if (xDiff > 8) {
             if (position < (attrItems.length - 1) * 100) {
                 position += 100;
@@ -162,7 +169,8 @@ function handleTouchMove(event) {
                 position = (attrItems.length - 1) * 100;
                 changeSlide();
             }
-        }         
+        }   
+        slideInterval = setInterval(nextSlide, 6000);      
                       
     /* reset values */
     xDown = null;

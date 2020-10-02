@@ -472,7 +472,7 @@ section, header, footer {
     max-width: 100%;
     height: 100vh;
     padding-top: 80px;
-    padding-bottom: 25vh;
+    padding-bottom: 30vh;
 
     display: flex;
     flex-direction: column;
@@ -488,13 +488,13 @@ section, header, footer {
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.7);
     }
 
     h1 {
-        width: 70%;
-        font-weight: 700;
-        font-size: 52px;
+        width: 65%;
+        font-weight: 500;
+        font-size: 38px;
         color: #fff;
         z-index: 6;
         // font-family: 'Piazzolla', serif;
@@ -502,24 +502,31 @@ section, header, footer {
 
     a {
         display: block;
-        width: 320px;
-        height: 60px;
-        border: 2px solid #fff;
+        width: 280px;
+        height: 50px;
+        border: 1px solid rgb(168, 168, 168);
         text-decoration: none;
         color: #fff;
-        font-size: 17px;
+        font-size: 14px;
         text-transform: uppercase;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 15px;
+        margin-top: 25px;
         font-weight: 500;
         background-color: rgba(0, 0, 0, 0.5);
-        transition: background-color 0.1s linear;
+        transition: 0.4s linear;
         z-index: 6;
 
+        i.fa {
+            margin-left: 10px;
+            font-size: 20px;
+        }
+
         &:hover {
-            background-color: rgba(0, 0, 0, 0.65);
+            background-color: rgb(255, 255, 255);
+            color: #000;
+            // background-color: rgba(0, 0, 0, 0.45);
         }
     }
 
@@ -674,7 +681,7 @@ section, header, footer {
     width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
-    background-color: #111;
+    background-color: #fff;
 
     .leftswipe {
         display: none;
@@ -699,13 +706,13 @@ section, header, footer {
             width: 65%;
             font-weight: 400;
             font-size: 36px;
-            color: #fff;
+            color: #000;
             z-index: 2;
         }
 
         a {
             text-decoration: none;
-            color: #fff;
+            color: #000;
             width: 34%;
             font-size: 18px;
             z-index: 2;
@@ -781,7 +788,26 @@ section, header, footer {
         }
 
         &-item.active {
-            background-color: #fff;
+            background-color: #000;
+        }
+    }
+
+
+    .slide-progress-full {
+        width: 100%;
+        height: 5px;
+        background-color: #222;
+
+        .slide-progress {
+            width: 0%;
+            height: 5px;
+            background-color: #0e741b;
+            transition: width 0s linear;
+        }
+    
+        .slide-progress.active {
+            width: 100%;
+            transition: width 5.9s linear;
         }
     }
 
@@ -898,6 +924,11 @@ section, header, footer {
         }
     }
 
+    .intro {
+        h1 {
+            font-size: 32px;
+        }
+    }
     .afisha {
         &__items {
             &-main {
@@ -939,8 +970,9 @@ section, header, footer {
     }
 
     .intro {
+        padding-bottom: 25vh;
         h1 {
-            font-size: 34px;
+            font-size: 28px;
         }
     }
 
@@ -993,7 +1025,7 @@ section, header, footer {
     .intro {
         h1 {
             width: 100%;
-            font-size: 30px;
+            font-size: 24px;
         }
     }
 
