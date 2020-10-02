@@ -89,7 +89,6 @@ for (let i = 0; i < navItems.length; i++) {
 
 // Change slides
 function changeSlide() {
-    swipe.style.display = 'none';
     attrItems.forEach(item => {
         item.style.transform = `translateX(-${position}%)`;
     });
@@ -114,6 +113,7 @@ function nextSlide() {
 }
 
 function prevSlide() {
+    clearInterval(slideInterval);
     if (position > 0) {
         position -= 100;
         changeSlide();
@@ -143,6 +143,7 @@ function handleTouchMove(event) {
 
     let xUp = event.touches[0].clientX;                                    
     let xDiff = xDown - xUp;
+    swipe.style.display = 'none';
 
         if (xDiff > 8) {
             if (position < (attrItems.length - 1) * 100) {
