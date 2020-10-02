@@ -722,23 +722,19 @@ section, header, footer {
     }
 
     &__content {
-        position: relative;
         width: 100%;
         height: 450px;
+        display: flex;
         overflow: hidden;
-        // background-color: #222;
+        position: relative;
 
         &-item {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
+            position: relative;
+            min-width: 100%;
             height: 100%;
-            z-index: 1;
             display: flex;
             flex-direction: column;
-            opacity: 0;
-            transition: opacity .5s linear;
+            transition: transform .4s linear;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -752,7 +748,7 @@ section, header, footer {
             a {
                 position: absolute;
                 width: 100%;
-                height: 15%;
+                height: 20%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -765,10 +761,6 @@ section, header, footer {
                 font-size: 24px;
                 text-decoration: none;
             }
-        }
-
-        &-item.active {
-            opacity: 1;
         }
     }
 
@@ -810,6 +802,12 @@ section, header, footer {
 
         &:hover {
             background: rgba(0, 0, 0, 0.7);
+        }
+
+        &:focus {
+            border: none;
+            outline: none;
+            box-shadow: none;
         }
     }
 

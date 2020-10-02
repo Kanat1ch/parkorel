@@ -82,7 +82,7 @@ navItems[0].classList.add('active');
 // Change position if navItem is clicked
 for (let i = 0; i < navItems.length; i++) {
     navItems[i].addEventListener('click', () => {
-        position = i;
+        position = i * 100;
         changeSlide();
     });
 }
@@ -91,16 +91,14 @@ for (let i = 0; i < navItems.length; i++) {
 function changeSlide() {
     swipe.style.display = 'none';
     attrItems.forEach(item => {
-        item.classList.remove('active');
+        item.style.transform = `translateX(-${position}%)`;
     });
-
-    attrItems[position].classList.add('active');
     
     navItems.forEach(navItem => {
         navItem.classList.remove('active');
     });
 
-    navItems[position].classList.add('active');
+    navItems[position / 100].classList.add('active');
 }
 
 // Mobile Touches
@@ -122,8 +120,8 @@ function handleTouchMove(event) {
     let xDiff = xDown - xUp;
 
         if (xDiff > 8) {
-            if (position < attrItems.length - 1) {
-                position++;
+            if (position < (attrItems.length - 1) * 100) {
+                position += 100;
                 changeSlide();
             } else {
                 position = 0;
@@ -131,10 +129,10 @@ function handleTouchMove(event) {
             }
         } else if (xDiff < -8) {
             if (position > 0) {
-                position--;
+                position -= 100;
                 changeSlide();
             } else {
-                position = attrItems.length - 1;
+                position = (attrItems.length - 1) * 100;
                 changeSlide();
             }
         }         
@@ -145,8 +143,8 @@ function handleTouchMove(event) {
 
 // Event Listeners
 btnRight.addEventListener('click', () => {
-    if (position < attrItems.length - 1) {
-        position++;
+    if (position < (attrItems.length - 1) * 100) {
+        position += 100;
         changeSlide();
     } else {
         position = 0;
@@ -155,10 +153,10 @@ btnRight.addEventListener('click', () => {
 });
 btnLeft.addEventListener('click', () => {
     if (position > 0) {
-        position--;
+        position -= 100;
         changeSlide();
     } else {
-        position = attrItems.length - 1;
+        position = (attrItems.length - 1) * 100;
         changeSlide();
     }
 });
