@@ -17,6 +17,15 @@ section, header, footer {
   padding: 0 calc(50vw - 570px);
 }
 
+button, a, .menu-btn, .menu-btn:focus, .menu-btn:active, button:focus, button:active, a:focus, a:active {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .header {
   position: absolute;
   font-family: 'Roboto', sans-serif;
@@ -531,7 +540,7 @@ section, header, footer {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  background: url(../img/intro1.jpg) center center/cover no-repeat;
+  background: url(../img/intro2.jpg) center center/cover no-repeat;
 }
 
 .intro:after {
@@ -945,8 +954,8 @@ section, header, footer {
 
 .attr .slide-progress-full .slide-progress.active {
   width: 100%;
-  -webkit-transition: width 5.9s linear;
-  transition: width 5.9s linear;
+  -webkit-transition: width 5.85s linear;
+  transition: width 5.85s linear;
 }
 
 .attr .nav-btn {
