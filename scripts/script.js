@@ -1,12 +1,12 @@
 // Preloader
-// document.body.onload = function() {
-//     setTimeout(function() {
-//         let preloader = document.querySelector('.preloader');
-//         if (!preloader.classList.contains('done')) {
-//             preloader.classList.add('done');
-//         }
-//     }, 1800);
-// };
+document.body.onload = function() {
+    setTimeout(function() {
+        let preloader = document.querySelector('.preloader');
+        if (!preloader.classList.contains('done')) {
+            preloader.classList.add('done');
+        }
+    }, 1800);
+};
 
 // DOM Elements
 const body = document.querySelector('body'),
