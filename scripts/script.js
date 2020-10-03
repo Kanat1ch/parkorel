@@ -136,8 +136,7 @@ slideProgress.classList.add('active');
 
 
 // Mobile Touches
-let xDown = null;                                                        
-let yDown = null;
+let xDown = null;                  
 function getTouches(event) {
   return event.touches || event.originalEvent.touches; 
 }                                                     
@@ -184,11 +183,11 @@ clubsItems.forEach(item => {
         if (!current.querySelector('.clubs-description').classList.contains('active')) {
             current.querySelector('.clubs-description').classList.add('active');
             current.querySelector('span').classList.add('active');
-            current.querySelector('.clubs-showfull').style.display = 'none';
+            current.querySelector('.clubs-showfull').style.transform = 'translateY(-50%) rotate(-180deg)';
         } else {
             current.querySelector('.clubs-description').classList.remove('active');
             current.querySelector('span').classList.remove('active');
-            current.querySelector('.clubs-showfull').style.display = 'flex';
+            current.querySelector('.clubs-showfull').style.transform = 'translateY(-50%)';
         }
     });
 });

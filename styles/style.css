@@ -1049,12 +1049,16 @@ a:focus, a:active {
           align-items: center;
   width: 30px;
   height: 30px;
-  right: 20px;
+  right: 10px;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   font-size: 40px;
   cursor: pointer;
+  -webkit-transition: -webkit-transform 0.4s linear;
+  transition: -webkit-transform 0.4s linear;
+  transition: transform 0.4s linear;
+  transition: transform 0.4s linear, -webkit-transform 0.4s linear;
 }
 
 .clubs__content-item .clubs-title {
@@ -1100,8 +1104,9 @@ a:focus, a:active {
 }
 
 .clubs__content-item .clubs-description {
-  width: 34%;
+  width: 30%;
   display: none;
+  margin-right: 4%;
 }
 
 .clubs__content-item .clubs-description p {
@@ -1345,7 +1350,7 @@ a:focus, a:active {
     margin: 8px 0 30px;
   }
   .clubs__content-item .clubs-description {
-    width: 100%;
+    width: 90%;
     font-style: italic;
   }
 }

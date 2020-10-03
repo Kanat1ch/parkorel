@@ -898,11 +898,12 @@ a:focus, a:active {
                 align-items: center;
                 width: 30px;
                 height: 30px;
-                right: 20px;
+                right: 10px;
                 top: 50%;
                 transform: translateY(-50%);
                 font-size: 40px;
                 cursor: pointer;
+                transition: transform 0.4s linear;
             }
 
             .clubs-title {
@@ -941,8 +942,9 @@ a:focus, a:active {
             }
             
             .clubs-description {
-                width: 34%;
+                width: 30%;
                 display: none;
+                margin-right: 4%;
 
                 p {
                     font-weight: 300;
@@ -1212,7 +1214,7 @@ a:focus, a:active {
                 }
 
                 .clubs-description {
-                    width: 100%;
+                    width: 90%;
                     font-style: italic;
                 }
             }
