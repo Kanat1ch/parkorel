@@ -16,12 +16,22 @@ section, header, footer {
     padding: 0 calc(50vw - 570px);
 }
 
-button, a, .menu-btn, .menu-btn:focus, .menu-btn:active, button:focus, button:active, a:focus, a:active {
+// Reset default tap highlights
+button, a,
+.menu-btn, .menu-btn:focus, .menu-btn:active,
+button:focus, button:active,
+a:focus, a:active {
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     -webkit-tap-highlight-color: transparent;
     border: none;
     outline: none;
     box-shadow: none;
+}
+.clubs__content-item,
+.clubs__content-item:active,
+.clubs__content-item:focus {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
 }
 
 // Header
@@ -553,7 +563,7 @@ button, a, .menu-btn, .menu-btn:focus, .menu-btn:active, button:focus, button:ac
 
         h1 {
             width: 65%;
-            font-weight: 400;
+            font-weight: 500;
             font-size: 36px;
         }
 
@@ -687,8 +697,7 @@ button, a, .menu-btn, .menu-btn:focus, .menu-btn:active, button:focus, button:ac
 // BLOCK: Attractions
 .attr {
     width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    margin-bottom: 100px;
     background-color: #fff;
 
     .leftswipe {
@@ -712,7 +721,7 @@ button, a, .menu-btn, .menu-btn:focus, .menu-btn:active, button:focus, button:ac
 
         h1 {
             width: 65%;
-            font-weight: 400;
+            font-weight: 500;
             font-size: 36px;
             color: #000;
             z-index: 2;
@@ -855,6 +864,97 @@ button, a, .menu-btn, .menu-btn:focus, .menu-btn:active, button:focus, button:ac
 }
 
 // BLOCK: Clubs
+.clubs {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #fff;
+    background: url(../img/clubs_bg.png) center center/cover no-repeat;
+
+    &__header {
+        h1 {
+            font-size: 36px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 50px;
+        }
+    }
+
+    &__content {
+        width: 100%;
+
+        &-item {
+            position: relative;
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+
+            .clubs-showfull {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 30px;
+                height: 30px;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 40px;
+                cursor: pointer;
+            }
+
+            .clubs-title {
+                width: 65%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                h2 {
+                    font-size: 24px;
+                    font-weight: 400;
+                }
+
+                span {
+                    display: none;
+
+                    a {
+                        text-decoration: none;
+                        color: #fff;
+                        font-weight: 300;
+                        text-decoration: underline;
+    
+                        i.fa {
+                            margin-left: 5px;
+                        }
+    
+                        &:hover {
+                            color: #147900;
+                        }
+                    }
+                }
+
+                span.active {
+                    display: inline;
+                }
+            }
+            
+            .clubs-description {
+                width: 34%;
+                display: none;
+
+                p {
+                    font-weight: 300;
+                }
+            }
+
+            .clubs-description.active {
+                display: block;
+            }
+        }
+    }
+}
 
 // Animation
 @keyframes swipe {
@@ -1019,6 +1119,18 @@ button, a, .menu-btn, .menu-btn:focus, .menu-btn:active, button:focus, button:ac
             }
         }
     }
+
+    .clubs {
+        &__content {
+            &-item {
+                .clubs-title {
+                    h2 {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 768.02px) {
@@ -1074,6 +1186,38 @@ button, a, .menu-btn, .menu-btn:focus, .menu-btn:active, button:focus, button:ac
             height: 320px;
         }
     }
+
+    .clubs {
+        &__header {
+            h1 {
+                font-size: 30px;
+            }
+        }
+
+        &__content {
+            &-item {
+                flex-direction: column;
+                justify-content: flex-start;
+
+                .clubs-title {
+                    width: 88%;
+
+                    h2 {
+                        font-weight: 500;
+                    }
+
+                    span {
+                        margin: 8px 0 30px;
+                    }
+                }
+
+                .clubs-description {
+                    width: 100%;
+                    font-style: italic;
+                }
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 576.02px) {
@@ -1097,6 +1241,23 @@ button, a, .menu-btn, .menu-btn:focus, .menu-btn:active, button:focus, button:ac
             &-item {
                 width: 8px;
                 height: 8px;
+            }
+        }
+    }
+
+    .clubs {
+        &__content {
+            &-item {
+                .clubs-showfull {
+                    font-size: 30px;
+                    right: 10px;
+                }
+
+                .clubs-title {
+                    h2 {
+                        font-size: 18px;
+                    }
+                }
             }
         }
     }

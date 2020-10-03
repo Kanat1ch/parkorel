@@ -16,7 +16,8 @@ const body = document.querySelector('body'),
       line = document.querySelector('.line'),
       searchBtn = document.querySelector('.search-btn'),
       searchInput = document.querySelector('.header__navmenu input'),
-      headerInfo = document.querySelector('.header__info');
+      headerInfo = document.querySelector('.header__info'),
+      clubsItems = document.querySelectorAll('.clubs__content-item');
 
 // Search Button
 searchBtn.addEventListener('click', () => {
@@ -59,7 +60,7 @@ document.addEventListener('scroll', () => {
 
 });
 
-// Slider 2.0
+// Slider 3.0
 const attrContent = document.querySelector('.attr__content');
 const attrItems = document.querySelectorAll('.attr__content-item');
 const btnLeft = document.querySelector('#btnLeft');
@@ -175,6 +176,22 @@ function handleTouchMove(event) {
     /* reset values */
     xDown = null;
 }
+
+// Clubs Tabs
+clubsItems.forEach(item => {
+    item.addEventListener('click', e => {
+        let current = e.target.closest('.clubs__content-item');
+        if (!current.querySelector('.clubs-description').classList.contains('active')) {
+            current.querySelector('.clubs-description').classList.add('active');
+            current.querySelector('span').classList.add('active');
+            current.querySelector('.clubs-showfull').style.display = 'none';
+        } else {
+            current.querySelector('.clubs-description').classList.remove('active');
+            current.querySelector('span').classList.remove('active');
+            current.querySelector('.clubs-showfull').style.display = 'flex';
+        }
+    });
+});
 
 // Event Listeners
 btnRight.addEventListener('click', nextSlide);

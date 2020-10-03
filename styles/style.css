@@ -17,13 +17,23 @@ section, header, footer {
   padding: 0 calc(50vw - 570px);
 }
 
-button, a, .menu-btn, .menu-btn:focus, .menu-btn:active, button:focus, button:active, a:focus, a:active {
+button, a,
+.menu-btn, .menu-btn:focus, .menu-btn:active,
+button:focus, button:active,
+a:focus, a:active {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   -webkit-tap-highlight-color: transparent;
   border: none;
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+.clubs__content-item,
+.clubs__content-item:active,
+.clubs__content-item:focus {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .header {
@@ -618,7 +628,7 @@ button, a, .menu-btn, .menu-btn:focus, .menu-btn:active, button:focus, button:ac
 
 .afisha__header h1 {
   width: 65%;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 36px;
 }
 
@@ -789,8 +799,7 @@ button, a, .menu-btn, .menu-btn:focus, .menu-btn:active, button:focus, button:ac
 
 .attr {
   width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  margin-bottom: 100px;
   background-color: #fff;
 }
 
@@ -823,7 +832,7 @@ button, a, .menu-btn, .menu-btn:focus, .menu-btn:active, button:focus, button:ac
 
 .attr__header h1 {
   width: 65%;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 36px;
   color: #000;
   z-index: 2;
@@ -995,6 +1004,114 @@ button, a, .menu-btn, .menu-btn:focus, .menu-btn:active, button:focus, button:ac
   right: 0;
 }
 
+.clubs {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color: #fff;
+  background: url(../img/clubs_bg.png) center center/cover no-repeat;
+}
+
+.clubs__header h1 {
+  font-size: 36px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.clubs__content {
+  width: 100%;
+}
+
+.clubs__content-item {
+  position: relative;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  cursor: pointer;
+}
+
+.clubs__content-item .clubs-showfull {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 30px;
+  height: 30px;
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.clubs__content-item .clubs-title {
+  width: 65%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.clubs__content-item .clubs-title h2 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.clubs__content-item .clubs-title span {
+  display: none;
+}
+
+.clubs__content-item .clubs-title span a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 300;
+  text-decoration: underline;
+}
+
+.clubs__content-item .clubs-title span a i.fa {
+  margin-left: 5px;
+}
+
+.clubs__content-item .clubs-title span a:hover {
+  color: #147900;
+}
+
+.clubs__content-item .clubs-title span.active {
+  display: inline;
+}
+
+.clubs__content-item .clubs-description {
+  width: 34%;
+  display: none;
+}
+
+.clubs__content-item .clubs-description p {
+  font-weight: 300;
+}
+
+.clubs__content-item .clubs-description.active {
+  display: block;
+}
+
 @-webkit-keyframes swipe {
   0% {
     opacity: 0.3;
@@ -1157,6 +1274,9 @@ button, a, .menu-btn, .menu-btn:focus, .menu-btn:active, button:focus, button:ac
   .afisha__items-others .other-afisha .other-title a {
     font-size: 18px;
   }
+  .clubs__content-item .clubs-title h2 {
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 768.02px) {
@@ -1203,6 +1323,31 @@ button, a, .menu-btn, .menu-btn:focus, .menu-btn:active, button:focus, button:ac
   .attr__content {
     height: 320px;
   }
+  .clubs__header h1 {
+    font-size: 30px;
+  }
+  .clubs__content-item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .clubs__content-item .clubs-title {
+    width: 88%;
+  }
+  .clubs__content-item .clubs-title h2 {
+    font-weight: 500;
+  }
+  .clubs__content-item .clubs-title span {
+    margin: 8px 0 30px;
+  }
+  .clubs__content-item .clubs-description {
+    width: 100%;
+    font-style: italic;
+  }
 }
 
 @media screen and (max-width: 576.02px) {
@@ -1219,6 +1364,13 @@ button, a, .menu-btn, .menu-btn:focus, .menu-btn:active, button:focus, button:ac
   .attr__navigation-item {
     width: 8px;
     height: 8px;
+  }
+  .clubs__content-item .clubs-showfull {
+    font-size: 30px;
+    right: 10px;
+  }
+  .clubs__content-item .clubs-title h2 {
+    font-size: 18px;
   }
 }
 
