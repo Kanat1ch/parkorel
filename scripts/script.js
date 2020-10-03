@@ -151,7 +151,6 @@ function handleTouchMove(event) {
 
     let xUp = event.touches[0].clientX;                                    
     let xDiff = xDown - xUp;
-    swipe.style.display = 'none';
     clearInterval(slideInterval);
         if (xDiff > 8) {
             if (position < (attrItems.length - 1) * 100) {
@@ -161,6 +160,7 @@ function handleTouchMove(event) {
                 position = 0;
                 changeSlide();
             }
+            swipe.style.display = 'none';
         } else if (xDiff < -8) {
             if (position > 0) {
                 position -= 100;
@@ -169,6 +169,7 @@ function handleTouchMove(event) {
                 position = (attrItems.length - 1) * 100;
                 changeSlide();
             }
+            swipe.style.display = 'none';
         }   
         slideInterval = setInterval(nextSlide, 6000);      
                       
@@ -181,13 +182,15 @@ clubsItems.forEach(item => {
     item.addEventListener('click', e => {
         let current = e.target.closest('.clubs__content-item');
         if (!current.querySelector('.clubs-description').classList.contains('active')) {
+            current.style.height = 'auto';
             current.querySelector('.clubs-description').classList.add('active');
             current.querySelector('span').classList.add('active');
-            current.querySelector('.clubs-showfull').style.transform = 'translateY(-50%) rotate(-180deg)';
+            current.querySelector('.clubs-showfull').style.transform = 'scale(1, -1)';
         } else {
+            current.style.height = '';
             current.querySelector('.clubs-description').classList.remove('active');
             current.querySelector('span').classList.remove('active');
-            current.querySelector('.clubs-showfull').style.transform = 'translateY(-50%)';
+            current.querySelector('.clubs-showfull').style.transform = '';
         }
     });
 });

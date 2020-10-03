@@ -1023,6 +1023,7 @@ a:focus, a:active {
 }
 
 .clubs__content-item {
+  height: 70px;
   position: relative;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
@@ -1050,9 +1051,7 @@ a:focus, a:active {
   width: 30px;
   height: 30px;
   right: 10px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  top: 20px;
   font-size: 40px;
   cursor: pointer;
   -webkit-transition: -webkit-transform 0.4s linear;
@@ -1104,8 +1103,8 @@ a:focus, a:active {
 }
 
 .clubs__content-item .clubs-description {
-  width: 30%;
-  display: none;
+  width: 28%;
+  visibility: hidden;
   margin-right: 4%;
 }
 
@@ -1114,7 +1113,7 @@ a:focus, a:active {
 }
 
 .clubs__content-item .clubs-description.active {
-  display: block;
+  visibility: visible;
 }
 
 @-webkit-keyframes swipe {
@@ -1230,6 +1229,9 @@ a:focus, a:active {
   .afisha__items-main_content .main-text p {
     font-size: 16px;
   }
+  .clubs__content-item .clubs-title h2 {
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 992.02px) {
@@ -1279,8 +1281,30 @@ a:focus, a:active {
   .afisha__items-others .other-afisha .other-title a {
     font-size: 18px;
   }
+  .clubs__header h1 {
+    font-size: 24px;
+  }
+  .clubs__content-item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .clubs__content-item .clubs-title {
+    width: 88%;
+  }
   .clubs__content-item .clubs-title h2 {
-    font-size: 20px;
+    font-weight: 500;
+  }
+  .clubs__content-item .clubs-title span {
+    margin: 8px 0 30px;
+  }
+  .clubs__content-item .clubs-description {
+    width: 90%;
+    font-style: italic;
   }
 }
 
@@ -1328,30 +1352,14 @@ a:focus, a:active {
   .attr__content {
     height: 320px;
   }
-  .clubs__header h1 {
-    font-size: 30px;
-  }
   .clubs__content-item {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    height: 90px;
   }
-  .clubs__content-item .clubs-title {
-    width: 88%;
+  .clubs__content-item .clubs-showfull {
+    top: 30px;
   }
   .clubs__content-item .clubs-title h2 {
-    font-weight: 500;
-  }
-  .clubs__content-item .clubs-title span {
-    margin: 8px 0 30px;
-  }
-  .clubs__content-item .clubs-description {
-    width: 90%;
-    font-style: italic;
+    font-size: 18px;
   }
 }
 

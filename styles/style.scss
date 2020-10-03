@@ -883,6 +883,7 @@ a:focus, a:active {
         width: 100%;
 
         &-item {
+            height: 70px;
             position: relative;
             border-top: 1px solid #fff;
             border-bottom: 1px solid #fff;
@@ -890,6 +891,7 @@ a:focus, a:active {
             display: flex;
             justify-content: space-between;
             cursor: pointer;
+            
 
             .clubs-showfull {
                 position: absolute;
@@ -899,8 +901,7 @@ a:focus, a:active {
                 width: 30px;
                 height: 30px;
                 right: 10px;
-                top: 50%;
-                transform: translateY(-50%);
+                top: 20px;
                 font-size: 40px;
                 cursor: pointer;
                 transition: transform 0.4s linear;
@@ -942,8 +943,8 @@ a:focus, a:active {
             }
             
             .clubs-description {
-                width: 30%;
-                display: none;
+                width: 28%;
+                visibility: hidden;
                 margin-right: 4%;
 
                 p {
@@ -952,11 +953,12 @@ a:focus, a:active {
             }
 
             .clubs-description.active {
-                display: block;
+                visibility: visible;
             }
         }
     }
 }
+
 
 // Animation
 @keyframes swipe {
@@ -1056,6 +1058,18 @@ a:focus, a:active {
             }
         }
     }
+
+    .clubs {
+        &__content {
+            &-item {
+                .clubs-title {
+                    h2 {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 992.02px) {
@@ -1123,12 +1137,32 @@ a:focus, a:active {
     }
 
     .clubs {
+        &__header {
+            h1 {
+                font-size: 24px;
+            }
+        }
+
         &__content {
             &-item {
+                flex-direction: column;
+                justify-content: flex-start;
+
                 .clubs-title {
+                    width: 88%;
+
                     h2 {
-                        font-size: 20px;
+                        font-weight: 500;
                     }
+
+                    span {
+                        margin: 8px 0 30px;
+                    }
+                }
+
+                .clubs-description {
+                    width: 90%;
+                    font-style: italic;
                 }
             }
         }
@@ -1190,36 +1224,23 @@ a:focus, a:active {
     }
 
     .clubs {
-        &__header {
-            h1 {
-                font-size: 30px;
-            }
-        }
-
         &__content {
             &-item {
-                flex-direction: column;
-                justify-content: flex-start;
+                height: 90px;
 
-                .clubs-title {
-                    width: 88%;
-
-                    h2 {
-                        font-weight: 500;
-                    }
-
-                    span {
-                        margin: 8px 0 30px;
-                    }
+                .clubs-showfull {
+                    top: 30px;
                 }
-
-                .clubs-description {
-                    width: 90%;
-                    font-style: italic;
+                
+                .clubs-title {
+                    h2 {
+                        font-size: 18px;
+                    }
                 }
             }
         }
     }
+
 }
 
 @media screen and (max-width: 576.02px) {
