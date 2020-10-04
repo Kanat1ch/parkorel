@@ -779,7 +779,7 @@ a:focus, a:active {
                 border-top: 30px transparent;
                 z-index: 2;
                 bottom: 0%;
-                background-color: rgba(0, 0, 0, 0.7);
+                background-color: rgba(0, 0, 0, 0.8);
                 font-weight: 500;
                 color: #fff;
                 font-size: 24px;
@@ -832,13 +832,17 @@ a:focus, a:active {
 
     .nav-btn {
         position: absolute;
-        top: 50%;
+        top: 40%;
         transform: translateY(-50%);
         width: 40px;
         height: 60px;
         background: rgba(0, 0, 0, 0.5);
         color: #fff;
         font-size: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 5px;
         border: none;
         outline: none;
         cursor: pointer;
