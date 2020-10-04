@@ -181,15 +181,14 @@ function handleTouchMove(event) {
 clubsItems.forEach(item => {
     item.addEventListener('click', e => {
         let current = e.target.closest('.clubs__content-item');
-        let currentHeight = current.querySelector('.clubs-description').scrollHeight;
         if (!current.querySelector('.clubs-description').classList.contains('active')) {
             current.querySelector('.clubs-description').classList.add('active');
-            current.style.maxHeight = currentHeight + 45 + 'px';
+            current.querySelector('.clubs-title').style.justifyContent = 'space-between';
             current.querySelector('span').classList.add('active');
             current.querySelector('.clubs-showfull').style.transform = 'scale(1, -1)';
         } else {
             current.querySelector('.clubs-description').classList.remove('active');
-            current.style.maxHeight = '';
+            current.querySelector('.clubs-title').style.justifyContent = '';
             current.querySelector('span').classList.remove('active');
             current.querySelector('.clubs-showfull').style.transform = '';
         }

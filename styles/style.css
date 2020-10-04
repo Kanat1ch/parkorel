@@ -1025,7 +1025,7 @@ a:focus, a:active {
 }
 
 .clubs__content-item {
-  max-height: 70px;
+  min-height: 70px;
   position: relative;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
@@ -1037,9 +1037,6 @@ a:focus, a:active {
       -ms-flex-pack: justify;
           justify-content: space-between;
   cursor: pointer;
-  -webkit-transition: all .4s linear;
-  transition: all .4s linear;
-  overflow: hidden;
 }
 
 .clubs__content-item .clubs-showfull {
@@ -1059,10 +1056,10 @@ a:focus, a:active {
   top: 20px;
   font-size: 40px;
   cursor: pointer;
-  -webkit-transition: -webkit-transform 0.2s linear;
-  transition: -webkit-transform 0.2s linear;
-  transition: transform 0.2s linear;
-  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transition: -webkit-transform 0.4s linear;
+  transition: -webkit-transform 0.4s linear;
+  transition: transform 0.4s linear;
+  transition: transform 0.4s linear, -webkit-transform 0.4s linear;
 }
 
 .clubs__content-item .clubs-title {
@@ -1074,9 +1071,6 @@ a:focus, a:active {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 .clubs__content-item .clubs-title h2 {
@@ -1085,9 +1079,7 @@ a:focus, a:active {
 }
 
 .clubs__content-item .clubs-title span {
-  opacity: 0;
-  -webkit-transition: .4s linear;
-  transition: .4s linear;
+  display: none;
 }
 
 .clubs__content-item .clubs-title span a {
@@ -1106,19 +1098,13 @@ a:focus, a:active {
 }
 
 .clubs__content-item .clubs-title span.active {
-  opacity: 1;
+  display: inline;
 }
 
 .clubs__content-item .clubs-description {
   width: 28%;
   margin-right: 4%;
-  opacity: 0;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  -webkit-transition: opacity .2s linear, -webkit-transform .2s linear;
-  transition: opacity .2s linear, -webkit-transform .2s linear;
-  transition: opacity .2s linear, transform .2s linear;
-  transition: opacity .2s linear, transform .2s linear, -webkit-transform .2s linear;
+  display: none;
 }
 
 .clubs__content-item .clubs-description p {
@@ -1126,9 +1112,7 @@ a:focus, a:active {
 }
 
 .clubs__content-item .clubs-description.active {
-  opacity: 1;
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  display: block;
 }
 
 .blur {
@@ -1376,12 +1360,6 @@ a:focus, a:active {
   }
   .attr__content {
     height: 320px;
-  }
-  .clubs__content-item {
-    height: 90px;
-  }
-  .clubs__content-item .clubs-showfull {
-    top: 30px;
   }
   .clubs__content-item .clubs-title h2 {
     font-size: 18px;

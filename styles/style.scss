@@ -885,7 +885,7 @@ a:focus, a:active {
         width: 100%;
 
         &-item {
-            max-height: 70px;
+            min-height: 70px;
             position: relative;
             border-top: 1px solid #fff;
             border-bottom: 1px solid #fff;
@@ -893,8 +893,6 @@ a:focus, a:active {
             display: flex;
             justify-content: space-between;
             cursor: pointer;
-            transition: all .4s linear;
-            overflow: hidden;
 
             .clubs-showfull {
                 position: absolute;
@@ -907,14 +905,13 @@ a:focus, a:active {
                 top: 20px;
                 font-size: 40px;
                 cursor: pointer;
-                transition: transform 0.2s linear;
+                transition: transform 0.4s linear;
             }
 
             .clubs-title {
                 width: 65%;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
 
                 h2 {
                     font-size: 24px;
@@ -922,8 +919,7 @@ a:focus, a:active {
                 }
 
                 span {
-                    opacity: 0;
-                    transition: .4s linear;
+                    display: none;
 
                     a {
                         text-decoration: none;
@@ -942,16 +938,14 @@ a:focus, a:active {
                 }
 
                 span.active {
-                    opacity: 1;
+                    display: inline;
                 }
             }
             
             .clubs-description {
                 width: 28%;
                 margin-right: 4%;
-                opacity: 0;
-                transform: scale(0);
-                transition: opacity .2s linear, transform .2s linear;
+                display: none;
 
                 p {
                     font-weight: 300;
@@ -959,8 +953,7 @@ a:focus, a:active {
             }
 
             .clubs-description.active {
-                opacity: 1;
-                transform: scale(1);
+                display: block;
             }
         }
     }
@@ -1241,13 +1234,7 @@ a:focus, a:active {
 
     .clubs {
         &__content {
-            &-item {
-                height: 90px;
-
-                .clubs-showfull {
-                    top: 30px;
-                }
-                
+            &-item {                
                 .clubs-title {
                     h2 {
                         font-size: 18px;
