@@ -1,4 +1,4 @@
-// Preloader
+// Onload events
 document.body.onload = function() {
     // setTimeout(function() {
     //     let preloader = document.querySelector('.preloader');
@@ -9,8 +9,6 @@ document.body.onload = function() {
 
     checkHistoryWidth();
 };
-
-window.addEventListener('resize', checkHistoryWidth);
 
 // DOM Elements
 const body = document.querySelector('body'),
@@ -201,6 +199,7 @@ clubsItems.forEach(item => {
 
 
 // History Tabs
+const historyDate = document.querySelector('.history-date');
 const historyNext = document.querySelector('.history-text__next');
 const historyPrev = document.querySelector('.history-text__prev');
 const years = document.querySelector('.years');
@@ -210,6 +209,7 @@ function checkHistoryWidth() {
     let historyWidth = document.documentElement.clientWidth;
     return historyWidth;
 }
+
 let yearsStep = 40;
 if (checkHistoryWidth() < 577) {
     yearsStep = 33.333333;
@@ -280,11 +280,57 @@ function prevYear() {
 
 }
 
+function resetActive() {
+    activeYear = 0;
+        yearsStep = 40;
+        if (checkHistoryWidth() < 577) {
+            yearsStep = 33.333333;
+        }
+        for (let i = 0; i < yearsItems.length; i++) {
+            yearsItems[i].classList.remove('active');
+            historyItems[i].classList.remove('active');
+            yearsItems[activeYear].classList.add('active');
+            historyItems[activeYear].classList.add('active');
+        }
+        years.style.transform = `translateX(${yearsStep}%)`;
+}
+
+// Mobile Touches
+let yDown = null;                  
+function getTouchesHistory(event) {
+  return event.touches || event.originalEvent.touches; 
+}                                                     
+function handleTouchStartHistory(event) {
+    const firstTouch = getTouchesHistory(event)[0];                                      
+    yDown = firstTouch.clientX;                                      
+}                                            
+function handleTouchMoveHistory(event) {
+    if (!yDown) {
+        return;
+    }
+
+    let yUp = event.touches[0].clientX;                                    
+    let yDiff = yDown - yUp;
+        if (yDiff > 8) {
+            nextYear();
+        } else if (yDiff < -8) {
+            prevYear();
+        } else {
+            console.log('no touch');
+        }                      
+    /* reset values */
+    yDown = null;
+}
+
 // Event Listeners
 btnRight.addEventListener('click', nextSlide);
 btnLeft.addEventListener('click', prevSlide);
 attrContent.addEventListener('touchstart', handleTouchStart, false);        
 attrContent.addEventListener('touchmove', handleTouchMove, false);
+historyDate.addEventListener('touchstart', handleTouchStartHistory, false);        
+historyDate.addEventListener('touchmove', handleTouchMoveHistory, false);
 historyNext.addEventListener('click', nextYear);
 historyPrev.addEventListener('click', prevYear);
+window.addEventListener('resize', checkHistoryWidth);
+window.addEventListener('resize', resetActive);
 

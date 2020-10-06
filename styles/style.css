@@ -831,7 +831,6 @@ a:focus, a:active {
 }
 
 .attr__header h1 {
-  width: 65%;
   font-weight: 400;
   font-size: 36px;
   color: #000;
@@ -841,7 +840,6 @@ a:focus, a:active {
 .attr__header a {
   text-decoration: none;
   color: #000;
-  width: 34%;
   font-size: 18px;
   z-index: 2;
 }
@@ -1129,6 +1127,44 @@ a:focus, a:active {
   display: block;
 }
 
+.history-header {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.history-header h1 {
+  font-weight: 400;
+  font-size: 36px;
+  color: #000;
+  z-index: 2;
+}
+
+.history-header a {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  z-index: 2;
+}
+
+.history-header a:hover {
+  color: #147900;
+}
+
+.history-header a i.fa {
+  margin-left: 5px;
+  font-size: 20px;
+}
+
 .history-date {
   position: relative;
   width: 100%;
@@ -1171,6 +1207,28 @@ a:focus, a:active {
   overflow: hidden;
 }
 
+.history-date__content .darked-left {
+  position: absolute;
+  width: 20%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: -webkit-gradient(linear, left top, right top, color-stop(40%, #111), to(transparent));
+  background: linear-gradient(to right, #111 40%, transparent 100%);
+  z-index: 3;
+}
+
+.history-date__content .darked-right {
+  position: absolute;
+  width: 20%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  background: -webkit-gradient(linear, right top, left top, color-stop(40%, #111), to(transparent));
+  background: linear-gradient(to left, #111 40%, transparent 100%);
+  z-index: 3;
+}
+
 .history-date__content .timeline {
   width: 100%;
   height: 3px;
@@ -1183,6 +1241,7 @@ a:focus, a:active {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  z-index: 1;
 }
 
 .history-date__content .years {
@@ -1200,6 +1259,7 @@ a:focus, a:active {
   transition: -webkit-transform .4s ease;
   transition: transform .4s ease;
   transition: transform .4s ease, -webkit-transform .4s ease;
+  z-index: 2;
 }
 
 .history-date__content .years-item {
@@ -1589,6 +1649,21 @@ a:focus, a:active {
   .clubs__content-item .clubs-title h2 {
     font-size: 18px;
   }
+  .history-header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .history-header h1 {
+    width: 100%;
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .history-header a {
+    width: 100%;
+    font-size: 20px;
+  }
   .history-text {
     height: 380px;
   }
@@ -1681,6 +1756,9 @@ a:focus, a:active {
   }
   .history-date__content {
     padding: 0 0 50px;
+  }
+  .history-date__content .darked-right, .history-date__content .darked-left {
+    width: 10%;
   }
   .history-date__content .years-item {
     font-size: 16px;
