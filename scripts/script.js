@@ -7,7 +7,7 @@ document.body.onload = function() {
     //     }
     // }, 1800);
 
-    checkHistoryWidth();
+    checkWindowWidth();
 };
 
 // DOM Elements
@@ -180,15 +180,29 @@ function handleTouchMove(event) {
 }
 
 // Clubs Tabs
+function checkClubsHeaderHeight() {
+    const clubItems = document.querySelectorAll('.clubs__content-item');
+    clubItems.forEach(item => {
+        if (item.querySelector('h2').offsetHeight > 30) {
+            item.style.padding = '12px 0';
+        } else {
+            item.style.padding = '22px 0';
+        }
+    });
+}
+
 clubsItems.forEach(item => {
     item.addEventListener('click', e => {
         let current = e.target.closest('.clubs__content-item');
         if (!current.querySelector('.clubs-description').classList.contains('active')) {
             current.querySelector('.clubs-description').classList.add('active');
+            let currentHeight = current.scrollHeight;
+            current.style.height = currentHeight + 15 + 'px';
             current.querySelector('.clubs-title').style.justifyContent = 'space-between';
             current.querySelector('span').classList.add('active');
             current.querySelector('.clubs-showfull').style.transform = 'scale(1, -1)';
         } else {
+            current.style.height = '70px';
             current.querySelector('.clubs-description').classList.remove('active');
             current.querySelector('.clubs-title').style.justifyContent = '';
             current.querySelector('span').classList.remove('active');
@@ -205,13 +219,13 @@ const historyPrev = document.querySelector('.history-text__prev');
 const years = document.querySelector('.years');
 const yearsItems = document.querySelectorAll('.years-item');
 const historyItems = document.querySelectorAll('.text-item');
-function checkHistoryWidth() {
+function checkWindowWidth() {
     let historyWidth = document.documentElement.clientWidth;
     return historyWidth;
 }
 
 let yearsStep = 40;
-if (checkHistoryWidth() < 577) {
+if (checkWindowWidth() < 577) {
     yearsStep = 33.333333;
 }
 
@@ -226,7 +240,7 @@ function nextYear() {
             yearsItems[activeYear].classList.add('active');
             historyItems[activeYear].classList.add('active');
         }
-        if (checkHistoryWidth() < 577) {
+        if (checkWindowWidth() < 577) {
             yearsStep -= 33.333333;
         } else {
             yearsStep -= 20;
@@ -235,7 +249,7 @@ function nextYear() {
     } else {
         activeYear = 0;
         yearsStep = 40;
-        if (checkHistoryWidth() < 577) {
+        if (checkWindowWidth() < 577) {
             yearsStep = 33.333333;
         }
         for (let i = 0; i < yearsItems.length; i++) {
@@ -257,7 +271,7 @@ function prevYear() {
             yearsItems[activeYear].classList.add('active');
             historyItems[activeYear].classList.add('active');
         }
-        if (checkHistoryWidth() < 577) {
+        if (checkWindowWidth() < 577) {
             yearsStep += 33.333333;
         } else {
             yearsStep += 20;
@@ -266,7 +280,7 @@ function prevYear() {
     } else {
         activeYear = yearsItems.length - 1;
         yearsStep = -(yearsItems.length - 1) * 20 + 40;
-        if (checkHistoryWidth() < 577) {
+        if (checkWindowWidth() < 577) {
             yearsStep = -(yearsItems.length - 1) * 33.333333 + 33.333333;
         }
         for (let i = 0; i < yearsItems.length; i++) {
@@ -283,7 +297,7 @@ function prevYear() {
 function resetActive() {
     activeYear = 0;
         yearsStep = 40;
-        if (checkHistoryWidth() < 577) {
+        if (checkWindowWidth() < 577) {
             yearsStep = 33.333333;
         }
         for (let i = 0; i < yearsItems.length; i++) {
@@ -331,6 +345,8 @@ historyDate.addEventListener('touchstart', handleTouchStartHistory, false);
 historyDate.addEventListener('touchmove', handleTouchMoveHistory, false);
 historyNext.addEventListener('click', nextYear);
 historyPrev.addEventListener('click', prevYear);
-window.addEventListener('resize', checkHistoryWidth);
+window.addEventListener('resize', checkWindowWidth);
 window.addEventListener('resize', resetActive);
+window.addEventListener('resize', checkClubsHeaderHeight);
+window.addEventListener('load', checkClubsHeaderHeight);
 
