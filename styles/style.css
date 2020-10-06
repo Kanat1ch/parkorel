@@ -628,7 +628,7 @@ a:focus, a:active {
 
 .afisha__header h1 {
   width: 65%;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 36px;
 }
 
@@ -832,7 +832,7 @@ a:focus, a:active {
 
 .attr__header h1 {
   width: 65%;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 36px;
   color: #000;
   z-index: 2;
@@ -899,7 +899,7 @@ a:focus, a:active {
 .attr__content-item a {
   position: absolute;
   width: 100%;
-  height: 20%;
+  height: 15%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -917,6 +917,10 @@ a:focus, a:active {
   color: #fff;
   font-size: 24px;
   text-decoration: none;
+}
+
+.attr__content-item a p {
+  z-index: 5;
 }
 
 .attr__navigation {
@@ -971,7 +975,7 @@ a:focus, a:active {
 
 .attr .nav-btn {
   position: absolute;
-  top: 40%;
+  top: 42.5%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   width: 40px;
@@ -1123,6 +1127,202 @@ a:focus, a:active {
 
 .clubs__content-item .clubs-description.active {
   display: block;
+}
+
+.history-date {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-color: #111;
+}
+
+.history-date:after {
+  position: absolute;
+  display: block;
+  content: '';
+  left: 50%;
+  bottom: -10px;
+  -webkit-transform: translateX(-50%) rotate(-45deg);
+          transform: translateX(-50%) rotate(-45deg);
+  width: 20px;
+  height: 20px;
+  background-color: #111;
+  z-index: 2;
+}
+
+.history-date__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 50px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+}
+
+.history-date__content .timeline {
+  width: 100%;
+  height: 3px;
+  border-radius: 4px;
+  background: -webkit-gradient(linear, right top, left top, from(transparent), color-stop(#555), to(transparent));
+  background: linear-gradient(to left, transparent, #555, transparent);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.history-date__content .years {
+  min-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-bottom: 30px;
+  -webkit-transform: translateX(40%);
+          transform: translateX(40%);
+  -webkit-transition: -webkit-transform .4s ease;
+  transition: -webkit-transform .4s ease;
+  transition: transform .4s ease;
+  transition: transform .4s ease, -webkit-transform .4s ease;
+}
+
+.history-date__content .years-item {
+  min-width: 20%;
+  position: relative;
+  font-size: 26px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  color: #555;
+  font-weight: 500;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: font-size .4s ease, color .4s ease;
+  transition: font-size .4s ease, color .4s ease;
+}
+
+.history-date__content .years-item:after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  left: 50%;
+  bottom: -39px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-radius: 50%;
+  background-color: #666;
+}
+
+.history-date__content .years-item.active {
+  font-size: 44px;
+  color: #fff;
+}
+
+.history-date__content .years-item.active:after {
+  background-color: #fff;
+}
+
+.history-text {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: url(../img/history_bg1.jpg) center center/cover no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.history-text:after {
+  position: absolute;
+  display: block;
+  content: '';
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(rgba(0, 0, 0, 0.7)), color-stop(rgba(0, 0, 0, 0.8)), color-stop(rgba(0, 0, 0, 0.85)), to(rgba(0, 0, 0, 0.85)));
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85));
+}
+
+.history-text .history-btn {
+  width: 50px;
+  height: 50px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 50px;
+  -webkit-transition: .1s linear;
+  transition: .1s linear;
+  margin-top: -5px;
+  z-index: 1;
+}
+
+.history-text .history-btn i.fa {
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+}
+
+.history-text__main-text {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  text-align: center;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+}
+
+.history-text__main-text .text-item {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  padding: 0 30px;
+  left: 0;
+  opacity: 0;
+  -webkit-transition: opacity .4s ease;
+  transition: opacity .4s ease;
+}
+
+.history-text__main-text .text-item.active {
+  opacity: 1;
+  -webkit-transition: opacity 1.4s ease;
+  transition: opacity 1.4s ease;
 }
 
 .blur {
@@ -1325,6 +1525,15 @@ a:focus, a:active {
     width: 90%;
     font-style: italic;
   }
+  .history-date__content .years-item {
+    font-size: 22px;
+  }
+  .history-date__content .years-item.active {
+    font-size: 38px;
+  }
+  .history-text {
+    height: 350px;
+  }
 }
 
 @media screen and (max-width: 768.02px) {
@@ -1371,8 +1580,20 @@ a:focus, a:active {
   .attr__content {
     height: 320px;
   }
+  .attr__content-item {
+    -webkit-transition: -webkit-transform .4s linear;
+    transition: -webkit-transform .4s linear;
+    transition: transform .4s linear;
+    transition: transform .4s linear, -webkit-transform .4s linear;
+  }
   .clubs__content-item .clubs-title h2 {
     font-size: 18px;
+  }
+  .history-text {
+    height: 380px;
+  }
+  .history-text__main-text {
+    font-size: 16px;
   }
 }
 
@@ -1397,6 +1618,16 @@ a:focus, a:active {
   }
   .clubs__content-item .clubs-title h2 {
     font-size: 18px;
+  }
+  .history-date__content .years {
+    -webkit-transform: translateX(33.33333%);
+            transform: translateX(33.33333%);
+  }
+  .history-date__content .years-item {
+    min-width: 33.333333%;
+  }
+  .history-text__main-text {
+    font-size: 14px;
   }
 }
 
@@ -1444,6 +1675,25 @@ a:focus, a:active {
   }
   .attr .nav-btn {
     display: none;
+  }
+  .history-date {
+    height: 150px;
+  }
+  .history-date__content {
+    padding: 0 0 50px;
+  }
+  .history-date__content .years-item {
+    font-size: 16px;
+  }
+  .history-date__content .years-item.active {
+    font-size: 24px;
+  }
+  .history-text {
+    height: 430px;
+  }
+  .history-text .history-btn {
+    width: 20px;
+    height: 20px;
   }
 }
 /*# sourceMappingURL=style.css.map */

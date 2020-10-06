@@ -1,12 +1,16 @@
 // Preloader
-// document.body.onload = function() {
-//     setTimeout(function() {
-//         let preloader = document.querySelector('.preloader');
-//         if (!preloader.classList.contains('done')) {
-//             preloader.classList.add('done');
-//         }
-//     }, 1800);
-// };
+document.body.onload = function() {
+    // setTimeout(function() {
+    //     let preloader = document.querySelector('.preloader');
+    //     if (!preloader.classList.contains('done')) {
+    //         preloader.classList.add('done');
+    //     }
+    // }, 1800);
+
+    checkHistoryWidth();
+};
+
+window.addEventListener('resize', checkHistoryWidth);
 
 // DOM Elements
 const body = document.querySelector('body'),
@@ -195,9 +199,92 @@ clubsItems.forEach(item => {
     });
 });
 
+
+// History Tabs
+const historyNext = document.querySelector('.history-text__next');
+const historyPrev = document.querySelector('.history-text__prev');
+const years = document.querySelector('.years');
+const yearsItems = document.querySelectorAll('.years-item');
+const historyItems = document.querySelectorAll('.text-item');
+function checkHistoryWidth() {
+    let historyWidth = document.documentElement.clientWidth;
+    return historyWidth;
+}
+let yearsStep = 40;
+if (checkHistoryWidth() < 577) {
+    yearsStep = 33.333333;
+}
+
+let activeYear = 0;
+
+function nextYear() {
+    if (activeYear < yearsItems.length - 1) {
+        activeYear++;
+        for (let i = 0; i < yearsItems.length; i++) {
+            yearsItems[i].classList.remove('active');
+            historyItems[i].classList.remove('active');
+            yearsItems[activeYear].classList.add('active');
+            historyItems[activeYear].classList.add('active');
+        }
+        if (checkHistoryWidth() < 577) {
+            yearsStep -= 33.333333;
+        } else {
+            yearsStep -= 20;
+        }
+        years.style.transform = `translateX(${yearsStep}%)`;
+    } else {
+        activeYear = 0;
+        yearsStep = 40;
+        if (checkHistoryWidth() < 577) {
+            yearsStep = 33.333333;
+        }
+        for (let i = 0; i < yearsItems.length; i++) {
+            yearsItems[i].classList.remove('active');
+            historyItems[i].classList.remove('active');
+            yearsItems[activeYear].classList.add('active');
+            historyItems[activeYear].classList.add('active');
+        }
+        years.style.transform = `translateX(${yearsStep}%)`;
+    }
+}
+
+function prevYear() {
+    if (activeYear > 0) {
+        activeYear--;
+        for (let i = 0; i < yearsItems.length; i++) {
+            yearsItems[i].classList.remove('active');
+            historyItems[i].classList.remove('active');
+            yearsItems[activeYear].classList.add('active');
+            historyItems[activeYear].classList.add('active');
+        }
+        if (checkHistoryWidth() < 577) {
+            yearsStep += 33.333333;
+        } else {
+            yearsStep += 20;
+        }
+        years.style.transform = `translateX(${yearsStep}%)`;
+    } else {
+        activeYear = yearsItems.length - 1;
+        yearsStep = -(yearsItems.length - 1) * 20 + 40;
+        if (checkHistoryWidth() < 577) {
+            yearsStep = -(yearsItems.length - 1) * 33.333333 + 33.333333;
+        }
+        for (let i = 0; i < yearsItems.length; i++) {
+            yearsItems[i].classList.remove('active');
+            historyItems[i].classList.remove('active');
+            yearsItems[activeYear].classList.add('active');
+            historyItems[activeYear].classList.add('active');
+        }
+        years.style.transform = `translateX(${yearsStep}%)`;
+    }
+
+}
+
 // Event Listeners
 btnRight.addEventListener('click', nextSlide);
 btnLeft.addEventListener('click', prevSlide);
 attrContent.addEventListener('touchstart', handleTouchStart, false);        
 attrContent.addEventListener('touchmove', handleTouchMove, false);
+historyNext.addEventListener('click', nextYear);
+historyPrev.addEventListener('click', prevYear);
 

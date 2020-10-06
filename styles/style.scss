@@ -563,7 +563,7 @@ a:focus, a:active {
 
         h1 {
             width: 65%;
-            font-weight: 500;
+            font-weight: 400;
             font-size: 36px;
         }
 
@@ -721,7 +721,7 @@ a:focus, a:active {
 
         h1 {
             width: 65%;
-            font-weight: 500;
+            font-weight: 400;
             font-size: 36px;
             color: #000;
             z-index: 2;
@@ -772,7 +772,7 @@ a:focus, a:active {
             a {
                 position: absolute;
                 width: 100%;
-                height: 20%;
+                height: 15%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -784,6 +784,10 @@ a:focus, a:active {
                 color: #fff;
                 font-size: 24px;
                 text-decoration: none;
+
+                p {
+                    z-index: 5;
+                }
             }
         }
     }
@@ -832,7 +836,7 @@ a:focus, a:active {
 
     .nav-btn {
         position: absolute;
-        top: 40%;
+        top: 42.5%;
         transform: translateY(-50%);
         width: 40px;
         height: 60px;
@@ -959,6 +963,160 @@ a:focus, a:active {
             .clubs-description.active {
                 display: block;
             }
+        }
+    }
+}
+
+// BLOCK: History
+.history-date {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #111;
+
+    &:after {
+        position: absolute;
+        display: block;
+        content: '';
+        left: 50%;
+        bottom: -10px;
+        transform: translateX(-50%) rotate(-45deg);
+        width: 20px;
+        height: 20px;
+        background-color: #111;
+        z-index: 2;
+    }
+
+    &__content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 50px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        overflow: hidden;
+        
+        .timeline {
+            width: 100%;
+            height: 3px;
+            border-radius: 4px;
+            background: linear-gradient(to left, transparent, #555, transparent); 
+            display: flex;
+            justify-content: center;
+        }
+
+        .years {
+            min-width: 100%;
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 30px;
+            transform: translateX(40%);
+            transition: transform .4s ease;
+
+            &-item {
+                min-width: 20%;
+                position: relative;
+                font-size: 26px;
+                font-family: 'Montserrat Alternates', sans-serif;
+                color: #555;
+                font-weight: 500;
+                display: flex;
+                justify-content: center;
+                transition: font-size .4s ease, color .4s ease;
+
+
+                &:after {
+                    display: block;
+                    content: '';
+                    position: absolute;
+                    width: 14px;
+                    height: 14px;
+                    left: 50%;
+                    bottom: -39px;
+                    transform: translateX(-50%);
+                    border-radius: 50%;
+                    background-color: #666;
+                }
+            }
+
+            &-item.active {
+                font-size: 44px;
+                color: #fff;
+
+                &:after {
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.history-text {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    // background-color: rgb(54, 75, 48);
+    background: url(../img/history_bg1.jpg) center center/cover no-repeat;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:after {
+        position: absolute;
+        display: block;
+        content: '';
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom,  transparent, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85));
+    }
+
+    .history-btn {
+        width: 50px;
+        height: 50px;
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: #fff;
+        font-size: 50px;
+        transition: .1s linear;
+        margin-top: -5px;
+        z-index: 1;
+
+        i.fa {
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+        }
+    }
+
+    &__main-text {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        font-size: 18px;
+        text-align: center;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+
+        .text-item {
+            position: absolute;
+            width: 100%;
+            height: auto;
+            padding: 0 30px;
+            left: 0;
+            opacity: 0;
+            transition: opacity .4s ease;
+        }
+
+        .text-item.active {
+            opacity: 1;
+            transition: opacity 1.4s ease;
         }
     }
 }
@@ -1180,6 +1338,24 @@ a:focus, a:active {
             }
         }
     }
+
+    .history-date {
+        &__content {
+            .years {
+                &-item {
+                    font-size: 22px;
+                }
+
+                &-item.active {
+                    font-size: 38px;
+                }
+            }
+        }
+    }
+
+    .history-text {
+        height: 350px;
+    }
 }
 
 @media screen and (max-width: 768.02px) {
@@ -1233,6 +1409,10 @@ a:focus, a:active {
 
         &__content {
             height: 320px;
+
+            &-item {
+                transition: transform .4s linear;
+            }
         }
     }
 
@@ -1245,6 +1425,14 @@ a:focus, a:active {
                     }
                 }
             }
+        }
+    }
+
+    .history-text {
+        height: 380px;
+
+        &__main-text {
+            font-size: 16px;
         }
     }
 
@@ -1289,6 +1477,24 @@ a:focus, a:active {
                     }
                 }
             }
+        }
+    }
+
+    .history-date {
+        &__content {
+            .years {
+                transform: translateX(33.333333%);
+
+                &-item {
+                    min-width: 33.333333%;
+                }
+            }
+        }
+    }
+
+    .history-text {
+        &__main-text {
+            font-size: 14px;
         }
     }
 }
@@ -1351,6 +1557,32 @@ a:focus, a:active {
 
         .nav-btn {
             display: none;
+        }
+    }
+
+    .history-date {
+        height: 150px;
+        &__content {
+            padding: 0 0 50px;
+
+            .years {
+                &-item {
+                    font-size: 16px;
+                }
+
+                &-item.active {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+
+    .history-text {
+        height: 430px;
+
+        .history-btn {
+            width: 20px;
+            height: 20px;
         }
     }
 }
