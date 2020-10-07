@@ -1,4 +1,5 @@
 // Onload events
+let startWidth = document.documentElement.clientWidth;
 document.body.onload = function() {
     // setTimeout(function() {
     //     let preloader = document.querySelector('.preloader');
@@ -295,7 +296,9 @@ function prevYear() {
 }
 
 function resetActive() {
-    activeYear = 0;
+    let newWidth = document.documentElement.clientWidth;
+    if (startWidth != newWidth) {
+        activeYear = 0;
         yearsStep = 40;
         if (checkWindowWidth() < 577) {
             yearsStep = 33.333333;
@@ -307,6 +310,8 @@ function resetActive() {
             historyItems[activeYear].classList.add('active');
         }
         years.style.transform = `translateX(${yearsStep}%)`;
+        startWidth = newWidth;
+    }
 }
 
 // Mobile Touches
