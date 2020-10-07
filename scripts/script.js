@@ -1,12 +1,12 @@
 // Onload events
 let startWidth = document.documentElement.clientWidth;
 document.body.onload = function() {
-    // setTimeout(function() {
-    //     let preloader = document.querySelector('.preloader');
-    //     if (!preloader.classList.contains('done')) {
-    //         preloader.classList.add('done');
-    //     }
-    // }, 1800);
+    setTimeout(function() {
+        let preloader = document.querySelector('.preloader');
+        if (!preloader.classList.contains('done')) {
+            preloader.classList.add('done');
+        }
+    }, 1800);
 
     checkWindowWidth();
 };
