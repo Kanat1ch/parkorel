@@ -1,0 +1,1116 @@
+@import "style.scss";
+
+.clubs__content-item,
+.clubs__content-item:active,
+.clubs__content-item:focus {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+// Preloader
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 33;
+    opacity: 1;
+    visibility: visible;
+    transition: 0.6s all;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        width: 90vw;
+        font-size: 22px;
+        color: #2f941b;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+        font-family: 'Montserrat Alternates', sans-serif;
+    
+    }
+
+    svg {
+        display: block;
+        width:258px;
+        height:200px;
+
+      }
+      
+      .tree {
+        fill: #2f941b;
+      }
+      
+      .circle-mask {
+        transform-origin: 50% 90%;
+        animation: scale 5s infinite ease-out;
+      }
+      
+      @keyframes scale {
+        0%, 100% {
+          transform: scale(0.0);
+        }
+        7%, 90% {
+          transform: scale(0.4);
+        }
+        50% {
+          transform: scale(1);
+        }
+      }
+
+    &.done {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+// Intro
+.intro {
+    height: 100vh;
+    padding-bottom: 30vh;
+    background: url(../img/intro6.jpg) center center/cover no-repeat;
+
+    a {
+        display: flex;
+    }
+}
+
+// BLOCK: Afisha
+.afisha {
+    padding-top: 100px;
+    margin-bottom: 100px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+
+        h1 {
+            width: 65%;
+            font-weight: 400;
+            font-size: 36px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+            width: 34%;
+            font-size: 18px;
+
+            &:hover {
+                color: #147900;
+            }
+
+            i.fa {
+                margin-left: 5px;
+                font-size: 20px;
+            }
+        }
+    }
+
+    &__items {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        &-main {
+            display: block;
+            text-decoration: none;
+            position: relative;
+            width: 65%;
+            height: 400px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            background: url(../img/afisha_main.jpg) center center/cover no-repeat;
+
+            &:hover:before {
+                background: rgba(0, 0, 0, 0.75);
+            }
+
+            &:before {
+                position: absolute;
+                display: block;
+                content: '';
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top:0;
+                background: rgba(0, 0, 0, 0.7);
+            }
+        
+            * {
+                z-index: 2;
+            }
+            
+            &_content {
+                width: 94%;
+                height: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                border-top: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+
+                .main-text {
+                    width: 100%;
+                    height: 100%;
+                    padding: 10px 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    color: #fff;
+
+                    h2 {
+                        font-weight: 500;
+                        margin-top: -30px;
+                    }
+
+                    p {
+                        font-size: 18px;
+                        font-weight: 300;
+                    }
+
+                }
+            }
+
+        }
+
+        &-others {
+            width: 34%;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .other-afisha {
+                width: 100%;
+                height: 27%;
+                display: flex;
+                justify-content: space-between;
+
+                .other-logo {
+                    width: 43%;
+                    height: 100%;
+                    background: url(../img/afisha_others.png) center center/cover no-repeat;
+                }
+
+                .other-title {
+                    width: 55%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    a {
+                        text-decoration: none;
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+
+    #date {
+        font-size: 12px;
+        color: #aaa;
+    }
+}
+
+// BLOCK: Attractions
+.attr {
+    width: 100%;
+    margin-bottom: 100px;
+    background-color: #fff;
+
+    .leftswipe {
+        display: none;
+        width: 60px;
+        height: 70px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+        animation: swipe 2s infinite;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+
+
+        h1 {
+            font-weight: 400;
+            font-size: 36px;
+            color: #000;
+            z-index: 2;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+            font-size: 18px;
+            z-index: 2;
+
+            &:hover {
+                color: #147900;
+            }
+
+            i.fa {
+                margin-left: 5px;
+                font-size: 20px;
+            }
+        }
+    }
+
+    &__content {
+        width: 100%;
+        height: 450px;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+
+        &-item {
+            position: relative;
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: transform .6s linear;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            } 
+            
+            a {
+                position: absolute;
+                width: 100%;
+                height: 15%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-top: 30px transparent;
+                z-index: 2;
+                bottom: 0%;
+                background-color: rgba(0, 0, 0, 0.8);
+                font-weight: 500;
+                color: #fff;
+                font-size: 24px;
+                text-decoration: none;
+
+                p {
+                    z-index: 5;
+                }
+            }
+        }
+    }
+
+    &__navigation {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &-item {
+            width: 12px;
+            height: 12px;
+            margin: 20px 5px 0;
+            border-radius: 50%;
+            background-color: #666;
+            transition: background 0.1s linear;
+            cursor: pointer;
+        }
+
+        &-item.active {
+            background-color: #000;
+        }
+    }
+
+
+    .slide-progress-full {
+        width: 100%;
+        height: 5px;
+        background-color: #222;
+
+        .slide-progress {
+            width: 0%;
+            height: 5px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            background-color: #108b21;
+            transition: width 0s linear;
+        }
+    
+        .slide-progress.active {
+            width: 100%;
+            transition: width 5.85s linear;
+        }
+    }
+
+    .nav-btn {
+        position: absolute;
+        top: 42.5%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 60px;
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        font-size: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 5px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        z-index: 1;
+        transition: background 0.2s linear;
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        &:focus {
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+    }
+
+    #btnLeft {
+        left: 0;
+    }
+
+    #btnRight {
+        right: 0;
+    }
+}
+
+// BLOCK: Clubs
+.clubs {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #fff;
+    background: url(../img/clubs_bg.png) center center/cover no-repeat;
+
+    &__header {
+        h1 {
+            font-size: 36px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 50px;
+        }
+    }
+
+    &__content {
+        width: 100%;
+
+        &-item {
+            height: 70px;
+            position: relative;
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: height .2s ease;
+            overflow: hidden;
+
+            .clubs-showfull {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 30px;
+                height: 30px;
+                right: 10px;
+                top: 20px;
+                font-size: 40px;
+                cursor: pointer;
+                transition: transform 0.4s linear;
+            }
+
+            .clubs-title {
+                width: 65%;
+                display: flex;
+                flex-direction: column;
+
+                h2 {
+                    font-size: 24px;
+                    font-weight: 400;
+                }
+
+                span {
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: opacity .4s ease, transform .2s linear;
+                    transform: translateY(-100%);
+
+                    a {
+                        text-decoration: none;
+                        color: #fff;
+                        font-weight: 300;
+                        text-decoration: underline;
+    
+                        i.fa {
+                            margin-left: 5px;
+                        }
+    
+                        &:hover {
+                            color: #147900;
+                        }
+                    }
+                }
+
+                span.active {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(0%);
+                    transition: opacity .4s ease, transform .8s ease;
+                }
+            }
+            
+            .clubs-description {
+                width: 28%;
+                margin-right: 4%;
+                opacity: 0;
+                transform: translateX(100%);
+                transition: opacity .4s ease, transform .4s ease;
+
+                p {
+                    font-weight: 300;
+                }
+            }
+
+            .clubs-description.active {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    }
+}
+
+// BLOCK: History
+.history-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 50px;
+
+    h1 {
+        font-weight: 400;
+        font-size: 36px;
+        color: #000;
+        z-index: 2;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
+        font-size: 18px;
+        z-index: 2;
+
+        &:hover {
+            color: #147900;
+        }
+
+        i.fa {
+            margin-left: 5px;
+            font-size: 20px;
+        }
+    }
+}
+
+.history-date {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #111;
+
+    &:after {
+        position: absolute;
+        display: block;
+        content: '';
+        left: 50%;
+        bottom: -10px;
+        transform: translateX(-50%) rotate(-45deg);
+        width: 20px;
+        height: 20px;
+        background-color: #111;
+        z-index: 2;
+    }
+
+    &__content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 50px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        overflow: hidden;
+
+        .darked-left {
+            position: absolute;
+            width: 20%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: linear-gradient(to right, #111 40%, transparent 100%);
+            z-index: 3;
+        }
+
+        .darked-right {
+            position: absolute;
+            width: 20%;
+            height: 100%;
+            right: 0;
+            top: 0;
+            background: linear-gradient(to left, #111 40%, transparent 100%);
+            z-index: 3;
+        }
+        
+        .timeline {
+            width: 100%;
+            height: 3px;
+            border-radius: 4px;
+            background: linear-gradient(to left, transparent, #555, transparent); 
+            display: flex;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .years {
+            min-width: 100%;
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 30px;
+            transform: translateX(40%);
+            transition: transform .4s ease;
+            z-index: 2;
+
+            &-item {
+                min-width: 20%;
+                position: relative;
+                font-size: 26px;
+                font-family: 'Montserrat Alternates', sans-serif;
+                color: #555;
+                font-weight: 500;
+                display: flex;
+                justify-content: center;
+                transition: font-size .4s ease, color .4s ease;
+
+                &:after {
+                    display: block;
+                    content: '';
+                    position: absolute;
+                    width: 14px;
+                    height: 14px;
+                    left: 50%;
+                    bottom: -39px;
+                    transform: translateX(-50%);
+                    border-radius: 50%;
+                    background-color: #666;
+                }
+            }
+
+            &-item.active {
+                font-size: 44px;
+                color: #fff;
+
+                &:after {
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.history-text {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    // background-color: rgb(54, 75, 48);
+    background: url(../img/history_bg1.jpg) center center/cover no-repeat;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:after {
+        position: absolute;
+        display: block;
+        content: '';
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom,  transparent, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85));
+    }
+
+    .history-btn {
+        width: 50px;
+        height: 50px;
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: #fff;
+        font-size: 50px;
+        transition: .1s linear;
+        margin-top: -5px;
+        z-index: 1;
+
+        i.fa {
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+        }
+    }
+
+    &__main-text {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        font-size: 18px;
+        text-align: center;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+
+        .text-item {
+            position: absolute;
+            width: 100%;
+            height: auto;
+            padding: 0 30px;
+            left: 0;
+            opacity: 0;
+            transition: opacity .4s ease;
+        }
+
+        .text-item.active {
+            opacity: 1;
+            transition: opacity 1.4s ease;
+        }
+    }
+}
+
+// Swipe Animation
+@keyframes swipe {
+    0% {
+        opacity: 0.3;
+        left: 55%;
+    }
+
+    10% {
+        opacity: 0.6;
+        left: 54%;
+    }
+
+    20% {
+        opacity: 0.8;
+        left: 52%;
+    }
+
+    30% {
+        opacity: 1;
+        left: 50%;
+    }
+
+    40% {
+        opacity: 0.8;
+        left: 48%;
+    }
+
+    50% {
+        opacity: 0.5;
+        left: 46%;
+    }
+
+    60% {
+        opacity: 0.2;
+        left: 45%;
+    }
+
+    70% {
+        opacity: 0.4;
+        left: 47%;
+    }
+
+    80% {
+        opacity: 0.6;
+        left: 50%;
+    }
+
+    90% {
+        opacity: 0.8;
+        left: 53%;
+    }
+
+    100% {
+        opacity: 1;
+        left: 55%;
+    }
+}
+
+// Media Quares
+@media screen and (max-width: 1200.02px) {
+    .afisha {
+        &__items {
+            &-main {
+                &_content {
+                    .main-text {
+                        h2 {
+                            margin-top: -10px;
+                        }
+
+                        p {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .clubs {
+        &__content {
+            &-item {
+                .clubs-title {
+                    h2 {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992.02px) {
+    .intro {
+        padding-bottom: 25vh;
+    }
+    
+    .afisha {
+        &__items {
+            flex-direction: column;
+
+            &-main {
+                width: 100%;
+                margin-bottom: 20px;
+
+                &_content {
+                    .main-text {
+                        h2 {
+                            margin-top: -20px;
+                        }
+
+                        p {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+
+            &-others {
+                width: 100%;
+                height: 550px;
+
+                .other-afisha {
+                    .other-title{
+                        a {
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .clubs {
+        &__header {
+            h1 {
+                font-size: 24px;
+            }
+        }
+
+        &__content {
+            &-item {
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 22px 0;
+
+                .clubs-title {
+                    width: 88%;
+
+                    h2 {
+                        font-weight: 500;
+                    }
+
+                    span {
+                        margin: 8px 0 30px;
+                    }
+                }
+
+                .clubs-description {
+                    width: 90%;
+                    font-style: italic;
+                    transform: translateX(-100%);
+                }
+            }
+        }
+    }
+
+    .history-date {
+        &__content {
+            .years {
+                &-item {
+                    font-size: 22px;
+                }
+
+                &-item.active {
+                    font-size: 38px;
+                }
+            }
+        }
+    }
+
+    .history-text {
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 768.02px) {
+    .afisha {
+        &__header {
+            flex-direction: column;
+
+            h1 {
+                width: 100%;
+                font-size: 30px;
+                margin-bottom: 10px;
+            }
+
+            a {
+                width: 100%;
+                font-size: 20px;
+            }
+        }
+    }
+
+    .attr {
+        &__header {
+            flex-direction: column;
+
+            h1 {
+                width: 100%;
+                font-size: 30px;
+                margin-bottom: 10px;
+            }
+
+            a {
+                width: 100%;
+                font-size: 20px;
+            }
+        }
+
+        &__content {
+            height: 320px;
+
+            &-item {
+                transition: transform .4s linear;
+            }
+        }
+    }
+
+    .clubs {
+        &__content {
+            &-item {                
+                .clubs-title {
+                    h2 {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+
+    .history-header {
+        flex-direction: column;
+
+        h1 {
+            width: 100%;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        a {
+            width: 100%;
+            font-size: 20px;
+        }
+    }
+
+    .history-text {
+        height: 380px;
+
+        &__main-text {
+            font-size: 16px;
+        }
+    }
+}
+
+@media screen and (max-width: 576.02px) {
+    .attr {
+        &__navigation {
+            &-item {
+                width: 8px;
+                height: 8px;
+            }
+        }
+    }
+
+    .clubs {
+        &__content {
+            &-item {
+                .clubs-showfull {
+                    font-size: 30px;
+                    right: 10px;
+                }
+
+                .clubs-title {
+                    h2 {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+
+    .history-date {
+        &__content {
+            .years {
+                transform: translateX(33.333333%);
+
+                &-item {
+                    min-width: 33.333333%;
+                }
+            }
+        }
+    }
+
+    .history-text {
+        &__main-text {
+            font-size: 14px;
+        }
+    }
+}
+
+@media screen and (max-width: 426.02px) {
+    .afisha {
+        &__items {
+            &-main {
+                &_content {
+                    height: 60%;
+
+                    .main-text {
+                        h2 {
+                            font-size: 18px;
+                        }
+
+                        p {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+
+            &-others {
+                height: auto;
+
+                .other-afisha {
+                    flex-direction: column;
+                    height: auto;
+                    margin: 10px 0;
+
+                    .other-logo {
+                        width: 100%;
+                        height: 200px;
+                        margin: 0 auto;
+                    }
+
+                    .other-title {
+                        width: 100%;
+                        height: auto;
+                        justify-content: flex-end;
+
+                        a {
+                            margin: 10px 0 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .attr {
+        &__content {
+            height: 250px;
+
+            .leftswipe {
+                display: block;
+            }
+        }
+
+        .nav-btn {
+            display: none;
+        }
+    }
+
+    .history-date {
+        height: 150px;
+        &__content {
+            padding: 0 0 50px;
+
+            .darked-right, .darked-left {
+                width: 10%;
+            }
+
+            .years {
+                &-item {
+                    font-size: 16px;
+                }
+
+                &-item.active {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+
+    .history-text {
+        height: 430px;
+
+        .history-btn {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}

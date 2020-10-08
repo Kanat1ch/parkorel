@@ -1,0 +1,51 @@
+@import "style.scss";
+
+.intro {
+    background: url(../img/extrime.jpg) center center/cover no-repeat;
+}
+
+.attr {
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    &__item {
+        width: 24%;
+        margin: 20px 0;
+
+        &-img {
+            width: 100%;
+            height: 170px;
+            transition: transform 0.2s linear;
+
+            &:hover {
+                transform: scale(0.95);
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &-title {
+            margin-top: 10px;
+            
+            a {
+                text-decoration: none;
+                color: #000;
+                font-size: 18px;
+                font-weight: 600;
+                transition: color .15s linear;
+
+                &:hover {
+                    color: rgb(0, 102, 0);
+                }
+            }
+        }
+    }
+}

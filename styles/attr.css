@@ -755,3 +755,66 @@ a:focus, a:active {
     margin-left: 5px;
   }
 }
+
+.intro {
+  background: url(../img/extrime.jpg) center center/cover no-repeat;
+}
+
+.attr {
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.attr__item {
+  width: 24%;
+  margin: 20px 0;
+}
+
+.attr__item-img {
+  width: 100%;
+  height: 170px;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+}
+
+.attr__item-img:hover {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+.attr__item-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.attr__item-title {
+  margin-top: 10px;
+}
+
+.attr__item-title a {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  font-weight: 600;
+  -webkit-transition: color .15s linear;
+  transition: color .15s linear;
+}
+
+.attr__item-title a:hover {
+  color: #006600;
+}
