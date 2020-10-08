@@ -162,7 +162,7 @@ clubsItems.forEach(item => {
 });
 
 
-// History Tabs
+// History slider
 const historyDate = document.querySelector('.history-date');
 const historyNext = document.querySelector('.history-text__next');
 const historyPrev = document.querySelector('.history-text__prev');
