@@ -1,18 +1,24 @@
 // Onload events
 let startWidth = document.documentElement.clientWidth;
-document.body.onload = function() {
-    if (localStorage.getItem('visited') != '1') {
-        let preloader = document.querySelector('.preloader');
-        preloader.style.display = 'flex';
+checkWindowWidth();
+
+let preloader = document.querySelector('.preloader');
+if (localStorage.getItem('visited') != '1') {
+    showPreloader();
+    localStorage.setItem('visited', '1');
+}
+function showPreloader() {
+    preloader.style.display = 'flex';
+    document.body.onload = function() {
         setTimeout(function() {
             if (!preloader.classList.contains('done')) {
                 preloader.classList.add('done');
                 localStorage.setItem('visited', '1');
             }
         }, 1800);
-    }
-    checkWindowWidth();
-};
+    };
+}
+
 
 // Slider 3.0
 const attrContent = document.querySelector('.attr__content');
