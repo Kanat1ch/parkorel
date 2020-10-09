@@ -178,6 +178,7 @@ const historyPrev = document.querySelector('.history-text__prev');
 const years = document.querySelector('.years');
 const yearsItems = document.querySelectorAll('.years-item');
 const historyItems = document.querySelectorAll('.text-item');
+const historyMainText = document.querySelector('.history-text__main-text');
 function checkWindowWidth() {
     let historyWidth = document.documentElement.clientWidth;
     return historyWidth;
@@ -306,6 +307,8 @@ attrContent.addEventListener('touchstart', handleTouchStart, false);
 attrContent.addEventListener('touchmove', handleTouchMove, false);
 historyDate.addEventListener('touchstart', handleTouchStartHistory, false);        
 historyDate.addEventListener('touchmove', handleTouchMoveHistory, false);
+historyMainText.addEventListener('touchstart', handleTouchStartHistory, false);        
+historyMainText.addEventListener('touchmove', handleTouchMoveHistory, false);
 historyNext.addEventListener('click', nextYear);
 historyPrev.addEventListener('click', prevYear);
 window.addEventListener('resize', checkWindowWidth);
