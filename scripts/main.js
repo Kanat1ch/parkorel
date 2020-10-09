@@ -1,20 +1,16 @@
 // Onload events
 let startWidth = document.documentElement.clientWidth;
 document.body.onload = function() {
-
-    if(localStorage.getItem('showPreloader') == false) {
+    if (localStorage.getItem('visited') != '1') {
+        let preloader = document.querySelector('.preloader');
+        preloader.style.display = 'flex';
         setTimeout(function() {
-            let preloader = document.querySelector('.preloader');
-            preloader.style.display = 'flex';
             if (!preloader.classList.contains('done')) {
                 preloader.classList.add('done');
+                localStorage.setItem('visited', '1');
             }
         }, 1800);
-    } else {
-
     }
-    localStorage.setItem('showPreloader', 'false');
-
     checkWindowWidth();
 };
 
