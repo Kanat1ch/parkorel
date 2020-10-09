@@ -1,12 +1,19 @@
 // Onload events
 let startWidth = document.documentElement.clientWidth;
 document.body.onload = function() {
-    setTimeout(function() {
-        let preloader = document.querySelector('.preloader');
-        if (!preloader.classList.contains('done')) {
-            preloader.classList.add('done');
-        }
-    }, 1800);
+
+    if(localStorage.getItem('showPreloader') == false) {
+        setTimeout(function() {
+            let preloader = document.querySelector('.preloader');
+            preloader.style.display = 'flex';
+            if (!preloader.classList.contains('done')) {
+                preloader.classList.add('done');
+            }
+        }, 1800);
+    } else {
+
+    }
+    localStorage.setItem('showPreloader', 'false');
 
     checkWindowWidth();
 };
