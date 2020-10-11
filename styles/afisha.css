@@ -757,7 +757,7 @@ a:focus, a:active {
 }
 
 .intro {
-  background: url(../img/afisha.jpg) center 80%/cover no-repeat;
+  background: url(../img/afisha.jpg) center center/cover no-repeat;
 }
 
 .afisha {
@@ -883,7 +883,7 @@ a:focus, a:active {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    border-bottom: 1px solid #888;
+    border-bottom: 1px solid #ccc;
     padding-bottom: 30px;
   }
   .afisha__item-img {

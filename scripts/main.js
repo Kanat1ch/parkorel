@@ -112,7 +112,7 @@ function handleTouchMove(event) {
     let xUp = event.touches[0].clientX;                                    
     let xDiff = xDown - xUp;
     clearInterval(slideInterval);
-        if (xDiff > 8) {
+        if (xDiff > 9) {
             if (position < (attrItems.length - 1) * 100) {
                 position += 100;
                 changeSlide();
@@ -121,7 +121,7 @@ function handleTouchMove(event) {
                 changeSlide();
             }
             swipe.style.display = 'none';
-        } else if (xDiff < -8) {
+        } else if (xDiff < -9) {
             if (position > 0) {
                 position -= 100;
                 changeSlide();
@@ -289,9 +289,10 @@ function handleTouchMoveHistory(event) {
 
     let yUp = event.touches[0].clientX;                                    
     let yDiff = yDown - yUp;
-        if (yDiff > 8) {
+        if (yDiff > 9) {
             nextYear();
-        } else if (yDiff < -8) {
+            console.log(yDiff);
+        } else if (yDiff < -9) {
             prevYear();
         } else {
             console.log('no touch');

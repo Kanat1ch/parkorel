@@ -1,7 +1,7 @@
 @import "style.scss";
 
 .intro {
-    background: url(../img/afisha.jpg) center 80%/cover no-repeat;
+    background: url(../img/afisha.jpg) center center/cover no-repeat;
 }
 
 .afisha {
@@ -125,7 +125,7 @@
         &__item {
             height: auto;
             flex-direction: column;
-            border-bottom: 1px solid #888;
+            border-bottom: 1px solid #ccc;
             padding-bottom: 30px;
 
             &-img {
