@@ -462,7 +462,7 @@ a:focus, a:active {
         margin-top: 25px;
         font-weight: 500;
         background-color: rgba(0, 0, 0, 0.5);
-        transition: 0.4s linear;
+        transition: background-color 0.4s linear;
         z-index: 6;
 
         i.fa {
@@ -510,7 +510,7 @@ a:focus, a:active {
         &-email, &-tel, &-address {
             display: flex;
             align-items: center;
-            margin: 3px 0;
+            margin: 5px 0;
 
             i.fa {
                 width: 20px;
@@ -527,7 +527,7 @@ a:focus, a:active {
         &-vk, &-facebook, &-instagram {
             display: flex;
             align-items: center;
-            margin: 3px 0;
+            margin: 5px 0;
 
             a {
                 transition: color .15s linear;

@@ -1,0 +1,24 @@
+@import "style.scss";
+
+
+.intro {
+    background: url(../img/history.jpg) center center/cover no-repeat;
+}
+
+.history {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 18px;
+
+    a {
+        display: inline-block;
+        text-decoration: none;
+        margin: 20px 5px 0;
+        color: blue;
+        font-weight: 500;
+
+        &:hover {
+            color: green;
+        }
+    }
+}

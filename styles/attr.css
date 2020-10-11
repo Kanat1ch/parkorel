@@ -493,8 +493,8 @@ a:focus, a:active {
   margin-top: 25px;
   font-weight: 500;
   background-color: rgba(0, 0, 0, 0.5);
-  -webkit-transition: 0.4s linear;
-  transition: 0.4s linear;
+  -webkit-transition: background-color 0.4s linear;
+  transition: background-color 0.4s linear;
   z-index: 6;
 }
 
@@ -559,7 +559,7 @@ a:focus, a:active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 3px 0;
+  margin: 5px 0;
 }
 
 .footer__contacts-email i.fa, .footer__contacts-tel i.fa, .footer__contacts-address i.fa {
@@ -589,7 +589,7 @@ a:focus, a:active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 3px 0;
+  margin: 5px 0;
 }
 
 .footer__socials-vk a, .footer__socials-facebook a, .footer__socials-instagram a {
@@ -776,6 +776,40 @@ a:focus, a:active {
           justify-content: space-between;
 }
 
+.attr__info {
+  width: 100%;
+  padding: 20px 0;
+  background-color: rgba(6, 37, 26, 0.9);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.attr__info-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  margin: 0 40px;
+  font-weight: 500;
+}
+
+.attr__info-item i.fa {
+  font-size: 32px;
+  margin-right: 10px;
+}
+
 .attr__item {
   width: 24%;
   margin: 20px 0;
@@ -820,13 +854,35 @@ a:focus, a:active {
   color: #006600;
 }
 
+@media screen and (max-width: 1200.02px) {
+  .attr__info-item {
+    font-size: 13px;
+  }
+}
+
 @media screen and (max-width: 992.02px) {
+  .attr__info-item {
+    margin: 0 10px;
+    font-size: 12px;
+  }
+  .attr__info-item i.fa {
+    font-size: 20px;
+  }
   .attr__item {
     width: 31%;
   }
 }
 
 @media screen and (max-width: 768.02px) {
+  .attr__info {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .attr__info-item {
+    width: 100%;
+    height: auto;
+    margin: 10px 10%;
+  }
   .attr__item {
     width: 48%;
   }

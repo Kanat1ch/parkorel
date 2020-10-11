@@ -12,6 +12,30 @@
     flex-flow: row wrap;
     justify-content: space-between;
 
+    &__info {
+        width: 100%;
+        padding: 20px 0;
+        background-color: rgba(6, 37, 26, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+
+        &-item {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            color: #fff;
+            margin: 0 40px;
+            font-weight: 500;
+
+            i.fa {
+                font-size: 32px;
+                margin-right: 10px;
+            }
+        }
+    }
+
     &__item {
         width: 24%;
         margin: 20px 0;
@@ -51,9 +75,29 @@
     }
 }
 
+@media screen and (max-width: 1200.02px) {
+    .attr {
+        &__info {
+            &-item {
+                font-size: 13px;
+            }
+        }
+    }
+}
 
 @media screen and (max-width: 992.02px) {
     .attr {
+        &__info {
+            &-item {
+                margin: 0 10px;
+                font-size: 12px;
+
+                i.fa {
+                    font-size: 20px;
+                }
+            }
+        }
+
         &__item {
             width: 31%;
         }
@@ -62,6 +106,16 @@
 
 @media screen and (max-width: 768.02px) {
     .attr {
+        &__info {
+            flex-wrap: wrap;
+
+            &-item {
+                width: 100%;
+                height: auto;
+                margin: 10px 10%;
+            }
+        }
+
         &__item {
             width: 48%;
         }

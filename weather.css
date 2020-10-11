@@ -1,0 +1,30 @@
+body {
+    font-family: sans-serif;
+}
+
+.wrapper {
+    width: 170px;
+    height: 200px;
+    background-color: rgb(51, 51, 51);
+    border: 3px solid rgb(99, 255, 68);
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.name {
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.deg {
+    margin-top: 10px;
+    font-size: 26px;
+}
+
+.description::first-letter {
+    text-transform: uppercase;
+}
