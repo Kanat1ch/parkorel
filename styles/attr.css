@@ -762,15 +762,11 @@ a:focus, a:active {
 
 .attr {
   width: 100%;
-  padding-top: 30px;
   padding-bottom: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (24%)[auto-fill];
+      grid-template-columns: repeat(auto-fill, 24%);
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -789,7 +785,7 @@ a:focus, a:active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 10px;
+  margin: 30px 0;
 }
 
 .attr__info-item {
@@ -811,13 +807,12 @@ a:focus, a:active {
 }
 
 .attr__item {
-  width: 24%;
-  margin: 20px 0;
+  margin: 0 0 40px;
 }
 
 .attr__item-img {
   width: 100%;
-  height: 170px;
+  height: 160px;
   overflow: hidden;
 }
 
@@ -858,9 +853,16 @@ a:focus, a:active {
   .attr__info-item {
     font-size: 13px;
   }
+  .attr__item-img {
+    height: 140px;
+  }
 }
 
 @media screen and (max-width: 992.02px) {
+  .attr {
+    -ms-grid-columns: (31%)[auto-fill];
+        grid-template-columns: repeat(auto-fill, 31%);
+  }
   .attr__info-item {
     margin: 0 10px;
     font-size: 12px;
@@ -868,12 +870,13 @@ a:focus, a:active {
   .attr__info-item i.fa {
     font-size: 20px;
   }
-  .attr__item {
-    width: 31%;
-  }
 }
 
 @media screen and (max-width: 768.02px) {
+  .attr {
+    -ms-grid-columns: (48%)[auto-fill];
+        grid-template-columns: repeat(auto-fill, 48%);
+  }
   .attr__info {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -883,13 +886,17 @@ a:focus, a:active {
     height: auto;
     margin: 10px 10%;
   }
-  .attr__item {
-    width: 48%;
+  .attr__info-item:first-child {
+    margin-left: calc(10% + 4px);
   }
 }
 
 @media screen and (max-width: 466.02px) {
-  .attr__item {
-    width: 100%;
+  .attr {
+    -ms-grid-columns: (100%)[auto-fill];
+        grid-template-columns: repeat(auto-fill, 100%);
+  }
+  .attr__item-img {
+    height: 180px;
   }
 }

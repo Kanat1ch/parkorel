@@ -1,10 +1,10 @@
 @import "style.scss";
 
 .intro {
-    background: url(../img/plasticline.jpg) center 10%/cover no-repeat;
+    background: url(../img/partners.jpg) center 10%/cover no-repeat;
 }
 
-.clubs {
+.partners {
     width: 100%;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -12,21 +12,8 @@
     grid-template-columns: repeat(auto-fill, 24%);
     justify-content: space-between;
 
-    &__info {
-        width: 100%;
-        padding: 20px 30px;
-        margin-top: 30px;
-        background-color: rgba(6, 37, 26, 0.9);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #fff;
-        font-size: 18px;
-        font-weight: 500;
-    }
-
     &__item {
-        margin: 0 0 40px;
+        margin: 20px 0;
 
         &-img {
             width: 100%;
@@ -63,40 +50,62 @@
     }
 }
 
-
 @media screen and (max-width: 1200.02px) {
-    .clubs {
-        &__item {
-            &-img {
-                height: 140px;
+    .partners {
+        &__info {
+            &-item {
+                font-size: 13px;
+            }
+        }
+
+    &__item {
+        &-img {
+            height: 140px;
+        }
+    }
+    }
+}
+
+@media screen and (max-width: 992.02px) {
+    .partners {
+        grid-template-columns: repeat(auto-fill, 31%);
+
+        &__info {
+            &-item {
+                margin: 0 10px;
+                font-size: 12px;
+
+                i.fa {
+                    font-size: 20px;
+                }
             }
         }
     }
 }
 
-@media screen and (max-width: 992.02px) {
-    .clubs {
-        grid-template-columns: repeat(auto-fill, 31%);
+@media screen and (max-width: 768.02px) {
+    .partners {
+        grid-template-columns: repeat(auto-fill, 48%);
 
         &__info {
-            font-size: 16px;
-        }
-    }
-}
+            flex-wrap: wrap;
 
-@media screen and (max-width: 768.02px) {
-    .clubs {
-        grid-template-columns: repeat(auto-fill, 48%);
+            &-item {
+                width: 100%;
+                height: auto;
+                margin: 10px 10%;
+
+                &:first-child {
+                    margin-left: calc(10% + 4px);
+                }
+            }
+        }
     }
 }
 
 @media screen and (max-width: 466.02px) {
-    .clubs {
+    .partners {
         grid-template-columns: repeat(auto-fill, 100%);
-
-        &__info {
-            font-size: 14px;
-        }
 
         &__item {
             &-img {

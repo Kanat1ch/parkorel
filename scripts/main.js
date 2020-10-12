@@ -291,12 +291,9 @@ function handleTouchMoveHistory(event) {
     let yDiff = yDown - yUp;
         if (yDiff > 9) {
             nextYear();
-            console.log(yDiff);
         } else if (yDiff < -9) {
             prevYear();
-        } else {
-            console.log('no touch');
-        }                      
+        }                     
     /* reset values */
     yDown = null;
 }
