@@ -73,7 +73,7 @@
 .intro {
     height: 100vh;
     padding-bottom: 30vh;
-    background: url(../img/intro6.jpg) center center/cover no-repeat;
+    background: url(../img/main/intro6.jpg) center center/cover no-repeat;
 
     a {
         display: flex;
@@ -128,7 +128,7 @@
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            background: url(../img/afisha_main.jpg) center center/cover no-repeat;
+            background: url(../img/afisha/afisha_main.jpg) center center/cover no-repeat;
 
             &:hover:before {
                 background: rgba(0, 0, 0, 0.75);
@@ -199,7 +199,7 @@
                 .other-logo {
                     width: 43%;
                     height: 100%;
-                    background: url(../img/afisha_others.png) center center/cover no-repeat;
+                    background: url(../img/afisha/afisha_others.png) center center/cover no-repeat;
                 }
 
                 .other-title {
@@ -406,7 +406,7 @@
     padding-top: 50px;
     padding-bottom: 50px;
     color: #fff;
-    background: url(../img/clubs_bg.png) center center/cover no-repeat;
+    background: url(../img/main/clubs_bg.png) center center/cover no-repeat;
 
     &__header {
         h1 {
@@ -650,7 +650,7 @@
     width: 100%;
     height: 300px;
     // background-color: rgb(54, 75, 48);
-    background: url(../img/history_bg1.jpg) center center/cover no-repeat;
+    background: url(../img/main/history_bg1.jpg) center center/cover no-repeat;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -778,7 +778,6 @@ a:focus, a:active {
 .contacts__address-map {
   width: 65.5%;
   height: 400px;
-  border: 1px solid #000;
 }
 
 .contacts__address-text {

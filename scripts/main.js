@@ -3,9 +3,9 @@ let startWidth = document.documentElement.clientWidth;
 checkWindowWidth();
 
 let preloader = document.querySelector('.preloader');
-if (localStorage.getItem('visited') != '1') {
+if (sessionStorage.getItem('visited') != '1') {
     showPreloader();
-    localStorage.setItem('visited', '1');
+    sessionStorage.setItem('visited', '1');
 }
 function showPreloader() {
     preloader.style.display = 'flex';
