@@ -1793,9 +1793,6 @@ a:focus, a:active {
 }
 
 @media screen and (max-width: 992.02px) {
-  .intro {
-    padding-bottom: 22vh;
-  }
   .afisha__items {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
