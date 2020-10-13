@@ -868,9 +868,7 @@ a:focus, a:active {
 }
 
 .intro .weather-icon {
-  width: 70px;
-  height: 70px;
-  margin-top: -5px;
+  margin: -5px 0 0 5px;
 }
 
 .intro .weather-icon img {
@@ -1929,8 +1927,8 @@ a:focus, a:active {
     font-size: 30px;
   }
   .intro .weather-icon {
-    width: 60px;
-    height: 60px;
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
   }
   .intro .weather-description {
     font-size: 15px;

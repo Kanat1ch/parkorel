@@ -4,7 +4,7 @@ fetch('https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.
         document.querySelector('.weather-deg').innerHTML = Math.round(data.main.temp - 273) + ' &deg;';
         document.querySelector('.weather-description').textContent = data.weather[0].description;
         document.querySelector('.weather-icon').innerHTML = 
-        `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`;
+        `<img src="img/weather/${data.weather[0].icon}.png"</img>`;
     })
     .catch(function () {
         // any errors

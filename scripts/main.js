@@ -2,23 +2,6 @@
 let startWidth = document.documentElement.clientWidth;
 checkWindowWidth();
 
-let preloader = document.querySelector('.preloader');
-if (sessionStorage.getItem('visited') != '1') {
-    showPreloader();
-    sessionStorage.setItem('visited', '1');
-}
-function showPreloader() {
-    preloader.style.display = 'flex';
-    document.body.onload = function() {
-        setTimeout(function() {
-            if (!preloader.classList.contains('done')) {
-                preloader.classList.add('done');
-                localStorage.setItem('visited', '1');
-            }
-        }, 1800);
-    };
-}
-
 // Slider 3.0
 const attrContent = document.querySelector('.attr__content');
 const attrItems = document.querySelectorAll('.attr__content-item');
