@@ -1,4 +1,4 @@
-fetch('http://api.openweathermap.org/data/2.5/weather?id=515012&appid=cd0d813f0d0ae69bfc0fbd8a7383c81b&lang=ru')
+fetch('https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?id=515012&appid=cd0d813f0d0ae69bfc0fbd8a7383c81b&lang=ru')
     .then(function (resp) { return resp.json(); })
     .then(function (data) {
         document.querySelector('.weather-deg').innerHTML = Math.round(data.main.temp - 273) + ' &deg;';
