@@ -757,7 +757,7 @@ a:focus, a:active {
 }
 
 .intro {
-  background: url(../img/contacts.jpg) left center/cover no-repeat;
+  background: url(../img/contacts/contacts.jpg) left center/cover no-repeat;
 }
 
 .contacts {

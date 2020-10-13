@@ -447,36 +447,6 @@ a:focus, a:active {
         z-index: 6;
         // font-family: 'Piazzolla', serif;
     }
-
-    a {
-        width: 280px;
-        height: 50px;
-        border: 1px solid rgb(168, 168, 168);
-        text-decoration: none;
-        color: #fff;
-        font-size: 14px;
-        text-transform: uppercase;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        margin-top: 25px;
-        font-weight: 500;
-        background-color: rgba(0, 0, 0, 0.5);
-        transition: background-color 0.4s linear;
-        z-index: 6;
-
-        i.fa {
-            margin-left: 10px;
-            font-size: 20px;
-        }
-
-        &:hover {
-            background-color: rgb(255, 255, 255);
-            color: #000;
-            // background-color: rgba(0, 0, 0, 0.45);
-        }
-    }
-
 }
 
 // Footer
