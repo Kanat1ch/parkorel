@@ -39,16 +39,12 @@ function openCloseMenu() {
 
 // Fixed Menu
 document.addEventListener('scroll', () => {
-    if (window.pageYOffset > 30) {
+    if (window.pageYOffset > 70) {
         header.style.transform = 'translateY(-80px)';
+        header.classList.add('fixed');
+        header.style.transform = 'translateY(0)';
     } else {
         header.style.transform = 'translateY(0)';
-    }
-
-    if (window.pageYOffset > window.innerHeight - 80) {
-       header.classList.add('fixed');
-       header.style.transform = 'translateY(0)';
-    } else {
         header.classList.remove('fixed');
     }
 });
@@ -61,18 +57,31 @@ function getTouchesMenu(event) {
 function handleTouchStartMenu(event) {
     const firstTouch = getTouchesMenu(event)[0];                                      
     xStart = firstTouch.clientX;
+    console.log(event.target.parentElement);
 }                                            
 function handleTouchMoveMenu(event) {
     if (!xStart || xStart > 150) {
         return;
-    }
+    } 
 
     let xFinish = event.touches[0].clientX;                                    
     let diff = xStart - xFinish;
-        if (diff < -8) {
-            event.preventDefault();
+
+    if (diff > 2 || diff < -2) {
+        event.preventDefault();
+    }
+
+    if (diff < -8) {
+        if (event.target.parentElement.classList.contains('attr__content-item') ||
+            event.target.parentElement.classList.contains('history-date') ||
+            event.target.parentElement.classList.contains('years') ||
+            event.target.parentElement.classList.contains('history-date__content') ||
+            event.target.parentElement.classList.contains('history-text') ||
+            event.target.parentElement.classList.contains('history-text__main-text')) {
+        } else {
             openCloseMenu();
-        }            
+        }
+    }
     /* reset values */
     xStart = null;
 }
