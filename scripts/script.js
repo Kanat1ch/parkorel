@@ -59,13 +59,13 @@ function handleTouchStartMenu(event) {
     xStart = firstTouch.clientX;
 }                                            
 function handleTouchMoveMenu(event) {
-    if (!xStart || xStart > 50) {
+    event.preventDefault();
+    if (!xStart || xStart > 120) {
         return;
     }
 
     let xFinish = event.touches[0].clientX;                                    
     let diff = xStart - xFinish;
-    console.log(diff);
         if (diff < -9) {
             openCloseMenu();
         }            
@@ -88,7 +88,6 @@ function handleTouchMoveCloseMenu(event) {
 
     let yFinish = event.touches[0].clientX;                                    
     let closeDiff = yStart - yFinish;
-    console.log(closeDiff);
         if (closeDiff > 9) {
             openCloseMenu();
         }            
@@ -96,7 +95,7 @@ function handleTouchMoveCloseMenu(event) {
     yStart = null;
 }
 
-document.addEventListener('touchstart', handleTouchStartMenu, false);        
-document.addEventListener('touchmove', handleTouchMoveMenu, false);
-mobileMenu.addEventListener('touchstart', handleTouchStartCloseMenu, false);        
-mobileMenu.addEventListener('touchmove', handleTouchMoveCloseMenu, false);
+document.addEventListener('touchstart', handleTouchStartMenu, { passive: false });        
+document.addEventListener('touchmove', handleTouchMoveMenu, { passive: false });
+mobileMenu.addEventListener('touchstart', handleTouchStartCloseMenu, { passive: false });        
+mobileMenu.addEventListener('touchmove', handleTouchMoveCloseMenu, { passive: false });
