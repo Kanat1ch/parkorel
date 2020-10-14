@@ -262,7 +262,7 @@ function getTouchesHistory(event) {
 }                                                     
 function handleTouchStartHistory(event) {
     const firstTouch = getTouchesHistory(event)[0];                                      
-    yDown = firstTouch.clientX;                                      
+    yDown = firstTouch.clientX;
 }                                            
 function handleTouchMoveHistory(event) {
     if (!yDown) {

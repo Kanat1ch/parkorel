@@ -19,7 +19,9 @@ searchBtn.addEventListener('click', () => {
 });
 
 // Burger menu
-menuBtn.addEventListener('click', () => {
+menuBtn.addEventListener('click', openCloseMenu);
+
+function openCloseMenu() {
     mobileMenu.classList.toggle('active');
     if (mobileMenu.classList.contains('active')) {
         line.classList.add('active-arrow');
@@ -29,7 +31,7 @@ menuBtn.addEventListener('click', () => {
         line.classList.remove('active-arrow');
         body.style.overflowY = '';
     }
-});
+}
 
 // Fixed Menu
 document.addEventListener('scroll', () => {
@@ -45,6 +47,56 @@ document.addEventListener('scroll', () => {
     } else {
         header.classList.remove('fixed');
     }
-
-
 });
+
+// Mobile Touches
+let xStart = null;                  
+function getTouchesMenu(event) {
+    return event.touches || event.originalEvent.touches; 
+}                                                     
+function handleTouchStartMenu(event) {
+    const firstTouch = getTouchesMenu(event)[0];                                      
+    xStart = firstTouch.clientX;
+}                                            
+function handleTouchMoveMenu(event) {
+    if (!xStart || xStart > 50) {
+        return;
+    }
+
+    let xFinish = event.touches[0].clientX;                                    
+    let diff = xStart - xFinish;
+    console.log(diff);
+        if (diff < -9) {
+            openCloseMenu();
+        }            
+    /* reset values */
+    xStart = null;
+}
+
+let yStart = null;                  
+function getTouchesCloseMenu(event) {
+    return event.touches || event.originalEvent.touches; 
+}                                                     
+function handleTouchStartCloseMenu(event) {
+    const firstTouch = getTouchesMenu(event)[0];                                      
+    yStart = firstTouch.clientX;
+}                                            
+function handleTouchMoveCloseMenu(event) {
+    if (!yStart) {
+        return;
+    }
+
+    let yFinish = event.touches[0].clientX;                                    
+    let closeDiff = yStart - yFinish;
+    console.log(closeDiff);
+        if (closeDiff > 9) {
+            openCloseMenu();
+        }            
+    /* reset values */
+    yStart = null;
+}
+
+document.addEventListener('touchstart', handleTouchStartMenu, false);        
+document.addEventListener('touchmove', handleTouchMoveMenu, false);
+mobileMenu.addEventListener('touchstart', handleTouchStartCloseMenu, false);        
+mobileMenu.addEventListener('touchmove', handleTouchMoveCloseMenu, false);

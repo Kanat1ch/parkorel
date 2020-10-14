@@ -475,39 +475,6 @@ a:focus, a:active {
   z-index: 6;
 }
 
-.intro a {
-  width: 280px;
-  height: 50px;
-  border: 1px solid #a8a8a8;
-  text-decoration: none;
-  color: #fff;
-  font-size: 14px;
-  text-transform: uppercase;
-  display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 25px;
-  font-weight: 500;
-  background-color: rgba(0, 0, 0, 0.5);
-  -webkit-transition: background-color 0.4s linear;
-  transition: background-color 0.4s linear;
-  z-index: 6;
-}
-
-.intro a i.fa {
-  margin-left: 10px;
-  font-size: 20px;
-}
-
-.intro a:hover {
-  background-color: white;
-  color: #000;
-}
-
 .footer {
   width: 100%;
   padding-top: 30px;
