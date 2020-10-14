@@ -24,10 +24,14 @@ menuBtn.addEventListener('click', openCloseMenu);
 function openCloseMenu() {
     mobileMenu.classList.toggle('active');
     if (mobileMenu.classList.contains('active')) {
+        document.removeEventListener('touchstart', handleTouchStartMenu, { passive: false });        
+        document.removeEventListener('touchmove', handleTouchMoveMenu, { passive: false });
         line.classList.add('active-arrow');
         body.style.overflowY = 'hidden';
         mobileMenu.style.overflowY = 'scroll';
     } else {
+        document.addEventListener('touchstart', handleTouchStartMenu, { passive: false });        
+        document.addEventListener('touchmove', handleTouchMoveMenu, { passive: false });
         line.classList.remove('active-arrow');
         body.style.overflowY = '';
     }
@@ -59,14 +63,14 @@ function handleTouchStartMenu(event) {
     xStart = firstTouch.clientX;
 }                                            
 function handleTouchMoveMenu(event) {
-    event.preventDefault();
-    if (!xStart || xStart > 120) {
+    if (!xStart || xStart > 150) {
         return;
     }
 
     let xFinish = event.touches[0].clientX;                                    
     let diff = xStart - xFinish;
-        if (diff < -9) {
+        if (diff < -8) {
+            event.preventDefault();
             openCloseMenu();
         }            
     /* reset values */
@@ -88,7 +92,8 @@ function handleTouchMoveCloseMenu(event) {
 
     let yFinish = event.touches[0].clientX;                                    
     let closeDiff = yStart - yFinish;
-        if (closeDiff > 9) {
+        if (closeDiff > 8) {
+            event.preventDefault();
             openCloseMenu();
         }            
     /* reset values */
