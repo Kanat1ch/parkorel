@@ -281,8 +281,10 @@ a:focus, a:active {
   height: 3.3px;
   width: 90%;
   background-color: #fff;
-  -webkit-transition: all .1s ease-in;
-  transition: all .1s ease-in;
+  -webkit-transition: -webkit-transform .1s ease-in;
+  transition: -webkit-transform .1s ease-in;
+  transition: transform .1s ease-in;
+  transition: transform .1s ease-in, -webkit-transform .1s ease-in;
   border-radius: 5px;
 }
 
@@ -296,8 +298,10 @@ a:focus, a:active {
   left: 0;
   top: -7px;
   border-radius: 5px;
-  -webkit-transition: all .3s ease-in;
-  transition: all .3s ease-in;
+  -webkit-transition: -webkit-transform .3s ease-in;
+  transition: -webkit-transform .3s ease-in;
+  transition: transform .3s ease-in;
+  transition: transform .3s ease-in, -webkit-transform .3s ease-in;
 }
 
 .menu-btn .line:after {

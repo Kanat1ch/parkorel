@@ -57,10 +57,9 @@ function getTouchesMenu(event) {
 function handleTouchStartMenu(event) {
     const firstTouch = getTouchesMenu(event)[0];                                      
     xStart = firstTouch.clientX;
-    console.log(event.target.parentElement);
 }                                            
 function handleTouchMoveMenu(event) {
-    if (!xStart || xStart > 150) {
+    if (!xStart || xStart > 120) {
         return;
     } 
 
@@ -71,7 +70,7 @@ function handleTouchMoveMenu(event) {
         event.preventDefault();
     }
 
-    if (diff < -8) {
+    if (diff < -10) {
         if (event.target.parentElement.classList.contains('attr__content-item') ||
             event.target.parentElement.classList.contains('history-date') ||
             event.target.parentElement.classList.contains('years') ||
@@ -99,9 +98,9 @@ function handleTouchMoveCloseMenu(event) {
         return;
     }
 
-    let yFinish = event.touches[0].clientX;                                    
+    let yFinish = event.touches[0].clientX;                                   
     let closeDiff = yStart - yFinish;
-        if (closeDiff > 8) {
+        if (closeDiff > 10) {
             event.preventDefault();
             openCloseMenu();
         }            
