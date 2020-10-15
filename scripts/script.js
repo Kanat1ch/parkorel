@@ -70,7 +70,7 @@ function handleTouchMoveMenu(event) {
         event.preventDefault();
     }
 
-    if (diff < -20) {
+    if (diff < -10) {
         if (event.target.parentElement.classList.contains('attr__content-item') ||
             event.target.parentElement.classList.contains('history-date') ||
             event.target.parentElement.classList.contains('years') ||
@@ -100,7 +100,7 @@ function handleTouchMoveCloseMenu(event) {
 
     let yFinish = event.touches[0].clientX;                                   
     let closeDiff = yStart - yFinish;
-        if (closeDiff > 20) {
+        if (closeDiff > 10) {
             event.preventDefault();
             openCloseMenu();
         }            
