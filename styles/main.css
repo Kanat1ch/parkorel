@@ -269,10 +269,8 @@ a:focus, a:active {
   padding-bottom: 5px;
   display: none;
   z-index: 10;
-  -webkit-transition: -webkit-transform .3s ease-in;
-  transition: -webkit-transform .3s ease-in;
-  transition: transform .3s ease-in;
-  transition: transform .3s ease-in, -webkit-transform .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
   cursor: pointer;
 }
 
@@ -281,10 +279,8 @@ a:focus, a:active {
   height: 3.3px;
   width: 90%;
   background-color: #fff;
-  -webkit-transition: -webkit-transform .1s ease-in;
-  transition: -webkit-transform .1s ease-in;
-  transition: transform .1s ease-in;
-  transition: transform .1s ease-in, -webkit-transform .1s ease-in;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
   border-radius: 5px;
 }
 
@@ -298,10 +294,8 @@ a:focus, a:active {
   left: 0;
   top: -7px;
   border-radius: 5px;
-  -webkit-transition: -webkit-transform .3s ease-in;
-  transition: -webkit-transform .3s ease-in;
-  transition: transform .3s ease-in;
-  transition: transform .3s ease-in, -webkit-transform .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
 }
 
 .menu-btn .line:after {
@@ -825,6 +819,7 @@ a:focus, a:active {
   height: 100vh;
   padding-bottom: 28vh;
   background: url(../img/main/intro6.jpg) center center/cover no-repeat;
+  background-attachment: fixed;
 }
 
 .intro .weather {
@@ -1313,6 +1308,7 @@ a:focus, a:active {
   padding-bottom: 50px;
   color: #fff;
   background: url(../img/main/clubs_bg.png) center center/cover no-repeat;
+  background-attachment: fixed;
 }
 
 .clubs__header h1 {

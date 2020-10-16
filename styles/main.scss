@@ -74,6 +74,7 @@
     height: 100vh;
     padding-bottom: 28vh;
     background: url(../img/main/intro6.jpg) center center/cover no-repeat;
+    background-attachment: fixed;
 
     .weather {
         margin-top: 20px;
@@ -452,6 +453,7 @@
     padding-bottom: 50px;
     color: #fff;
     background: url(../img/main/clubs_bg.png) center center/cover no-repeat;
+    background-attachment: fixed;
 
     &__header {
         h1 {
