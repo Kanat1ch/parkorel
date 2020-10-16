@@ -769,7 +769,7 @@ a:focus, a:active {
   content: '';
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.75);
   -webkit-transition: background-color .2s linear;
   transition: background-color .2s linear;
   z-index: 2;
@@ -781,23 +781,26 @@ a:focus, a:active {
 
 .services__item:hover ul {
   opacity: 1;
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  -webkit-transform: translate(30px, -50%);
+          transform: translate(30px, -50%);
+}
+
+.services__item:hover .services__item-title {
+  -webkit-transform: translateY(-110px);
+          transform: translateY(-110px);
 }
 
 .services__item-title {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  background-color: transparent;
   font-size: 18px;
   text-transform: uppercase;
   font-weight: 500;
   color: #fff;
-  -webkit-transition: -webkit-box-shadow 0.7s linear;
-  transition: -webkit-box-shadow 0.7s linear;
-  transition: box-shadow 0.7s linear;
-  transition: box-shadow 0.7s linear, -webkit-box-shadow 0.7s linear;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
 }
 
 .services__item:nth-child(1) {
@@ -822,17 +825,18 @@ a:focus, a:active {
 
 .services__item ul {
   position: absolute;
-  top: 80px;
-  left: 30px;
+  top: 50%;
+  left: 0;
   padding-right: 10px;
   opacity: 0;
   -webkit-transition: opacity .3s linear, -webkit-transform 0.5s ease;
   transition: opacity .3s linear, -webkit-transform 0.5s ease;
   transition: opacity .3s linear, transform 0.5s ease;
   transition: opacity .3s linear, transform 0.5s ease, -webkit-transform 0.5s ease;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
+  -webkit-transform: translate(-100%, -50%);
+          transform: translate(-100%, -50%);
   color: #fff;
+  list-style: none;
 }
 
 @media screen and (max-width: 1200.02px) {
@@ -848,16 +852,28 @@ a:focus, a:active {
   .services__item:after {
     background-color: rgba(0, 0, 0, 0.8);
   }
+  .services__item:hover .services__item-title {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
   .services__item-title {
-    left: 10px;
+    position: absolute;
+    left: 15px;
+    top: 10px;
   }
   .services__item ul {
+    left: 10px;
+    top: 70px;
     opacity: 1;
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
+  .services__item:hover ul {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
   .services__item ul li {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
@@ -867,10 +883,8 @@ a:focus, a:active {
     height: 350px;
   }
   .services__item-title {
-    left: auto;
     top: 20px;
-    right: 10px;
-    text-align: right;
+    text-align: left;
   }
 }
 
