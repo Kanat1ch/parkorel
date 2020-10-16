@@ -1,0 +1,24 @@
+@import "style.scss";
+
+
+.intro {
+    background: url(../img/docs/docs_bg.jpg) center center/cover no-repeat;
+}
+
+.docs {
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    a {
+        width: fit-content;
+        display: block;
+        margin-bottom: 20px;
+        text-decoration: none;
+        color: #000;
+        transition: color 0.15s linear;
+
+        &:hover {
+            color: rgb(0, 38, 255);
+        }
+    }
+}
