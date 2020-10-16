@@ -751,6 +751,7 @@ a:focus, a:active {
   margin-top: 20px;
   text-decoration: none;
   color: #fff;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -760,7 +761,6 @@ a:focus, a:active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  overflow: hidden;
 }
 
 .services__item:after {
@@ -776,7 +776,7 @@ a:focus, a:active {
 }
 
 .services__item:hover:after {
-  background-color: rgba(0, 0, 0, 0.87);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .services__item:hover ul {
@@ -794,6 +794,10 @@ a:focus, a:active {
   text-transform: uppercase;
   font-weight: 500;
   color: #fff;
+  -webkit-transition: -webkit-box-shadow 0.7s linear;
+  transition: -webkit-box-shadow 0.7s linear;
+  transition: box-shadow 0.7s linear;
+  transition: box-shadow 0.7s linear, -webkit-box-shadow 0.7s linear;
 }
 
 .services__item:nth-child(1) {
@@ -817,13 +821,18 @@ a:focus, a:active {
 }
 
 .services__item ul {
+  position: absolute;
+  top: 80px;
+  left: 30px;
+  padding-right: 10px;
   opacity: 0;
   -webkit-transition: opacity .3s linear, -webkit-transform 0.5s ease;
   transition: opacity .3s linear, -webkit-transform 0.5s ease;
   transition: opacity .3s linear, transform 0.5s ease;
   transition: opacity .3s linear, transform 0.5s ease, -webkit-transform 0.5s ease;
-  -webkit-transform: translateX(48vw);
-          transform: translateX(48vw);
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  color: #fff;
 }
 
 @media screen and (max-width: 1200.02px) {
@@ -835,10 +844,9 @@ a:focus, a:active {
 @media screen and (max-width: 992.02px) {
   .services__item {
     height: 250px;
-    padding: 30px;
   }
   .services__item:after {
-    background-color: rgba(0, 0, 0, 0.83);
+    background-color: rgba(0, 0, 0, 0.8);
   }
   .services__item-title {
     left: 10px;
