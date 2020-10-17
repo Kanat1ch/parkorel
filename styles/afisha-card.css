@@ -758,6 +758,10 @@ a:focus, a:active {
   color: #fff;
 }
 
+.afisha-card__content small {
+  color: #aaa;
+}
+
 .afisha-card__content h2 {
   position: relative;
   font-size: 50px;
