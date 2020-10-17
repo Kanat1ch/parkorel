@@ -2,6 +2,12 @@
 let startWidth = document.documentElement.clientWidth;
 checkWindowWidth();
 
+document.addEventListener('resize', checkInnerHeight);
+document.querySelector('.intro').style.minHeight = `${window.innerHeight}px`;
+function checkInnerHeight() {
+    document.querySelector('.intro').style.minHeight = `${window.innerHeight}px`;
+}
+
 // Slider 3.0
 const attrContent = document.querySelector('.attr__content');
 const attrItems = document.querySelectorAll('.attr__content-item');
