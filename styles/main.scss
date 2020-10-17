@@ -75,6 +75,11 @@
     padding-bottom: 28vh;
     background: url(../img/main/intro.jpg) center center/cover no-repeat;
     background-attachment: fixed;
+    transition: background .6s ease;
+
+    &:after {
+        height: 100vh;
+    }
 
     .weather {
         margin-top: 20px;
