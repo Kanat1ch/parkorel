@@ -818,7 +818,8 @@ a:focus, a:active {
 .intro {
   height: 100vh;
   padding-bottom: 28vh;
-  background: url(../img/main/intro6.jpg) center center/cover no-repeat;
+  background: url(../img/main/intro.jpg) center center/cover no-repeat;
+  background-attachment: fixed;
 }
 
 .intro .weather {
@@ -828,7 +829,8 @@ a:focus, a:active {
   width: fit-content;
   padding: 5px 40px;
   height: auto;
-  background-color: rgba(0, 0, 0, 0.7);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.8)), to(transparent));
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
   border-left: 3px solid white;
   color: #fff;
   display: -webkit-box;

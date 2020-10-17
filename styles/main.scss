@@ -73,14 +73,15 @@
 .intro {
     height: 100vh;
     padding-bottom: 28vh;
-    background: url(../img/main/intro6.jpg) center center/cover no-repeat;
+    background: url(../img/main/intro.jpg) center center/cover no-repeat;
+    background-attachment: fixed;
 
     .weather {
         margin-top: 20px;
         width: fit-content;
         padding: 5px 40px;
         height: auto;
-        background-color: rgba(0, 0, 0, 0.7);
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
         border-left: 3px solid rgb(255, 255, 255);
         color: #fff;
         display: flex;
