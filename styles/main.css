@@ -816,7 +816,7 @@ a:focus, a:active {
 }
 
 .intro {
-  height: calc(100vh + 60px);
+  height: 100vh;
   padding-bottom: 28vh;
   background: url(../img/main/intro.jpg) center center/cover no-repeat;
   background-attachment: fixed;
