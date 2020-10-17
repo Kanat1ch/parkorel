@@ -2,6 +2,17 @@
 let startWidth = document.documentElement.clientWidth;
 checkWindowWidth();
 
+let body = document.documentElement;
+if (body.requestFullscreen) {
+  body.requestFullscreen();
+} else if (body.webkitrequestFullscreen) {
+  body.webkitrequestFullscreen();
+} else if (body.mozrequestFullscreen) {
+  body.mozrequestFullscreen();
+} else if (body.msrequestFullscreen) {
+  body.msrequestFullscreen();
+}
+
 // Slider 3.0
 const attrContent = document.querySelector('.attr__content');
 const attrItems = document.querySelectorAll('.attr__content-item');
