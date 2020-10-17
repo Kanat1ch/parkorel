@@ -6,8 +6,7 @@
     padding-top: 170px;
     padding-bottom: 90px;
     background: url(../img/attr/koleso.jpg) center center/cover no-repeat;
-    background-attachment: fixed;
-
+    background-attachment: local;
     .blur {
         backdrop-filter: blur(5px);
     }

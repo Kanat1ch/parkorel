@@ -728,7 +728,6 @@ a:focus, a:active {
   padding-top: 170px;
   padding-bottom: 90px;
   background: url(../img/afisha/afisha_main.jpg) center center/cover no-repeat;
-  background-attachment: fixed;
 }
 
 .afisha-card .blur {

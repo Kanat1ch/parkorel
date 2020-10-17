@@ -820,8 +820,6 @@ a:focus, a:active {
   padding-bottom: 28vh;
   background: url(../img/main/intro.jpg) center center/cover no-repeat;
   background-attachment: fixed;
-  -webkit-transition: .3s all ease-in-out;
-  transition: .3s all ease-in-out;
 }
 
 .intro .weather {
@@ -1935,6 +1933,9 @@ a:focus, a:active {
 }
 
 @media screen and (max-width: 576.02px) {
+  .intro {
+    background-attachment: local;
+  }
   .intro .weather {
     height: auto;
     padding: 5px 20px;

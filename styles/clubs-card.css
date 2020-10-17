@@ -727,7 +727,6 @@ a:focus, a:active {
   padding-top: 170px;
   padding-bottom: 90px;
   background: url(../img/clubs/lazertag.jpg) center center/cover no-repeat;
-  background-attachment: fixed;
 }
 
 .clubs-card .blur {
