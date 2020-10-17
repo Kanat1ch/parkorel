@@ -820,6 +820,8 @@ a:focus, a:active {
   padding-bottom: 28vh;
   background: url(../img/main/intro6.jpg) center center/cover no-repeat;
   background-attachment: fixed;
+  -webkit-transition: height 99999s linear;
+  transition: height 99999s linear;
 }
 
 .intro .weather {

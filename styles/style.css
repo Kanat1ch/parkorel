@@ -7,13 +7,10 @@
 
 html {
   scroll-behavior: smooth;
-  overflow: hidden;
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
 }
 
 section, header, footer {
