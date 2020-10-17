@@ -73,9 +73,7 @@
 .intro {
     height: 100vh;
     padding-bottom: 28vh;
-    background: url(../img/main/intro6.jpg) no-repeat;
-    background-position-x: center;
-    background-attachment: fixed;
+    background: url(../img/main/intro6.jpg) center center/cover no-repeat;
 
     .weather {
         margin-top: 20px;
