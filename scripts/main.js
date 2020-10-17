@@ -2,7 +2,7 @@
 let startWidth = document.documentElement.clientWidth;
 checkWindowWidth();
 
-document.addEventListener('resize', checkInnerHeight);
+window.addEventListener('resize', checkInnerHeight);
 document.querySelector('.intro').style.minHeight = `${window.innerHeight}px`;
 function checkInnerHeight() {
     document.querySelector('.intro').style.minHeight = `${window.innerHeight}px`;
