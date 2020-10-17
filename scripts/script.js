@@ -1,3 +1,5 @@
+window.addEventListener("load", function() { window. scrollTo(0, 0); });
+
 // DOM Elements
 const body = document.querySelector('body'),
       header = document.querySelector('.header'),
