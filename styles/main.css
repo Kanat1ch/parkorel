@@ -1309,7 +1309,6 @@ a:focus, a:active {
   padding-bottom: 50px;
   color: #fff;
   background: url(../img/main/clubs_bg.png) center center/cover no-repeat;
-  background-attachment: fixed;
 }
 
 .clubs__header h1 {
