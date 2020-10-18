@@ -3,121 +3,24 @@ let startWidth = document.documentElement.clientWidth;
 checkWindowWidth();
 
 // Slider 3.0
-const attrContent = document.querySelector('.attr__content');
-const attrItems = document.querySelectorAll('.attr__content-item');
-const btnLeft = document.querySelector('#btnLeft');
-const btnRight = document.querySelector('#btnRight');
-const navList = document.querySelector('.attr__navigation');
-const swipe = document.querySelector('.leftswipe');
-const slideProgress = document.querySelector('.slide-progress');
-let position = 0;
-
-// Create dots
-attrItems.forEach(item => {
-    const navDot = document.createElement('div');
-    navDot.classList.add('attr__navigation-item');
-    navList.append(navDot);
-});
-
-// First dot is active
-const navItems = document.querySelectorAll('.attr__navigation-item');
-navItems[0].classList.add('active');
-
-// Change position if navItem is clicked
-for (let i = 0; i < navItems.length; i++) {
-    navItems[i].addEventListener('click', () => {
-        position = i * 100;
-        changeSlide();
-    });
-}
-
-// Change slides
-function changeSlide() {
-    slideProgress.classList.remove('active');
-    setTimeout(goes, 50);
-    function goes() {
-        slideProgress.classList.add('active');
-    }
-    attrItems.forEach(item => {
-        item.style.transform = `translateX(-${position}%)`;
-    });
-    
-    navItems.forEach(navItem => {
-        navItem.classList.remove('active');
-    });
-
-    navItems[position / 100].classList.add('active');
-}
-
-function nextSlide() {
-    clearInterval(slideInterval);
-    if (position < (attrItems.length - 1) * 100) {
-        position += 100;
-        changeSlide();
-    } else {
-        position = 0;
-        changeSlide();
-    }
-    slideInterval = setInterval(nextSlide, 6000);
-}
-
-function prevSlide() {
-    clearInterval(slideInterval);
-    if (position > 0) {
-        position -= 100;
-        changeSlide();
-    } else {
-        position = (attrItems.length - 1) * 100;
-        changeSlide();
-    }
-    slideInterval = setInterval(nextSlide, 6000);
-}
-
-let slideInterval = setInterval(nextSlide, 6000);
-slideProgress.classList.add('active');
-
-
-// Mobile Touches
-let xDown = null;                  
-function getTouches(event) {
-  return event.touches || event.originalEvent.touches; 
-}                                                     
-function handleTouchStart(event) {
-    const firstTouch = getTouches(event)[0];                                      
-    xDown = firstTouch.clientX;                                      
-}                                            
-function handleTouchMove(event) {
-    if (!xDown) {
-        return;
-    }
-
-    let xUp = event.touches[0].clientX;                                    
-    let xDiff = xDown - xUp;
-    clearInterval(slideInterval);
-        if (xDiff > 9) {
-            if (position < (attrItems.length - 1) * 100) {
-                position += 100;
-                changeSlide();
-            } else {
-                position = 0;
-                changeSlide();
-            }
-            swipe.style.display = 'none';
-        } else if (xDiff < -9) {
-            if (position > 0) {
-                position -= 100;
-                changeSlide();
-            } else {
-                position = (attrItems.length - 1) * 100;
-                changeSlide();
-            }
-            swipe.style.display = 'none';
-        }   
-        slideInterval = setInterval(nextSlide, 6000);      
-                      
-    /* reset values */
-    xDown = null;
-}
+let swiper = new Swiper('.swiper-container', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    touchEventsTarget: 'wrapper',
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
 
 // Clubs Tabs
 const clubsItems = document.querySelectorAll('.clubs__content-item');

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, minimal-ui">
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -251,7 +252,33 @@
             <a href="attr.html">Все аттракционы <i class="fa fa-angle-right" aria-hidden="true"></i></a>
         </div>
 
-        <div class="attr__content">
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="img/attr/koleso.jpg" alt="">
+                <div class="slide-title">Круговой обзор</div>
+            </div>
+            <div class="swiper-slide">
+                <img src="img/attr/extrime.jpg" alt="">
+                <div class="slide-title">Экстрим</div>
+            </div>
+            <div class="swiper-slide">
+                <img src="img/attr/vihr.jpg" alt="">
+                <div class="slide-title">Вихрь</div>
+            </div>
+            <div class="swiper-slide">
+                <img src="img/attr/avtodrom.jpg" alt="">
+                <div class="slide-title">Автодром</div>
+            </div>
+        </div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+
+        <!-- <div class="attr__content">
             <img src="img/main/leftswipe.png" alt="leftswipe" class="leftswipe">
             <div class="attr__content-item active">
                 <img src="img/attr/vihr.jpg" alt="img">
@@ -274,9 +301,10 @@
         </div>
         <div class="slide-progress-full">
             <div class="slide-progress"></div>
-        </div>
+        </div> -->
 
-        <div class="attr__navigation"></div>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
     </section>
 
     <!-- BLOCK: Clubs -->

@@ -276,16 +276,79 @@
     margin-bottom: 100px;
     background-color: #fff;
 
-    .leftswipe {
-        display: none;
-        width: 60px;
-        height: 70px;
-        position: absolute;
+    .swiper-container {
+        margin-top: 100px;
+        width: 100%;
+        height: 400px;
+    }
+    
+    .swiper-slide {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    
+        .slide-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            font-size: 18px;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.9);
+            text-align: center;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+    }
+    
+    .swiper-pagination {
+        margin-top: 10px;
         left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 3;
-        animation: swipe 2s infinite;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+    
+    .swiper-pagination-bullet {
+        background-color: #777;
+        opacity: 1;
+        margin: 3px;
+        width: 10px;
+        height: 10px;
+    }
+    
+    .swiper-pagination-bullet-active {
+        background-color: #222;
+    }
+    
+    .swiper-button-next, .swiper-button-prev {
+        top: auto;
+        bottom: 0px;
+        left: 0;
+        width: 50px;
+        height: 50px;
+        background-color: #050505;
+    }
+    
+    .swiper-button-next {
+        left: auto;
+        right: 0;
+    }
+    
+    .swiper-button-next:after, .swiper-button-prev:after {
+        color: #fff;
+        font-size: 20px;
     }
 
     &__header {
@@ -318,133 +381,6 @@
             }
         }
     }
-
-    &__content {
-        width: 100%;
-        height: 450px;
-        display: flex;
-        overflow: hidden;
-        position: relative;
-
-        &-item {
-            position: relative;
-            min-width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            transition: transform .6s linear;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            } 
-            
-            a {
-                position: absolute;
-                width: 100%;
-                height: 15%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-top: 30px transparent;
-                z-index: 2;
-                bottom: 0%;
-                background-color: rgba(0, 0, 0, 0.8);
-                font-weight: 500;
-                color: #fff;
-                font-size: 24px;
-                text-decoration: none;
-
-                p {
-                    z-index: 5;
-                }
-            }
-        }
-    }
-
-    &__navigation {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        &-item {
-            width: 12px;
-            height: 12px;
-            margin: 20px 5px 0;
-            border-radius: 50%;
-            background-color: #666;
-            transition: background 0.1s linear;
-            cursor: pointer;
-        }
-
-        &-item.active {
-            background-color: #000;
-        }
-    }
-
-
-    .slide-progress-full {
-        width: 100%;
-        height: 5px;
-        background-color: #222;
-
-        .slide-progress {
-            width: 0%;
-            height: 5px;
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;
-            background-color: #108b21;
-            transition: width 0s linear;
-        }
-    
-        .slide-progress.active {
-            width: 100%;
-            transition: width 5.85s linear;
-        }
-    }
-
-    .nav-btn {
-        position: absolute;
-        top: 42.5%;
-        transform: translateY(-50%);
-        width: 40px;
-        height: 60px;
-        background: rgba(0, 0, 0, 0.5);
-        color: #fff;
-        font-size: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 5px;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        z-index: 1;
-        transition: background 0.2s linear;
-
-        &:hover {
-            background: rgba(0, 0, 0, 0.7);
-        }
-
-        &:focus {
-            border: none;
-            outline: none;
-            box-shadow: none;
-        }
-    }
-
-    #btnLeft {
-        left: 0;
-    }
-
-    #btnRight {
-        right: 0;
-    }
 }
 
 // BLOCK: Clubs
@@ -453,6 +389,7 @@
     padding-bottom: 50px;
     color: #fff;
     background: url(../img/main/clubs_bg.png) center center/cover no-repeat;
+    background-attachment: fixed;
 
     &__header {
         h1 {
@@ -974,12 +911,8 @@
             }
         }
 
-        &__content {
+        .swiper-container {
             height: 320px;
-
-            &-item {
-                transition: transform .4s linear;
-            }
         }
     }
 
@@ -1036,15 +969,6 @@
 
             &-description {
                 font-size: 15px;
-            }
-        }
-    }
-
-    .attr {
-        &__navigation {
-            &-item {
-                width: 8px;
-                height: 8px;
             }
         }
     }
@@ -1133,16 +1057,12 @@
     }
 
     .attr {
-        &__content {
+        .swiper-container {
             height: 250px;
 
-            .leftswipe {
-                display: block;
+            .slide-title {
+                font-size: 16px;
             }
-        }
-
-        .nav-btn {
-            display: none;
         }
     }
 
