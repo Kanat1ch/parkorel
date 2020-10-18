@@ -41,7 +41,7 @@ clubsItems.forEach(item => {
         if (!current.querySelector('.clubs-description').classList.contains('active')) {
             current.querySelector('.clubs-description').classList.add('active');
             let currentHeight = current.scrollHeight;
-            current.style.height = currentHeight + 15 + 'px';
+            current.style.height = 'auto';
             current.querySelector('.clubs-title').style.justifyContent = 'space-between';
             current.querySelector('span').classList.add('active');
             current.querySelector('.clubs-showfull').style.transform = 'scale(1, -1)';
@@ -184,10 +184,6 @@ function handleTouchMoveHistory(event) {
 }
 
 // Event Listeners
-btnRight.addEventListener('click', nextSlide);
-btnLeft.addEventListener('click', prevSlide);
-attrContent.addEventListener('touchstart', handleTouchStart, false);        
-attrContent.addEventListener('touchmove', handleTouchMove, false);
 historyDate.addEventListener('touchstart', handleTouchStartHistory, false);        
 historyDate.addEventListener('touchmove', handleTouchMoveHistory, false);
 historyMainText.addEventListener('touchstart', handleTouchStartHistory, false);        

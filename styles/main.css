@@ -1090,9 +1090,8 @@ a:focus, a:active {
 }
 
 .attr .swiper-container {
-  margin-top: 100px;
   width: 100%;
-  height: 400px;
+  height: 440px;
 }
 
 .attr .swiper-slide {
@@ -1913,7 +1912,11 @@ a:focus, a:active {
     height: 250px;
   }
   .attr .swiper-container .slide-title {
-    font-size: 16px;
+    font-size: 14px;
+  }
+  .attr .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
   }
   .history-date {
     height: 150px;

@@ -71,7 +71,7 @@ function handleTouchMoveMenu(event) {
     }
 
     if (diff < -9) {
-        if (event.target.parentElement.classList.contains('attr__content-item') ||
+        if (event.target.parentElement.classList.contains('swiper-slide') ||
             event.target.parentElement.classList.contains('history-date') ||
             event.target.parentElement.classList.contains('years') ||
             event.target.parentElement.classList.contains('history-date__content') ||

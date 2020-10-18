@@ -29,6 +29,11 @@ a:focus, a:active {
           box-shadow: none;
 }
 
+.swiper-button-prev:focus, .swiper-button-prev:active,
+.swiper-button-next:focus, .swiper-button-next:active {
+  outline: -webkit-focus-ring-color none !important;
+}
+
 .header {
   position: absolute;
   font-family: 'Roboto', sans-serif;
