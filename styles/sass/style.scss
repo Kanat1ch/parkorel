@@ -54,7 +54,7 @@ a:focus, a:active {
         display: block;
         width: 190px;
         height: 55px;
-        background: url(../img/logo1.png) center center/cover no-repeat;
+        background: url(../../img/logo1.png) center center/cover no-repeat;
     }
 
     &__navmenu {
@@ -191,7 +191,7 @@ a:focus, a:active {
     transition: transform 0.3s linear;
 
     .header__logo a {
-        background: url(../img/logo2.png) center center/cover no-repeat;
+        background: url(../../img/logo2.png) center center/cover no-repeat;
     }
 
     .header__navmenu {
