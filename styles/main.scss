@@ -276,16 +276,24 @@
     margin-bottom: 100px;
     background-color: #fff;
 
-    .swiper-container {
+    .attr-container {
         width: 100%;
         height: 440px;
+        overflow: hidden;
+        display: flex;
+        position: relative;
+    }
+
+    .attr-wrapper {
+        display: flex;
     }
     
-    .swiper-slide {
+    .attr-slide {
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-shrink: 0;
     
         img {
             width: 100%;
@@ -298,13 +306,13 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 50px;
+            height: 60px;
             font-size: 18px;
             letter-spacing: 1px;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.8);
             text-align: center;
             color: #fff;
             text-transform: uppercase;
@@ -332,12 +340,12 @@
     }
     
     .swiper-button-next, .swiper-button-prev {
+        position: absolute;
         top: auto;
         bottom: 0px;
         left: 0;
-        width: 50px;
-        height: 50px;
-        background-color: #050505;
+        width: 60px;
+        height: 60px;
     }
     
     .swiper-button-next {
@@ -388,7 +396,6 @@
     padding-bottom: 50px;
     color: #fff;
     background: url(../img/main/clubs_bg.png) center center/cover no-repeat;
-    background-attachment: fixed;
 
     &__header {
         h1 {
@@ -522,120 +529,16 @@
 }
 
 .history-date {
-    position: relative;
     width: 100%;
     height: 200px;
-    background-color: #111;
-
-    &:after {
-        position: absolute;
-        display: block;
-        content: '';
-        left: 50%;
-        bottom: -10px;
-        transform: translateX(-50%) rotate(-45deg);
-        width: 20px;
-        height: 20px;
-        background-color: #111;
-        z-index: 2;
-    }
-
-    &__content {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        padding: 50px 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-        overflow: hidden;
-
-        .darked-left {
-            position: absolute;
-            width: 20%;
-            height: 100%;
-            left: 0;
-            top: 0;
-            background: linear-gradient(to right, #111 40%, transparent 100%);
-            z-index: 3;
-        }
-
-        .darked-right {
-            position: absolute;
-            width: 20%;
-            height: 100%;
-            right: 0;
-            top: 0;
-            background: linear-gradient(to left, #111 40%, transparent 100%);
-            z-index: 3;
-        }
-        
-        .timeline {
-            width: 100%;
-            height: 3px;
-            border-radius: 4px;
-            background: linear-gradient(to left, transparent, #555, transparent); 
-            display: flex;
-            justify-content: center;
-            z-index: 1;
-        }
-
-        .years {
-            min-width: 100%;
-            display: flex;
-            align-items: flex-end;
-            margin-bottom: 30px;
-            transform: translateX(40%);
-            transition: transform .4s ease;
-            z-index: 2;
-
-            &-item {
-                min-width: 20%;
-                position: relative;
-                font-size: 26px;
-                font-family: 'Montserrat Alternates', sans-serif;
-                color: #555;
-                font-weight: 500;
-                display: flex;
-                justify-content: center;
-                transition: font-size .4s ease, color .4s ease;
-
-                &:after {
-                    display: block;
-                    content: '';
-                    position: absolute;
-                    width: 14px;
-                    height: 14px;
-                    left: 50%;
-                    bottom: -39px;
-                    transform: translateX(-50%);
-                    border-radius: 50%;
-                    background-color: #666;
-                }
-            }
-
-            &-item.active {
-                font-size: 44px;
-                color: #fff;
-
-                &:after {
-                    background-color: #fff;
-                }
-            }
-        }
-    }
+    background: #151515;
 }
 
 .history-text {
-    position: relative;
     width: 100%;
-    height: 300px;
-    // background-color: rgb(54, 75, 48);
+    height: 200px;
     background: url(../img/main/history_bg1.jpg) center center/cover no-repeat;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: relative;
 
     &:after {
         position: absolute;
@@ -645,113 +548,146 @@
         top: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(to bottom,  transparent, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85));
-    }
-
-    .history-btn {
-        width: 50px;
-        height: 50px;
-        background: none;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        color: #fff;
-        font-size: 50px;
-        transition: .1s linear;
-        margin-top: -5px;
-        z-index: 1;
-
-        i.fa {
-            text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
-        }
-    }
-
-    &__main-text {
-        position: relative;
+        background-color: rgba(0, 0, 0, .7);
+      }
+}
+    .swiper-container {
+      width: 100%;
+      overflow: hidden;
+  
+      .swiper-wrapper {
         width: 100%;
+  
+        .swiper-slide {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #fff;
+        }
+      }
+    }
+  
+    .gallery-top {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+
+  
+      .darked-left {
+        position: absolute;
+        width: 20%;
         height: 100%;
-        font-size: 18px;
-        text-align: center;
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1;
-
-        .text-item {
+        left: 0;
+        top: 0;
+        background: linear-gradient(to right, #151515 40%, transparent 100%);
+        z-index: 3;
+      }
+  
+      .darked-right {
+        position: absolute;
+        width: 20%;
+        height: 100%;
+        right: 0;
+        top: 0;
+        background: linear-gradient(to left, #151515 40%, transparent 100%);
+        z-index: 3;
+      }
+  
+      .swiper-slide {
+        .year {
+          position: relative;
+          color: #555;
+          font-size: 24px;
+          margin-top: -20px;
+          height: 50px;
+          display: flex;
+          align-items: flex-end;
+          transition: all .3s ease;
+  
+          &:after {
             position: absolute;
-            width: 100%;
-            height: auto;
-            padding: 0 30px;
-            left: 0;
-            opacity: 0;
-            transition: opacity .4s ease;
+            display: block;
+            content: '';
+            left: 50%;
+            bottom: -25px;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #555;
+          }
         }
-
-        .text-item.active {
-            opacity: 1;
-            transition: opacity 1.4s ease;
+  
+        &-active {
+          .year {
+            color: #fff;
+            font-size: 40px;
+  
+            &:after {
+              background: #fff;
+            }
+          }
         }
+      }
+  
+      .swiper-button-next, .swiper-button-prev {
+        transform: scale(0.7);
+      }
+  
+      .date-line {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(30px);
+        width: 100%;
+        height: 4px;
+        border-radius: 5px;
+        background: linear-gradient(to left, transparent, #444, transparent);
+      }
+  
+      // order: 2;
     }
-}
-
-// Swipe Animation
-@keyframes swipe {
-    0% {
-        opacity: 0.3;
-        left: 55%;
-    }
-
-    10% {
-        opacity: 0.6;
-        left: 54%;
-    }
-
-    20% {
-        opacity: 0.8;
-        left: 52%;
-    }
-
-    30% {
-        opacity: 1;
+  
+    .gallery-thumbs {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      text-align: center;
+      // order: 1;
+  
+      &:before {
+        position: absolute;
+        display: block;
+        content: '';
         left: 50%;
+        top: 0;
+        width: 25px;
+        height: 25px;
+        transform: translate(-50%, -50%) rotate(45deg);
+        background-color: #151515;
+        z-index: 1;
+      }
+  
+      .swiper-wrapper {
+  
+        .swiper-slide {
+          opacity: 0 !important;
+          transition: opacity .3s ease !important;
+  
+          p {
+            padding: 0 50px;
+            font-size: 18px;
+          }
+        }
+    
+        .swiper-slide-thumb-active {
+          opacity: 1 !important;
+          transition: opacity .3s ease !important;
+        }
+      }
     }
-
-    40% {
-        opacity: 0.8;
-        left: 48%;
-    }
-
-    50% {
-        opacity: 0.5;
-        left: 46%;
-    }
-
-    60% {
-        opacity: 0.2;
-        left: 45%;
-    }
-
-    70% {
-        opacity: 0.4;
-        left: 47%;
-    }
-
-    80% {
-        opacity: 0.6;
-        left: 50%;
-    }
-
-    90% {
-        opacity: 0.8;
-        left: 53%;
-    }
-
-    100% {
-        opacity: 1;
-        left: 55%;
-    }
-}
 
 // Media Quares
 @media screen and (max-width: 1200.02px) {
@@ -858,21 +794,21 @@
     }
 
     .history-date {
-        &__content {
-            .years {
-                &-item {
-                    font-size: 22px;
-                }
+        .swiper-slide {
+            .year {
+                font-size: 20px;
+            }
 
-                &-item.active {
-                    font-size: 38px;
+            &-active {
+                .year {
+                    font-size: 32px;
                 }
             }
         }
     }
 
     .history-text {
-        height: 350px;
+        height: 250px;
     }
 }
 
@@ -910,7 +846,7 @@
             }
         }
 
-        .swiper-container {
+        .attr-container {
             height: 320px;
         }
     }
@@ -941,14 +877,6 @@
             font-size: 20px;
         }
     }
-
-    .history-text {
-        height: 380px;
-
-        &__main-text {
-            font-size: 16px;
-        }
-    }
 }
 
 @media screen and (max-width: 576.02px) {
@@ -972,6 +900,19 @@
         }
     }
 
+    .attr {
+        .attr-slide {
+            .slide-title {
+                height: 50px;
+            }
+        }
+
+        .swiper-button-prev, .swiper-button-next {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
     .clubs {
         &__content {
             &-item {
@@ -990,20 +931,50 @@
     }
 
     .history-date {
-        &__content {
-            .years {
-                transform: translateX(33.333333%);
+        .swiper-slide {
+            .year {
+                margin-bottom: 20px;
+                font-size: 18px;
 
-                &-item {
-                    min-width: 33.333333%;
+                &:after {
+                    bottom: -35px;
                 }
+            }
+
+            &-active {
+                .year {
+                    font-size: 26px;
+                }
+            }
+        }
+
+        .gallery-top {
+            .darked-left, .darked-right {
+                width: 30%;
+            }
+
+            .swiper-button-prev {
+                left: 0px;
+                transform: scale(0.5);
+            }
+
+            .swiper-button-next {
+                right: 0;
+                transform: scale(0.5);
             }
         }
     }
 
     .history-text {
-        &__main-text {
-            font-size: 14px;
+        .gallery-thumbs {
+            .swiper-wrapper {
+                .swiper-slide {
+                    p {
+                        padding: 0 10px;
+                        font-size: 16px;
+                    }
+                }
+            }
         }
     }
 }
@@ -1056,7 +1027,7 @@
     }
 
     .attr {
-        .swiper-container {
+        .attr-container {
             height: 250px;
 
             .slide-title {

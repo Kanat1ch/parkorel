@@ -28,12 +28,15 @@ function openCloseMenu() {
         document.removeEventListener('touchmove', handleTouchMoveMenu, { passive: false });
         line.classList.add('active-arrow');
         body.style.overflowY = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
         mobileMenu.style.overflowY = 'scroll';
     } else {
         document.addEventListener('touchstart', handleTouchStartMenu, { passive: false });        
         document.addEventListener('touchmove', handleTouchMoveMenu, { passive: false });
         line.classList.remove('active-arrow');
         body.style.overflowY = '';
+        document.documentElement.style.overflow = '';
+
     }
 }
 
@@ -71,8 +74,8 @@ function handleTouchMoveMenu(event) {
     }
 
     if (diff < -9) {
-        if (event.target.parentElement.classList.contains('swiper-slide') ||
-            event.target.parentElement.classList.contains('history-date') ||
+        if (event.target.parentElement.classList.contains('attr-slide') ||
+            event.target.parentElement.classList.contains('gallery-top') ||
             event.target.parentElement.classList.contains('years') ||
             event.target.parentElement.classList.contains('history-date__content') ||
             event.target.parentElement.classList.contains('history-text') ||
