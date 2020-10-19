@@ -6,7 +6,7 @@
     padding-top: 170px;
     padding-bottom: 90px;
     background: url(../img/attr/koleso.jpg) center center/cover no-repeat;
-    background-attachment: local;
+    background-attachment: fixed;
     .blur {
         backdrop-filter: blur(5px);
     }
@@ -79,6 +79,8 @@
 
 @media screen and (max-width: 768.02px) {
     .fullattr {
+        background-attachment: scroll;
+
         &__content {
             h2 {
                 font-size: 38px;

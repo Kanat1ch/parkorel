@@ -7,10 +7,13 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
+  position: relative;
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
+  position: relative;
 }
 
 section, header, footer {
@@ -27,6 +30,12 @@ a:focus, a:active {
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+.swiper-button-prev:focus, .swiper-button-prev:active,
+.swiper-button-next:focus, .swiper-button-next:active {
+  outline: -webkit-focus-ring-color none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .header {
@@ -728,6 +737,7 @@ a:focus, a:active {
   padding-top: 170px;
   padding-bottom: 90px;
   background: url(../img/afisha/afisha_main.jpg) center center/cover no-repeat;
+  background-attachment: fixed;
 }
 
 .afisha-card .blur {
@@ -778,6 +788,9 @@ a:focus, a:active {
 }
 
 @media screen and (max-width: 768.02px) {
+  .afisha-card {
+    background-attachment: scroll;
+  }
   .afisha-card__content h2 {
     font-size: 38px;
   }

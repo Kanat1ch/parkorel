@@ -73,11 +73,12 @@ let galleryThumbs = new Swiper('.gallery-thumbs', {
     grabCursor: true,
     breakpoints: {
       1200: {
-        slidesPerView: 5
+        slidesPerView: 5,
+        touchRatio: 0.5
       }
     },
     centeredSlides: true,
-    touchRatio: 0.5,
+    touchRatio: 0.8,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',

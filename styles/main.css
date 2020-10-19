@@ -1661,6 +1661,9 @@ a:focus, a:active {
 }
 
 @media screen and (max-width: 768.02px) {
+  .intro {
+    background-attachment: scroll;
+  }
   .afisha__header {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1718,9 +1721,6 @@ a:focus, a:active {
 }
 
 @media screen and (max-width: 576.02px) {
-  .intro {
-    background-attachment: local;
-  }
   .intro .weather {
     height: auto;
     padding: 5px 20px;
