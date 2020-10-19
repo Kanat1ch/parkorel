@@ -35,6 +35,7 @@ a:focus, a:active {
 .swiper-button-prev:focus, .swiper-button-prev:active,
 .swiper-button-next:focus, .swiper-button-next:active {
   outline: -webkit-focus-ring-color none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .header {
@@ -1239,6 +1240,7 @@ a:focus, a:active {
   padding-bottom: 50px;
   color: #fff;
   background: url(../img/main/clubs_bg.png) center center/cover no-repeat;
+  background-attachment: fixed;
 }
 
 .clubs__header h1 {
@@ -1691,6 +1693,9 @@ a:focus, a:active {
   }
   .attr .attr-container {
     height: 320px;
+  }
+  .clubs {
+    background-attachment: scroll;
   }
   .clubs__content-item .clubs-title h2 {
     font-size: 18px;
