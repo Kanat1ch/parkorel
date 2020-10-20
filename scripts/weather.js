@@ -14,6 +14,5 @@ fetch('https://api.openweathermap.org/data/2.5/weather?id=515012&appid=cd0d813f0
         `<img src="img/weather/${data.weather[0].icon}.png"</img>`;
     })
     .catch(function () {
-        // any errors
-        // https://openweathermap.org/img/wn/04d@2x.png
+        document.querySelector('.weather').remove();
     });

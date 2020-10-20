@@ -1,7 +1,4 @@
-// Onload events
-let startWidth = document.documentElement.clientWidth;
-
-// Slider 3.0
+// Attractions Slider
 let swiper = new Swiper('.attr-container', {
     wrapperClass: 'attr-wrapper',
     slideClass: 'attr-slide',
