@@ -282,6 +282,7 @@
         overflow: hidden;
         display: flex;
         position: relative;
+        transition: all 999999s;
     }
 
     .attr-wrapper {
@@ -554,7 +555,9 @@
 }
     .swiper-container {
       width: 100%;
+      height: 100%;
       overflow: hidden;
+      transition: all 99999s;
   
       .swiper-wrapper {
         width: 100%;

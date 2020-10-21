@@ -1,23 +1,23 @@
-// Attractions Slider
-let swiper = new Swiper('.attr-container', {
+// Attractions 
+const swiper = new Swiper('.attr-container', {
     wrapperClass: 'attr-wrapper',
     slideClass: 'attr-slide',
     slidesPerView: 1,
     spaceBetween: 0,
     autoplay: {
       delay: 5000,
-      disableOnInteraction: false,
+      disableOnInteraction: false
     },
     loop: true,
     touchEventsTarget: 'wrapper',
     pagination: {
       el: '.swiper-pagination',
-      clickable: true,
+      clickable: true
     },
     navigation: {
       nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+      prevEl: '.swiper-button-prev'
+    }
   });
 
 // Clubs Tabs
@@ -54,7 +54,7 @@ clubsItems.forEach(item => {
 });
 
 // History slider
-let galleryThumbs = new Swiper('.gallery-thumbs', {
+const galleryThumbs = new Swiper('.gallery-thumbs', {
     spaceBetween: 10,
     slidesPerView: 1,
     effect: 'fade',
@@ -63,21 +63,21 @@ let galleryThumbs = new Swiper('.gallery-thumbs', {
     watchSlidesVisibility: true,
     watchSlidesProgress: true,
   });
-  let galleryTop = new Swiper('.gallery-top', {
+  const galleryTop = new Swiper('.gallery-top', {
     spaceBetween: 10,
     slidesPerView: 3,
     speed: 500,
     grabCursor: true,
     breakpoints: {
       1200: {
-        slidesPerView: 5,
+        slidesPerView: 5
       }
     },
     centeredSlides: true,
     touchRatio: 0.5,
     navigation: {
       nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      prevEl: '.swiper-button-prev'
     },
     thumbs: {
       swiper: galleryThumbs
