@@ -17,7 +17,8 @@ const swiper = new Swiper('.attr-container', {
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
-    }
+    },
+    updateOnWindowResize: false
   });
 
 // Clubs Tabs
@@ -62,6 +63,7 @@ const galleryThumbs = new Swiper('.gallery-thumbs', {
     simulateTouch: false,
     watchSlidesVisibility: true,
     watchSlidesProgress: true,
+    updateOnWindowResize: false
   });
   const galleryTop = new Swiper('.gallery-top', {
     spaceBetween: 10,
@@ -81,7 +83,8 @@ const galleryThumbs = new Swiper('.gallery-thumbs', {
     },
     thumbs: {
       swiper: galleryThumbs
-    }
+    },
+    updateOnWindowResize: false
   });
 
 window.addEventListener('resize', checkClubsHeaderHeight);
