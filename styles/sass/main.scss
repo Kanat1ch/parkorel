@@ -2,9 +2,20 @@
 
 .clubs__content-item,
 .clubs__content-item:active,
-.clubs__content-item:focus {
+.clubs__content-item:focus,
+.swiper-button-prev,
+.swiper-button-prev:active,
+.swiper-button-prev:focus,
+.swiper-button-next,
+.swiper-button-next:active,
+.swiper-button-next:focus,
+.swiper-pagination-bullet {
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     -webkit-tap-highlight-color: transparent;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    box-shadow: none;
 }
 
 // Preloader
