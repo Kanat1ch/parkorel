@@ -13,9 +13,9 @@ visImpBtn.addEventListener('click', () => {
         item.style.display = 'none';
     });
 
-    swiper.destroy();
-    galleryThumbs.destroy();
-    galleryTop.destroy();
+    swiper.destroy(false);
+    galleryThumbs.destroy(false);
+    galleryTop.destroy(false);
 
     document.querySelectorAll('.clubs__content-item').forEach(item => {
         item.classList.add('clubs__content-item-vi');
@@ -24,30 +24,7 @@ visImpBtn.addEventListener('click', () => {
 });
 
 defaultVersion.addEventListener('click', () => {
-    visImpStyles.remove();
-
-    // swiper.init();
-    // galleryThumbs.init();
-    // galleryTop.init();
-
-    const hr = document.querySelectorAll('hr');
-    hr.forEach(item => {
-        item.style.display = '';
-    });
-
-    document.querySelectorAll('.clubs__content-item-vi').forEach(item => {
-        item.classList.add('clubs__content-item');
-        item.classList.remove('clubs__content-item-vi');
-    });
-
-    document.querySelectorAll('*').forEach(item => {
-        item.style.fontSize = '';
-        item.style.letterSpacing = '';
-        item.style.color = '';
-        item.style.borderColor = '';
-    });
-
-    document.body.style.backgroundColor = '';
+    window.location.reload();
 });
 
 const fontPlusBtn = document.getElementById('fontPlus');
@@ -58,10 +35,9 @@ const bgWhiteBtn = document.getElementById('bgWhite');
 const bgBlackBtn = document.getElementById('bgBlack');
 
 let elementSize = 0 ;
+const elements = document.querySelectorAll('h1, h2, h3, a, p, span, #date, .slide-title');
 
 fontPlusBtn.addEventListener('click', () => {
-    const elements = document.querySelectorAll('h1, h2, h3, a, p, span, #date, .slide-title');
-
     if (elementSize < 3) {
         elementSize++;
 
@@ -75,8 +51,6 @@ fontPlusBtn.addEventListener('click', () => {
 });
 
 fontMinusBtn.addEventListener('click', () => {
-    const elements = document.querySelectorAll('h1, h2, h3, a, p, span, #date, .slide-title');
-
     if (elementSize > 0) {
         elementSize--;
 
@@ -93,7 +67,6 @@ fontMinusBtn.addEventListener('click', () => {
 let elementSpacing = 0;
 
 spacingPlusBtn.addEventListener('click', () => {
-    const elements = document.querySelectorAll('h1, h2, h3, a, p, span, #date, .slide-title');
     if (elementSpacing < 3) {
         elementSpacing++;
     }
@@ -106,7 +79,6 @@ spacingPlusBtn.addEventListener('click', () => {
 });
 
 spacingMinusBtn.addEventListener('click', () => {
-    const elements = document.querySelectorAll('h1, h2, h3, a, p, span, #date, .slide-title');
     if (elementSpacing > 0) {
         elementSpacing--;
     }
@@ -120,7 +92,6 @@ spacingMinusBtn.addEventListener('click', () => {
 });
 
 bgBlackBtn.addEventListener('click', () => {
-    const elements = document.querySelectorAll('h1, h2, h3, a, p, span, #date, .slide-title');
     const elementsBorder = document.querySelectorAll('.header-vi li, .afisha h2, .afisha a, .attr-slide, .clubs__content-item-vi');
     
     elements.forEach(item => {
@@ -135,7 +106,6 @@ bgBlackBtn.addEventListener('click', () => {
 });
 
 bgWhiteBtn.addEventListener('click', () => {
-    const elements = document.querySelectorAll('h1, h2, h3, a, p, span, #date, .slide-title');
     const elementsBorder = document.querySelectorAll('.header-vi li, .afisha h2, .afisha a, .attr-slide, .clubs__content-item-vi');
     
     elements.forEach(item => {

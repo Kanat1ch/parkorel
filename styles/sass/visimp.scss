@@ -43,12 +43,19 @@
             color: #fff;
             background-color: #000;
         }
+
+        #defaultVersion {
+            background-color: transparent;
+            color: #fff;
+            font-size: 30px;
+            cursor: pointer;
+        }
     }
 
-    i.fa {
-        font-size: 30px;
-        cursor: pointer;
-    }
+    // i.fa {
+    //     font-size: 30px;
+    //     cursor: pointer;
+    // }
 }
 
 .header-vi {
@@ -76,10 +83,6 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
-                &:focus {
-                    background-color: #999;
-                }
             }
 
 
@@ -417,6 +420,14 @@
 
 .footer {
     display: none;  
+}
+
+a:focus, button:focus {
+    border: 3px solid #000 !important;
+}
+
+#bgBlack:focus {
+    border: 3px solid #fff !important;
 }
 
 @media screen and (max-width: 1200.02px) {
