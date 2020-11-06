@@ -53,7 +53,6 @@ a:focus, a:active {
 
     &__navmenu {
         z-index: 0;
-        margin-left: -30px;
 
         & >ul {
             display: flex;
@@ -151,7 +150,7 @@ a:focus, a:active {
 
             .search-active {
                 opacity: 1;
-                width: 200px;
+                width: 180px;
             }
         }
     }
@@ -174,6 +173,17 @@ a:focus, a:active {
         i.fa {
             margin-right: 5px;
             color: #fff;
+        }
+    }
+
+    .vis-imp-btn {
+        background-color: transparent;
+        outline: none;
+        color: #fff;
+        cursor: pointer;
+
+        i.fa {
+            font-size: 30px;
         }
     }
 }
@@ -239,6 +249,12 @@ a:focus, a:active {
             color: #222;
         }
 
+        i.fa {
+            color: #222;
+        }
+    }
+
+    .vis-imp-btn {
         i.fa {
             color: #222;
         }
@@ -419,6 +435,14 @@ a:focus, a:active {
     background-color: #222;
 }
 
+.vi-panel {
+    display: none;
+}
+
+.header-vi {
+    display: none;
+}
+
 // Intro
 .intro {
     position: relative;
@@ -448,7 +472,6 @@ a:focus, a:active {
         font-size: 38px;
         color: #fff;
         z-index: 6;
-        // font-family: 'Piazzolla', serif;
     }
 }
 
@@ -575,6 +598,12 @@ a:focus, a:active {
 
                 a {
                     font-size: 14px;
+                }
+            }
+
+            .search {
+                .search-active {
+                    width: 150px;
                 }
             }
         }

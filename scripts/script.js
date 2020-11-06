@@ -7,6 +7,7 @@ const body = document.querySelector('body'),
       searchBtn = document.querySelector('.search-btn'),
       searchInput = document.querySelector('.header__navmenu input'),
       headerInfo = document.querySelector('.header__info');
+      
 
 // Search Button
 searchBtn.addEventListener('click', () => {
