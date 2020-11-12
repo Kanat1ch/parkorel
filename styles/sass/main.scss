@@ -87,7 +87,7 @@
 .intro {
     height: 100vh;
     padding-bottom: 28vh;
-    background: url(../../img/main/intro.jpg) center center/cover no-repeat;
+    background: url(../../img/main/intro1.jpg) center center/cover no-repeat;
     background-attachment: fixed;
 
     .weather {
@@ -564,7 +564,7 @@
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, .7);
-      }
+    }
 }
     .swiper-container {
       width: 100%;
@@ -587,7 +587,6 @@
       display: flex;
       align-items: center;
       position: relative;
-
   
       .darked-left {
         position: absolute;

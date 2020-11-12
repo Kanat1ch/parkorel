@@ -2,10 +2,9 @@ const visImpBtn = document.querySelector('.vis-imp-btn');
 const defaultVersion = document.querySelector('#defaultVersion');
 const visImpStyles = document.createElement('link');
 
-
 visImpBtn.addEventListener('click', () => {
     visImpStyles.setAttribute('rel', 'stylesheet');
-    visImpStyles.setAttribute('href', 'styles/css/visimp.min.css');
+    visImpStyles.setAttribute('href', 'styles/css/vi.min.css');
     document.querySelector('head').append(visImpStyles);
 
     const hr = document.querySelectorAll('hr');
@@ -35,7 +34,7 @@ const bgWhiteBtn = document.getElementById('bgWhite');
 const bgBlackBtn = document.getElementById('bgBlack');
 
 let elementSize = 0 ;
-const elements = document.querySelectorAll('h1, h2, h3, a, p, span, #date, .slide-title');
+const elements = document.querySelectorAll('h1, h2, h3, a, p, span, #date, .slide-title, .attr__item-title, .attr__info-item_text');
 
 fontPlusBtn.addEventListener('click', () => {
     if (elementSize < 3) {

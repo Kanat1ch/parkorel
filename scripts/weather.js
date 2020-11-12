@@ -4,8 +4,6 @@ fetch('https://api.openweathermap.org/data/2.5/weather?id=515012&appid=cd0d813f0
         let tempInC = Math.round(data.main.temp - 273);
         if (tempInC > 0) {
             document.querySelector('.weather-deg').innerHTML = '<small>+</small>' + tempInC + '&deg;';
-        } else if (tempInC < 0) {
-            document.querySelector('.weather-deg').innerHTML = '<small>-</small>' + tempInC + '&deg;';
         } else {
             document.querySelector('.weather-deg').innerHTML = tempInC + '&deg;';
         }
