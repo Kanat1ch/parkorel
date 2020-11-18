@@ -38,8 +38,12 @@ clubsItems.forEach(item => {
         let current = e.target.closest('.clubs__content-item');
         if (!current.querySelector('.clubs-description').classList.contains('active')) {
             current.querySelector('.clubs-description').classList.add('active');
-            let currentHeight = current.scrollHeight;
-            current.style.height = 'auto';
+            let currentHeight = current.querySelector('.clubs-description').scrollHeight;
+            if (document.documentElement.clientWidth > 992.02) {
+              current.style.height = `${currentHeight + 45}px`;
+            } else {
+              current.style.height = `${currentHeight + 140}px`;
+            }
             current.querySelector('.clubs-title').style.justifyContent = 'space-between';
             current.querySelector('span').classList.add('active');
             current.querySelector('.clubs-showfull').style.transform = 'scale(1, -1)';
