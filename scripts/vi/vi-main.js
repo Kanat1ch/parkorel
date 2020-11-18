@@ -17,6 +17,7 @@ visImpBtn.addEventListener('click', () => {
     galleryTop.destroy(false);
 
     document.querySelectorAll('.clubs__content-item').forEach(item => {
+        item.style.height = '';
         item.classList.add('clubs__content-item-vi');
         item.classList.remove('clubs__content-item');
     });
@@ -34,7 +35,7 @@ const bgWhiteBtn = document.getElementById('bgWhite');
 const bgBlackBtn = document.getElementById('bgBlack');
 
 let elementSize = 0 ;
-const elements = document.querySelectorAll('h1, h2, h3, a, p, span, #date, .slide-title, .attr__item-title, .attr__info-item_text');
+const elements = document.querySelectorAll('h1, h2, h3, a, p, span, .place-text, #date, .slide-title, .attr__item-title, .attr__info-item_text');
 
 fontPlusBtn.addEventListener('click', () => {
     if (elementSize < 3) {
@@ -102,6 +103,10 @@ bgBlackBtn.addEventListener('click', () => {
     });
 
     document.body.style.backgroundColor = '#111';
+
+    document.querySelectorAll('.intro__places_item img').forEach(item => {
+        item.style.filter = 'brightness(1)';
+    });
 });
 
 bgWhiteBtn.addEventListener('click', () => {
@@ -116,6 +121,10 @@ bgWhiteBtn.addEventListener('click', () => {
     });
 
     document.body.style.backgroundColor = '';
+
+    document.querySelectorAll('.intro__places_item img').forEach(item => {
+        item.style.filter = 'brightness(0)';
+    });
 });
 
 function panelByDefault() {

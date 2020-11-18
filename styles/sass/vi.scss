@@ -113,6 +113,19 @@
         position: static;
         text-align: center;
     }
+
+    &__places {
+        &_item {
+            img {
+                filter: brightness(0);
+            }
+
+            .place-text {
+                color: #000;
+                word-break: break-all;
+            }
+        }
+    }
 }
 
 .afisha {

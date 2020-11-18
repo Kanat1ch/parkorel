@@ -488,7 +488,6 @@
         &-item {
             height: 70px;
             position: relative;
-            border-top: 1px solid #fff;
             border-bottom: 1px solid #fff;
             padding: 20px 0;
             display: flex;
@@ -496,6 +495,10 @@
             cursor: pointer;
             transition: height .2s ease;
             overflow: hidden;
+
+            &:first-child {
+                border-top: 1px solid #fff;
+            }
 
             .clubs-showfull {
                 position: absolute;
@@ -823,7 +826,7 @@
             }
 
             .place-text {
-                font-size: 14px;
+                font-size: 13px;
             }
         }
     }
@@ -936,16 +939,17 @@
                 border-bottom: 1px solid #fff;
                 flex-direction: row;
                 align-items: center;
-                justify-content: flex-end;
+                justify-content: flex-start;
 
                 img {
-                    width: 30%;
+                    margin: 0 30px 0 120px;
+                    width: 50px;
                     height: 50px;
                 }
 
                 .place-text {
-                    width: 55%;
                     margin: 0;
+                    font-size: 15px;
                     text-align: left;
                     font-weight: 500;
                 }
@@ -1038,11 +1042,7 @@
         &__places {
             &_item {
                 img {
-                    width: 25%;
-                }
-
-                .place-text {
-                    width: 60%;
+                    margin: 0 20px 0 60px;
                 }
             }
         }
@@ -1156,6 +1156,7 @@
                 padding: 0 20px;
 
                 img {
+                    margin: 0;
                     width: auto;
                     margin-right: 20px;
                 }
