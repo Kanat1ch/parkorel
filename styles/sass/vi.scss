@@ -97,6 +97,10 @@
     padding-top: 0;
     margin: 20px 0;
 
+    video {
+        display: none;
+    }
+
     &:after {
         display: none;
     }
@@ -116,13 +120,15 @@
 
     &__places {
         &_item {
+            padding: 0;
+
             img {
                 filter: brightness(0);
             }
 
             .place-text {
                 color: #000;
-                word-break: break-all;
+                word-break: break-word;
             }
         }
     }
