@@ -4,7 +4,7 @@ const visImpStyles = document.createElement('link');
 
 visImpBtn.addEventListener('click', () => {
     visImpStyles.setAttribute('rel', 'stylesheet');
-    visImpStyles.setAttribute('href', 'styles/css/vi-afisha.min.css');
+    visImpStyles.setAttribute('href', 'styles/css/vi-services.min.css');
     document.querySelector('head').append(visImpStyles);
 
     localStorage.setItem('vi', 'true');
@@ -24,8 +24,8 @@ const bgWhiteBtn = document.getElementById('bgWhite');
 const bgBlackBtn = document.getElementById('bgBlack');
 
 let elementSize = 0 ;
-const elements = document.querySelectorAll('h1, h2, h3, a, p, span, .place-text, .date');
-const elementsBorder = document.querySelectorAll('.header-vi li, .afisha__item');
+const elements = document.querySelectorAll('h1, h2, h3, a, p, span, ul, li');
+const elementsBorder = document.querySelectorAll('.header-vi li, .services__item');
 
 fontPlusBtn.addEventListener('click', () => {
     if (elementSize < 3) {

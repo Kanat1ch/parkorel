@@ -132,7 +132,7 @@ bgWhiteBtn.addEventListener('click', () => {
 });
 
 function panelByDefault() {
-    const elements = document.querySelectorAll('.vi-panel__item span, .vi-panel__item button');
+    const elements = document.querySelectorAll('.vi-panel__item span, .vi-panel__item button, .header-vi ul li a');
     elements.forEach(item => {
         item.style.fontSize = '';
         item.style.letterSpacing = '';

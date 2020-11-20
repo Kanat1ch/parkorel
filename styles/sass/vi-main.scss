@@ -1,4 +1,32 @@
 @import 'vi.scss';
+.intro {
+    video {
+        display: none;
+    }
+
+    &:after {
+        display: none;
+    }
+
+    .weather {
+        display: none;
+    }
+
+    &__places {
+        &_item {
+            padding: 0;
+
+            img {
+                filter: brightness(0);
+            }
+
+            .place-text {
+                color: #000;
+                word-break: break-word;
+            }
+        }
+    }
+}
 
 .afisha {
     &__header {

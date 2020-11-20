@@ -1,0 +1,45 @@
+@import 'vi.scss';
+
+.partners {
+    &__item {
+        border: 1px dashed #000;
+        padding: 30px 0;
+        text-decoration: none;
+
+        &:after {
+            display: none;
+        }
+
+        &-img {
+            display: none;
+
+            img {
+                display: none;
+            }
+        }
+
+        &-title {
+            display: block;
+            position: static;
+            width: 100%;
+            text-align: center;
+            transform: none;
+            color: #000;
+            word-break: break-word;
+            font-size: 20px;
+            font-weight: 500;
+            padding: 0 10px;
+            text-transform: uppercase;
+        }
+    }
+}
+
+@media screen and (max-width: 768.02px) {
+    .info {
+        .attr__info {
+            &-item {
+                margin: 20px 10px;
+            }
+        }
+    }
+}

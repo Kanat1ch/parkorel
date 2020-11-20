@@ -47,6 +47,10 @@
                 transition: transform 0.2s linear;
             }
         }
+
+        &-title {
+            display: none;
+        }
     }
 }
 

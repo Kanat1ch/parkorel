@@ -79,6 +79,8 @@
                 width: 100%;
                 height: 100%;
                 text-decoration: none;
+                font-size: 20px;
+                letter-spacing: 1px;
                 color: #000;
                 display: flex;
                 justify-content: center;
@@ -98,18 +100,6 @@
     padding-top: 0;
     margin: 20px 0;
 
-    video {
-        display: none;
-    }
-
-    &:after {
-        display: none;
-    }
-
-    .weather {
-        display: none;
-    }
-
     h1 {
         color: #000;
         width: 100%;
@@ -118,21 +108,6 @@
         position: static;
         text-align: center;
     }
-
-    &__places {
-        &_item {
-            padding: 0;
-
-            img {
-                filter: brightness(0);
-            }
-
-            .place-text {
-                color: #000;
-                word-break: break-word;
-            }
-        }
-    }
 }
 
 .footer {
@@ -140,11 +115,11 @@
 }
 
 a:focus, button:focus {
-    border: 3px solid #000 !important;
+    border: 3px solid red !important;
 }
 
-#bgBlack:focus {
-    border: 3px solid #fff !important;
+#defaultVersion:focus {
+    border: 3px solid #000 !important;
 }
 
 @media screen and (max-width: 1200.02px) {
