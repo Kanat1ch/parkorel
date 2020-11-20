@@ -6,7 +6,8 @@ const body = document.querySelector('body'),
       line = document.querySelector('.line'),
       searchBtn = document.querySelector('.search-btn'),
       searchInput = document.querySelector('.header__navmenu input'),
-      headerInfo = document.querySelector('.header__info');
+      headerInfo = document.querySelector('.header__info'),
+      navLinks = document.querySelectorAll('.mobile-menu ul li');
       
 
 // Search Button
@@ -46,4 +47,10 @@ document.addEventListener('scroll', () => {
         header.style.transform = 'translateY(0)';
         header.classList.remove('fixed');
     }
+});
+
+// Mobile Menu
+
+navLinks.forEach((link, index) => {
+    link.style.transitionDelay = `${index * 0.03}s`;
 });
