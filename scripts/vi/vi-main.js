@@ -4,7 +4,7 @@ const visImpStyles = document.createElement('link');
 
 visImpBtn.addEventListener('click', () => {
     visImpStyles.setAttribute('rel', 'stylesheet');
-    visImpStyles.setAttribute('href', 'styles/css/vi.min.css');
+    visImpStyles.setAttribute('href', 'styles/css/vi-main.min.css');
     document.querySelector('head').append(visImpStyles);
 
     const hr = document.querySelectorAll('hr');
@@ -21,10 +21,14 @@ visImpBtn.addEventListener('click', () => {
         item.classList.add('clubs__content-item-vi');
         item.classList.remove('clubs__content-item');
     });
+
+    localStorage.setItem('vi', 'true');
 });
 
 defaultVersion.addEventListener('click', () => {
     window.location.reload();
+
+    localStorage.setItem('vi', 'false');
 });
 
 const fontPlusBtn = document.getElementById('fontPlus');

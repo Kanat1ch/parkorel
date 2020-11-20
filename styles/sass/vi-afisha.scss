@@ -1,0 +1,21 @@
+@import 'vi.scss';
+
+.afisha {
+    &__item {
+        height: auto;
+        border: 1px dashed #000;
+        padding: 10px;
+
+        &-img {
+            display: none;
+        }
+
+        &-text {
+            width: 100%;
+
+            .date {
+                color: #333;
+            }
+        }
+    }
+}

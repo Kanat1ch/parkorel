@@ -4,26 +4,16 @@ const visImpStyles = document.createElement('link');
 
 visImpBtn.addEventListener('click', () => {
     visImpStyles.setAttribute('rel', 'stylesheet');
-    visImpStyles.setAttribute('href', 'styles/css/vi.min.css');
+    visImpStyles.setAttribute('href', 'styles/css/vi-afisha.min.css');
     document.querySelector('head').append(visImpStyles);
 
-    const hr = document.querySelectorAll('hr');
-    hr.forEach(item => {
-        item.style.display = 'none';
-    });
-
-    swiper.destroy(false);
-    galleryThumbs.destroy(false);
-    galleryTop.destroy(false);
-
-    document.querySelectorAll('.clubs__content-item').forEach(item => {
-        item.classList.add('clubs__content-item-vi');
-        item.classList.remove('clubs__content-item');
-    });
+    localStorage.setItem('vi', 'true');
 });
 
 defaultVersion.addEventListener('click', () => {
     window.location.reload();
+
+    localStorage.setItem('vi', 'false');
 });
 
 const fontPlusBtn = document.getElementById('fontPlus');
@@ -34,7 +24,8 @@ const bgWhiteBtn = document.getElementById('bgWhite');
 const bgBlackBtn = document.getElementById('bgBlack');
 
 let elementSize = 0 ;
-const elements = document.querySelectorAll('h1, h2, h3, a, p, span, #date, .slide-title, .attr__item-title, .attr__info-item_text');
+const elements = document.querySelectorAll('h1, h2, h3, a, p, span, .place-text, .date');
+const elementsBorder = document.querySelectorAll('.header-vi li, .afisha__item');
 
 fontPlusBtn.addEventListener('click', () => {
     if (elementSize < 3) {
@@ -90,9 +81,7 @@ spacingMinusBtn.addEventListener('click', () => {
     panelByDefault();
 });
 
-bgBlackBtn.addEventListener('click', () => {
-    const elementsBorder = document.querySelectorAll('.header-vi li, .afisha h2, .afisha a, .attr-slide, .clubs__content-item-vi');
-    
+bgBlackBtn.addEventListener('click', () => {    
     elements.forEach(item => {
         item.style.color = '#fff';
     });
@@ -104,9 +93,7 @@ bgBlackBtn.addEventListener('click', () => {
     document.body.style.backgroundColor = '#111';
 });
 
-bgWhiteBtn.addEventListener('click', () => {
-    const elementsBorder = document.querySelectorAll('.header-vi li, .afisha h2, .afisha a, .attr-slide, .clubs__content-item-vi');
-    
+bgWhiteBtn.addEventListener('click', () => {    
     elements.forEach(item => {
         item.style.color = '';
     });

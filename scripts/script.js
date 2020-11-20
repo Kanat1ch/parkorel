@@ -8,6 +8,11 @@ const body = document.querySelector('body'),
       searchInput = document.querySelector('.header__navmenu input'),
       headerInfo = document.querySelector('.header__info'),
       navLinks = document.querySelectorAll('.mobile-menu ul li');
+
+// Visually Impaired
+if ((localStorage.getItem('vi')) == 'true') {
+    
+}
       
 
 // Search Button
