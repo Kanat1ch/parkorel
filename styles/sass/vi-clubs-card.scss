@@ -1,0 +1,36 @@
+@import 'vi.scss';
+
+.blur {
+    display: none;
+}
+
+.clubs-card {
+    background: none;
+    padding-top: 70px;
+
+    &:after {
+        display: none;
+    }
+
+    &__content {
+        small {
+            color: #000;
+        }
+
+        h2 {
+            color: #000;
+        }
+
+        &_text {
+            color: #000;
+        }
+
+        .chief, .contact-tel {
+            color: #000;
+
+            span a {
+                color: #000;
+            }
+        }
+    }
+}

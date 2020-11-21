@@ -11,7 +11,7 @@ const body = document.querySelector('body'),
 
 // Visually Impaired
 if ((localStorage.getItem('vi')) == 'true') {
-    
+    console.log('1');
 }
       
 
