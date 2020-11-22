@@ -9,12 +9,6 @@ const body = document.querySelector('body'),
       headerInfo = document.querySelector('.header__info'),
       navLinks = document.querySelectorAll('.mobile-menu ul li');
 
-// Visually Impaired
-if ((localStorage.getItem('vi')) == 'true') {
-    console.log('1');
-}
-      
-
 // Search Button
 searchBtn.addEventListener('click', () => {
     searchInput.classList.toggle('search-active');

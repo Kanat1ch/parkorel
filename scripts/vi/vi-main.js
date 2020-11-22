@@ -2,7 +2,26 @@ const visImpBtn = document.querySelector('.vis-imp-btn');
 const defaultVersion = document.querySelector('#defaultVersion');
 const visImpStyles = document.createElement('link');
 
-visImpBtn.addEventListener('click', () => {
+visImpBtn.addEventListener('click', linkStyles);
+
+if ((localStorage.getItem('vi')) == 'true') {
+    const hr = document.querySelectorAll('hr');
+    hr.forEach(item => {
+        item.style.display = 'none';
+    });
+
+    swiper.destroy(false);
+    galleryThumbs.destroy(false);
+    galleryTop.destroy(false);
+
+    document.querySelectorAll('.clubs__content-item').forEach(item => {
+        item.style.height = '';
+        item.classList.add('clubs__content-item-vi');
+        item.classList.remove('clubs__content-item');
+    });
+}
+
+function linkStyles() {
     visImpStyles.setAttribute('rel', 'stylesheet');
     visImpStyles.setAttribute('href', 'styles/css/vi-main.min.css');
     document.querySelector('head').append(visImpStyles);
@@ -23,12 +42,15 @@ visImpBtn.addEventListener('click', () => {
     });
 
     localStorage.setItem('vi', 'true');
-});
+}
 
 defaultVersion.addEventListener('click', () => {
     window.location.reload();
 
     localStorage.setItem('vi', 'false');
+    localStorage.setItem('viDarkTheme', 'false');
+    localStorage.setItem('viFontSize', 0);
+    localStorage.setItem('viLetterSpacing', 0);
 });
 
 const fontPlusBtn = document.getElementById('fontPlus');
@@ -38,8 +60,29 @@ const spacingMinusBtn = document.getElementById('spacingMinus');
 const bgWhiteBtn = document.getElementById('bgWhite');
 const bgBlackBtn = document.getElementById('bgBlack');
 
-let elementSize = 0 ;
+let elementSize = 0;
+let elementSpacing = 0;
 const elements = document.querySelectorAll('h1, h2, h3, a, p, span, .place-text, #date, .slide-title, .attr__item-title, .attr__info-item_text');
+
+let lsFontSize = localStorage.getItem('viFontSize');
+let lsLetterSpacing = localStorage.getItem('viLetterSpacing');
+
+if (lsFontSize != 0) {
+    elements.forEach(item => {
+        const elementsFz = parseInt(window.getComputedStyle(item).getPropertyValue('font-size'));
+        item.style.fontSize = `${elementsFz + 2 * lsFontSize}px`;
+    });
+    elementSize = parseInt(lsFontSize);
+    panelByDefault();
+}
+
+if (lsLetterSpacing != 0) {
+    elements.forEach(item => {
+        item.style.letterSpacing = `${lsLetterSpacing}px`;
+    });
+    elementSpacing = parseInt(lsLetterSpacing);
+    panelByDefault();
+}
 
 fontPlusBtn.addEventListener('click', () => {
     if (elementSize < 3) {
@@ -50,6 +93,8 @@ fontPlusBtn.addEventListener('click', () => {
             item.style.fontSize = `${elementsFz + 2}px`;
         });
     }
+
+    localStorage.setItem('viFontSize', elementSize);
 
     panelByDefault();
 });
@@ -64,11 +109,10 @@ fontMinusBtn.addEventListener('click', () => {
         });
     }
 
+    localStorage.setItem('viFontSize', elementSize);
+
     panelByDefault();
-
 });
-
-let elementSpacing = 0;
 
 spacingPlusBtn.addEventListener('click', () => {
     if (elementSpacing < 3) {
@@ -79,6 +123,8 @@ spacingPlusBtn.addEventListener('click', () => {
         item.style.letterSpacing = `${elementSpacing}px`;
     });
 
+    localStorage.setItem('viLetterSpacing', elementSpacing);
+
     panelByDefault();
 });
 
@@ -88,47 +134,26 @@ spacingMinusBtn.addEventListener('click', () => {
     }
 
     elements.forEach(item => {
-        const elementsSpacing = parseInt(window.getComputedStyle(item).getPropertyValue('letter-spacing'));
-        item.style.letterSpacing = `${elementsSpacing - 1}px`;
+        item.style.letterSpacing = `${elementSpacing}px`;
     });
+
+    localStorage.setItem('viLetterSpacing', elementSpacing);
 
     panelByDefault();
 });
 
 bgBlackBtn.addEventListener('click', () => {
-    const elementsBorder = document.querySelectorAll('.header-vi li, .afisha h2, .afisha a, .attr-slide, .clubs__content-item-vi');
-    
-    elements.forEach(item => {
-        item.style.color = '#fff';
-    });
-
-    elementsBorder.forEach(item => {
-        item.style.borderColor = '#fff';
-    });
+    localStorage.setItem('viDarkTheme', 'true');
 
     document.body.style.backgroundColor = '#111';
-
-    document.querySelectorAll('.intro__places_item img').forEach(item => {
-        item.style.filter = 'brightness(1)';
-    });
+    document.body.classList.add('vi-dark');
 });
 
 bgWhiteBtn.addEventListener('click', () => {
-    const elementsBorder = document.querySelectorAll('.header-vi li, .afisha h2, .afisha a, .attr-slide, .clubs__content-item-vi');
-    
-    elements.forEach(item => {
-        item.style.color = '';
-    });
-
-    elementsBorder.forEach(item => {
-        item.style.borderColor = '';
-    });
+    localStorage.setItem('viDarkTheme', 'false');
 
     document.body.style.backgroundColor = '';
-
-    document.querySelectorAll('.intro__places_item img').forEach(item => {
-        item.style.filter = 'brightness(0)';
-    });
+    document.body.classList.remove('vi-dark');
 });
 
 function panelByDefault() {

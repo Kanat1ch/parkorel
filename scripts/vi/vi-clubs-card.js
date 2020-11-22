@@ -2,18 +2,22 @@ const visImpBtn = document.querySelector('.vis-imp-btn');
 const defaultVersion = document.querySelector('#defaultVersion');
 const visImpStyles = document.createElement('link');
 
-visImpBtn.addEventListener('click', () => {
+visImpBtn.addEventListener('click', linkStyles);
+function linkStyles() {
     visImpStyles.setAttribute('rel', 'stylesheet');
     visImpStyles.setAttribute('href', 'styles/css/vi-clubs-card.min.css');
     document.querySelector('head').append(visImpStyles);
 
     localStorage.setItem('vi', 'true');
-});
+}
 
 defaultVersion.addEventListener('click', () => {
     window.location.reload();
 
     localStorage.setItem('vi', 'false');
+    localStorage.setItem('viDarkTheme', 'false');
+    localStorage.setItem('viFontSize', 0);
+    localStorage.setItem('viLetterSpacing', 0);
 });
 
 const fontPlusBtn = document.getElementById('fontPlus');
@@ -23,9 +27,29 @@ const spacingMinusBtn = document.getElementById('spacingMinus');
 const bgWhiteBtn = document.getElementById('bgWhite');
 const bgBlackBtn = document.getElementById('bgBlack');
 
-let elementSize = 0 ;
+let elementSize = 0;
+let elementSpacing = 0;
 const elements = document.querySelectorAll('h1, h2, h3, h4, a, p, ul, span, small');
-const elementsBorder = document.querySelectorAll('.header-vi li');
+
+let lsFontSize = localStorage.getItem('viFontSize');
+let lsLetterSpacing = localStorage.getItem('viLetterSpacing');
+
+if (lsFontSize != 0) {
+    elements.forEach(item => {
+        const elementsFz = parseInt(window.getComputedStyle(item).getPropertyValue('font-size'));
+        item.style.fontSize = `${elementsFz + 2 * lsFontSize}px`;
+    });
+    elementSize = lsFontSize;
+    panelByDefault();
+}
+
+if (lsLetterSpacing != 0) {
+    elements.forEach(item => {
+        item.style.letterSpacing = `${lsLetterSpacing}px`;
+    });
+    elementSpacing = lsLetterSpacing;
+    panelByDefault();
+}
 
 fontPlusBtn.addEventListener('click', () => {
     if (elementSize < 3) {
@@ -36,6 +60,8 @@ fontPlusBtn.addEventListener('click', () => {
             item.style.fontSize = `${elementsFz + 2}px`;
         });
     }
+
+    localStorage.setItem('viFontSize', elementSize);
 
     panelByDefault();
 });
@@ -50,11 +76,10 @@ fontMinusBtn.addEventListener('click', () => {
         });
     }
 
+    localStorage.setItem('viFontSize', elementSize);
+
     panelByDefault();
-
 });
-
-let elementSpacing = 0;
 
 spacingPlusBtn.addEventListener('click', () => {
     if (elementSpacing < 3) {
@@ -64,6 +89,8 @@ spacingPlusBtn.addEventListener('click', () => {
     elements.forEach(item => {
         item.style.letterSpacing = `${elementSpacing}px`;
     });
+
+    localStorage.setItem('viLetterSpacing', elementSpacing);
 
     panelByDefault();
 });
@@ -78,31 +105,23 @@ spacingMinusBtn.addEventListener('click', () => {
         item.style.letterSpacing = `${elementsSpacing - 1}px`;
     });
 
+    localStorage.setItem('viLetterSpacing', elementSpacing);
+
     panelByDefault();
 });
 
-bgBlackBtn.addEventListener('click', () => {    
-    elements.forEach(item => {
-        item.style.color = '#fff';
-    });
-
-    elementsBorder.forEach(item => {
-        item.style.borderColor = '#fff';
-    });
+bgBlackBtn.addEventListener('click', () => {
+    localStorage.setItem('viDarkTheme', 'true');
 
     document.body.style.backgroundColor = '#111';
+    document.body.classList.add('vi-dark');
 });
 
-bgWhiteBtn.addEventListener('click', () => {    
-    elements.forEach(item => {
-        item.style.color = '';
-    });
-
-    elementsBorder.forEach(item => {
-        item.style.borderColor = '';
-    });
+bgWhiteBtn.addEventListener('click', () => {
+    localStorage.setItem('viDarkTheme', 'false');
 
     document.body.style.backgroundColor = '';
+    document.body.classList.remove('vi-dark');
 });
 
 function panelByDefault() {

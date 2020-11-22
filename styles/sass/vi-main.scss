@@ -331,6 +331,26 @@
     }
 }
 
+.vi-dark {
+    h1, h2, h3, a, p, span, .place-text, #date, .slide-title, .attr__item-title, .attr__info-item_text {
+        color: #fff !important;
+    }
+
+    .intro__places_item {
+        img {
+            filter: brightness(1) !important;
+        }
+
+        &:after {
+            display: none !important;
+        }
+    }
+
+    .afisha a, .afisha h2, .attr-slide, .clubs__content-item-vi {
+        border-color: #fff !important;
+    }
+}
+
 @media screen and (max-width: 1200.02px) {
     .attr {
         .attr-wrapper {

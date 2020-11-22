@@ -34,6 +34,16 @@
     }
 }
 
+.vi-dark {
+    h1, h2, h3, a, p, span, .partners__item-title {
+        color: #fff !important;
+    }
+
+    .partners__item {
+        border-color: #fff !important;
+    }
+}
+
 @media screen and (max-width: 768.02px) {
     .info {
         .attr__info {

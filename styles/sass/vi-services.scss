@@ -50,6 +50,16 @@
     }
 }
 
+.vi-dark {
+    h1, h2, h3, a, p, span, ul, li {
+        color: #fff !important;
+    }
+
+    .services__item {
+        border-color: #fff !important;
+    }
+}
+
 @media screen and (max-width: 992.02px) {
     .services {
         &__item {

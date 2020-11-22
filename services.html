@@ -16,6 +16,22 @@
     <title>Услуги - Городской парк куьтуры и отдыха г. Орла</title>
 </head>
 <body>    
+    <script>
+        if ((localStorage.getItem('vi')) == 'true') {
+            const visImpStyles = document.createElement('link');
+            visImpStyles.setAttribute('rel', 'stylesheet');
+            visImpStyles.setAttribute('href', 'styles/css/vi-services.min.css');
+            document.querySelector('head').append(visImpStyles);
+
+            if ((localStorage.getItem('viDarkTheme')) == 'true') {
+                document.body.style.backgroundColor = '#111';
+                document.body.classList.add('vi-dark');
+            } else {
+                document.body.style.backgroundColor = '';
+                document.body.classList.remove('vi-dark');
+            }
+        }
+    </script>
     <!-- Header -->
     <header class="header">
         <!-- MOBILE -->

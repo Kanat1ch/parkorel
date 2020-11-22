@@ -49,6 +49,17 @@
     }
 }
 
+.vi-dark {
+    h1, h2, h3, a, p, span, .attr__info-item_text, .attr__item-title, .attr__info i.fa {
+        color: #fff !important;
+    }
+
+    .attr__info, .attr__item {
+        border-color: #fff !important;
+    }
+}
+
+
 @media screen and (max-width: 768.02px) {
     .info {
         .attr__info {
