@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Styles -->
-    <link rel="stylesheet" href="styles/css/services.min.css">
+    <link rel="stylesheet" href="styles/css/vacancy.min.css">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -12,15 +12,15 @@
     <script src="https://use.fontawesome.com/4f5cd90764.js"></script>
     <!-- Scripts -->
     <script src="scripts/script.js" defer></script>
-    <script src="scripts/vi/vi-services.js" defer></script>
-    <title>Услуги - Городской парк куьтуры и отдыха г. Орла</title>
+    <script src="scripts/vi/vi-vacancy.js" defer></script>
+    <title>Вакансии - Городской парк куьтуры и отдыха г. Орла</title>
 </head>
 <body>    
     <script>
         if ((localStorage.getItem('vi')) == 'true') {
             const visImpStyles = document.createElement('link');
             visImpStyles.setAttribute('rel', 'stylesheet');
-            visImpStyles.setAttribute('href', 'styles/css/vi-services.min.css');
+            visImpStyles.setAttribute('href', 'styles/css/vi-vacancy.min.css');
             document.querySelector('head').append(visImpStyles);
 
             if ((localStorage.getItem('viDarkTheme')) == 'true') {
@@ -147,62 +147,31 @@
             <li><a href="vacancy.html">Вакансии</a></li>
         </ul>
     </section>
-    
+
     <!-- Intro -->
     <section class="intro">
-        <h1>Услуги</h1>
+        <h1>Вакансии</h1>
     </section>
-
-    <section class="services">
-        <a href="tel:+7(4862)598808" class="services__item">
-            <div class="services__item-title">
-                <p>Прокат ростовых кукол</p>
+    
+    <!-- Vacancy -->
+    <section class="vacancy">
+        <a href="vacancy-card.html" class="vacancy__item">
+            <div class="vacancy__item-img"><img src="img/vacancy/podsobniy.jpg" alt=""></div>
+            <div class="vacancy__item-title">
+                Подсобный рабочий
             </div>
-
-            <ul>
-                <li>— Ростовая кукла "Микки-Маус"</li>
-                <li>— Ростовая кукла "Снеговик"</li>
-                <li>— Ростовая кукла "Медведь"</li>
-                <li>— Ростовая кукла "Заяц"</li>
-                <li>— Ростовая кукла "Тигр"</li>
-            </ul>
         </a>
-        <a href="tel:+7(4862)598808" class="services__item">
-            <div class="services__item-title">
-                <p>Бронирование сценических площадей</p>
+        <a href="#" class="vacancy__item">
+            <div class="vacancy__item-img"><img src="img/vacancy/electric.jpg" alt=""></div>
+            <div class="vacancy__item-title">
+                Электрик
             </div>
-            <ul>
-                <li>— Территория перед колоннадой главного входа</li>
-                <li>— Летняя сцена</li>
-                <li>— Территория перед зданием "Сфера-Т"</li>
-                <li>— Территория на детской зоне аттракционов</li>
-            </ul>
         </a>
-        <a href="tel:+7(4862)598808" class="services__item">
-            <div class="services__item-title">
-                <p>Аренда аппаратуры</p>
+        <a href="#" class="vacancy__item">
+            <div class="vacancy__item-img"><img src="img/vacancy/driver.jpg" alt=""></div>
+            <div class="vacancy__item-title">
+                Водитель
             </div>
-
-            <ul>
-                <li>— Акустические колонки до 7 КВт (4 шт.)</li>
-                <li>— Сабвуфер 2 КВт (2шт.)</li>
-                <li>— Пульт микшерный на 14 каналов (1 шт.)</li>
-                <li>— Мультикор 15 метров (1 шт.)</li>
-                <li>— Микрофоны шнуровые</li>
-                <li>— Микрофоны радио</li>
-                <li>— Ноутбук музыкальынй (1 шт.)</li>
-                <li>— Удлинители, стойки и т.д.</li>
-                <li>— Видеопроектор с экраном</li>
-            </ul>
-        </a>
-        <a href="tel:+7(4862)598808" class="services__item">
-            <div class="services__item-title">
-                <p>Использование базы МАУК "ГПКиО"</p>
-            </div>
-
-            <ul>
-                <li>— Для репетиций и записи солистов и вокально-инструментальных ансамблей (ВИА)</li>
-            </ul>
         </a>
     </section>
 

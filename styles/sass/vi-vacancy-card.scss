@@ -1,0 +1,131 @@
+@import 'vi.scss';
+
+.blur {
+    display: none;
+}
+
+.vacancy-card {
+    background: none;
+    padding-top: 70px;
+
+    &:after {
+        display: none;
+    }
+
+    &__content {
+        small {
+            color: #000;
+        }
+
+        h2 {
+            color: #000;
+        }
+
+        &_text {
+            color: #000;
+        }
+
+        .salary {
+            color: #000;
+        }
+
+        .requirements, .duties {
+            color: #000;
+        }   
+
+        .send-request {
+            border: 1px solid #000;
+            background-color: transparent;
+            transition: none;
+
+            &:hover {
+                background-color: transparent;
+                color: #000;
+            }
+        }
+    }
+}
+
+.request-form {
+    background-color: #fff;
+    border: 2px solid #000;
+
+    h3 {
+        color: #000;
+    }
+
+    form {
+        .form-item {
+            label {
+                color: #000;
+            }
+    
+            input {
+                border: 1px solid #000;
+                color: #000;
+            }
+
+            button {
+                background-color: rgb(129, 255, 129);
+                border: 1px solid #000;
+            }
+        }
+    }
+
+    .close-modal {
+        color: #000;
+    }
+}
+
+.vi-dark {
+    h1, h2, h3, h4, a, p, ul, span, small {
+        color: #fff !important;
+    }
+
+    .vacancy-card {
+        &__content {
+            .send-request {
+                outline: 1px solid #fff;
+                color: #fff;
+                background-color: transparent;
+                transition: none;
+    
+                &:hover {
+                    background-color: transparent;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .request-form {
+        background-color: #111;
+        border: 2px solid #fff;
+    
+        h3 {
+            color: #fff;
+        }
+    
+        form {
+            .form-item {
+                label {
+                    color: #fff;
+                }
+        
+                input {
+                    border: 1px solid #fff;
+                    color: #fff;
+                }
+    
+                button {
+                    background-color: rgb(255, 255, 255);
+                    border: 1px solid #fff;
+                }
+            }
+        }
+    
+        .close-modal {
+            color: #fff;
+        }
+    }
+}

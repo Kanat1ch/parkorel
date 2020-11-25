@@ -8,7 +8,7 @@
     }
 }
 
-.clubs {
+.vacancy {
     &__item {
         border: 1px dashed #000;
         padding: 30px 0;
@@ -38,11 +38,11 @@
 }
 
 .vi-dark {
-    h1, h2, h3, a, p, span, .attr__info, .clubs__item-title {
+    h1, h2, h3, a, p, span, .vacancy__item-title {
         color: #fff !important;
     }
 
-    .clubs__info, .clubs__item {
+    .vacancy__info, .vacancy__item {
         border-color: #fff !important;
     }
 }

@@ -6,7 +6,7 @@ visImpBtn.addEventListener('click', linkStyles);
 
 function linkStyles() {
     visImpStyles.setAttribute('rel', 'stylesheet');
-    visImpStyles.setAttribute('href', 'styles/css/vi-clubs.min.css');
+    visImpStyles.setAttribute('href', 'styles/css/vi-vacancy.min.css');
     document.querySelector('head').append(visImpStyles);
 
     localStorage.setItem('vi', 'true');
@@ -30,7 +30,7 @@ const bgBlackBtn = document.getElementById('bgBlack');
 
 let elementSize = 0;
 let elementSpacing = 0;
-const elements = document.querySelectorAll('h1, h2, h3, a, p, span, .clubs__item-title');
+const elements = document.querySelectorAll('h1, h2, h3, a, p, span, .vacancy__item-title');
 
 let lsFontSize = localStorage.getItem('viFontSize');
 let lsLetterSpacing = localStorage.getItem('viLetterSpacing');

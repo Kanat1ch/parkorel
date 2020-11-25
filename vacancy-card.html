@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Styles -->
-    <link rel="stylesheet" href="styles/css/services.min.css">
+    <link rel="stylesheet" href="styles/css/vacancy-card.min.css">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -12,15 +12,15 @@
     <script src="https://use.fontawesome.com/4f5cd90764.js"></script>
     <!-- Scripts -->
     <script src="scripts/script.js" defer></script>
-    <script src="scripts/vi/vi-services.js" defer></script>
-    <title>Услуги - Городской парк куьтуры и отдыха г. Орла</title>
+    <script src="scripts/vi/vi-vacancy-card.js" defer></script>
+    <title>Подсобный рабочий - Городской парк куьтуры и отдыха г. Орла</title>
 </head>
-<body>    
+<body>
     <script>
         if ((localStorage.getItem('vi')) == 'true') {
             const visImpStyles = document.createElement('link');
             visImpStyles.setAttribute('rel', 'stylesheet');
-            visImpStyles.setAttribute('href', 'styles/css/vi-services.min.css');
+            visImpStyles.setAttribute('href', 'styles/css/vi-vacancy-card.min.css');
             document.querySelector('head').append(visImpStyles);
 
             if ((localStorage.getItem('viDarkTheme')) == 'true') {
@@ -148,63 +148,71 @@
         </ul>
     </section>
     
-    <!-- Intro -->
-    <section class="intro">
-        <h1>Услуги</h1>
+    <section class="vacancy-card">
+        <div class="blur"></div>
+        <div class="vacancy-card__content">
+            <h2>Подсобный рабочий</h2>
+
+            <div class="salary">
+                <p>Заработная плата: <span>11000 руб.</span></p>
+            </div>
+
+            <div class="requirements">
+                <h4>Требования:</h4>
+                <ul>
+                    <li>— Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, eius cumque.</li>
+                    <li>— Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                    <li>— Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit sunt temporibus eligendi similique. Unde, laboriosam?</li>
+                    <li>— Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+                    <li>— Lorem ipsum dolor sit amet.</li>
+                </ul>
+            </div>
+
+            <div class="duties">
+                <h4>Обязанности:</h4>
+                <ul>
+                    <li>— Lorem ipsum dolor, sit amet consectetur adipisicing.</li>
+                    <li>— Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, officiis.</li>
+                    <li>— Lorem ipsum dolor sit.</li>
+                </ul>
+            </div>
+
+            <button class="send-request" id="sendRequest">Оставить заявку</button>
+        </div>
     </section>
 
-    <section class="services">
-        <a href="tel:+7(4862)598808" class="services__item">
-            <div class="services__item-title">
-                <p>Прокат ростовых кукол</p>
+    <div class="request-form">
+        <h3>Заявка на должность "<span></span>"</h3>
+        <form action="">
+            <div class="form-item">
+                <label for="name">Имя</label>
+                <input type="text" id="name" name="name" placeholder="Введите Ваше имя" required>
             </div>
-
-            <ul>
-                <li>— Ростовая кукла "Микки-Маус"</li>
-                <li>— Ростовая кукла "Снеговик"</li>
-                <li>— Ростовая кукла "Медведь"</li>
-                <li>— Ростовая кукла "Заяц"</li>
-                <li>— Ростовая кукла "Тигр"</li>
-            </ul>
-        </a>
-        <a href="tel:+7(4862)598808" class="services__item">
-            <div class="services__item-title">
-                <p>Бронирование сценических площадей</p>
+            <div class="form-item">
+                <label for="surname">Фамилия</label>
+                <input type="text" id="surname" name="surname" placeholder="Введите Вашу фамилию" required>
             </div>
-            <ul>
-                <li>— Территория перед колоннадой главного входа</li>
-                <li>— Летняя сцена</li>
-                <li>— Территория перед зданием "Сфера-Т"</li>
-                <li>— Территория на детской зоне аттракционов</li>
-            </ul>
-        </a>
-        <a href="tel:+7(4862)598808" class="services__item">
-            <div class="services__item-title">
-                <p>Аренда аппаратуры</p>
+            <div class="form-item">
+                <label for="middle-name">Отчество</label>
+                <input type="text" id="niddle-name" name="middle-name" placeholder="Введите Ваше отчество" required>
             </div>
-
-            <ul>
-                <li>— Акустические колонки до 7 КВт (4 шт.)</li>
-                <li>— Сабвуфер 2 КВт (2шт.)</li>
-                <li>— Пульт микшерный на 14 каналов (1 шт.)</li>
-                <li>— Мультикор 15 метров (1 шт.)</li>
-                <li>— Микрофоны шнуровые</li>
-                <li>— Микрофоны радио</li>
-                <li>— Ноутбук музыкальынй (1 шт.)</li>
-                <li>— Удлинители, стойки и т.д.</li>
-                <li>— Видеопроектор с экраном</li>
-            </ul>
-        </a>
-        <a href="tel:+7(4862)598808" class="services__item">
-            <div class="services__item-title">
-                <p>Использование базы МАУК "ГПКиО"</p>
+            <div class="form-item">
+                <label for="phone">Контактный телефон</label>
+                <input type="text" id="phone" name="phone" placeholder="Введите Ваш телефон" required>
             </div>
-
-            <ul>
-                <li>— Для репетиций и записи солистов и вокально-инструментальных ансамблей (ВИА)</li>
-            </ul>
-        </a>
-    </section>
+            <div class="form-item personal">
+                <input type="checkbox" id="personalData" name="personalData" required>
+                <label for="personalData">Даю согласие на обработку персональных данных</label>
+            </div>
+            <div class="form-item">
+                <button>Оставить заявку</button>
+            </div>
+            <div class="close-modal">
+                &times;
+            </div>
+        </form>
+    </div>
+    <div class="overlay"></div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -231,5 +239,39 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const sendRequestBtn = document.querySelector('.send-request');
+        const modal = document.querySelector('.request-form');
+        const overlay = document.querySelector('.overlay');
+        const closeModalBtn = document.querySelector('.close-modal');
+        const form = document.querySelector('form');
+        const vacancyName = document.querySelector('.vacancy-card__content h2').textContent;
+        document.querySelector('.request-form h3 span').textContent = vacancyName;
+        console.log(vacancyName);
+
+        sendRequestBtn.addEventListener('click', () => {
+            document.body.style.overflow = 'hidden';
+            modal.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', closeModal);
+        document.body.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                modal.style.display = 'none';
+                overlay.style.display = 'none';
+                document.body.style.overflowY = '';
+            }
+        });
+
+        function closeModal() {
+            modal.style.display = '';
+            overlay.style.display = '';
+            document.body.style.overflow = '';
+            form.reset();
+        }
+    </script>
 </body>
 </html>
