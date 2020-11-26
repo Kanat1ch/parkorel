@@ -15,7 +15,7 @@
     <script src="https://use.fontawesome.com/4f5cd90764.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <!-- Scripts -->
-    <script src="scripts/weather.js" defer></script>
+    <script src="scripts/realtime.js" defer></script>
     <script src="scripts/script.js" defer></script>
     <script src="scripts/main.js" defer></script>
     <script src="scripts/vi/vi-main.js" defer></script>
@@ -299,13 +299,6 @@
                 <div class="place-text">Атмосферные беседки</div>
             </div>
         </div>
-        <div class="weather">
-            <div class="weather__top">
-                <div class="weather-deg"></div>
-                <div class="weather-icon"></div>
-            </div>
-            <div class="weather-description"></div>
-        </div>
     </section>
 
     <!-- BLOCK: Afisha -->
@@ -350,6 +343,26 @@
                 <hr>
             </div>
         </div>        
+    </section>
+
+    <!-- BLOCK: Weather -->
+    <section class="realtime">
+        <div class="realtime__content">
+            <div class="date">
+                <img src="img/main/realtime-icons/calendar.png" alt="">
+                <p></p>
+            </div>
+    
+            <div class="time">
+                <img src="img/main/realtime-icons/clock.png" alt="">
+                <p></p>
+            </div>
+    
+            <div class="weather">
+                <div id="weather-icon"></div>
+                <p><span id="weather-degrees"></span>, <span id="weather-description"></span></p>
+            </div>
+        </div>
     </section>
 
     <!-- BLOCK: Attractions -->

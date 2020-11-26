@@ -134,6 +134,10 @@
     }
 }
 
+.realtime {
+    display: none;
+}
+
 .attr {
     &__header {
         flex-direction: column;
