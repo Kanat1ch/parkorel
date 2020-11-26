@@ -10,6 +10,8 @@ function linkStyles() {
     document.querySelector('head').append(visImpStyles);
 
     localStorage.setItem('vi', 'true');
+    document.body.style.overflowY = '';
+    document.documentElement.style.overflow = '';
 }
 
 defaultVersion.addEventListener('click', () => {

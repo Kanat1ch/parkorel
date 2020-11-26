@@ -26,6 +26,9 @@ function linkStyles() {
     visImpStyles.setAttribute('href', 'styles/css/vi-main.min.css');
     document.querySelector('head').append(visImpStyles);
 
+    document.body.style.overflowY = '';
+    document.documentElement.style.overflow = '';
+
     const hr = document.querySelectorAll('hr');
     hr.forEach(item => {
         item.style.display = 'none';

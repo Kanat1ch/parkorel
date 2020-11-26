@@ -357,8 +357,12 @@ a:focus, a:active {
                 transform: rotate(90deg) scale(1.7);
             }
 
-            &:last-child a {
-                color: #aaa;
+            a[href="vacancy.html"] {
+                color: #aaa !important;
+            }
+
+            a.vis-imp-btn {
+                color: rgb(0, 89, 255);
             }
         }
     } 
@@ -742,6 +746,10 @@ a:focus, a:active {
 
     .menu-btn {
         display: flex;
+    }
+
+    header button.vis-imp-btn {
+        display: none;
     }
 
     .intro {
