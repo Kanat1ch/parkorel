@@ -1,5 +1,5 @@
 let preloader = document.querySelector('.preloader');
-if (sessionStorage.getItem('visited') != '1') {
+if ((sessionStorage.getItem('visited') != '1') && ((localStorage.getItem('vi')) != 'true')) {
     showPreloader();
     sessionStorage.setItem('visited', '1');
 }

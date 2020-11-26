@@ -316,15 +316,16 @@ a:focus, a:active {
 .mobile-menu {
     opacity: 0;
     position: absolute;
-    left: -100vw;
+    left: 0;
     top: 0;
+    transform: translateX(-100vw);
     width: 100vw;
     min-height: 100vh;
     height: 100%;
     overflow: hidden;
     background: #fff;
     z-index: 9;
-    transition: left 0.4s ease-out, opacity 0.4s ease-out;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
 
     ul {
         list-style: none;
@@ -416,7 +417,7 @@ a:focus, a:active {
 
 // Menu animation
 .active {
-    left: 0;
+    transform: translateX(0);
     opacity: 1;
 }
 
