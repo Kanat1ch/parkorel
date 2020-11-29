@@ -13,6 +13,12 @@
     }
 
     &__content {
+        .to-prev-page {
+            img {
+                filter: brightness(0);
+            }
+        }
+
         small {
             color: #000;
         }
@@ -30,5 +36,11 @@
 .vi-dark {
     h1, h2, h3, a, p, span, small {
         color: #fff !important;
+    }
+
+    .to-prev-page {
+        img {
+            filter: brightness(1);
+        }
     }
 }

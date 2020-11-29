@@ -1,9 +1,10 @@
-const visImpBtn = document.querySelector('.vis-imp-btn');
+const visImpBtn = document.querySelectorAll('.vis-imp-btn');
 const defaultVersion = document.querySelector('#defaultVersion');
 const visImpStyles = document.createElement('link');
 
-
-visImpBtn.addEventListener('click', linkStyles);
+visImpBtn.forEach(item => {
+    item.addEventListener('click', linkStyles);
+});
 
 function linkStyles() {
     visImpStyles.setAttribute('rel', 'stylesheet');
