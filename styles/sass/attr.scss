@@ -1,5 +1,4 @@
 @import "style.scss";
-
 .intro {
     background: url(../../img/attr/extrime.jpg) center center/cover no-repeat;
 }
@@ -10,7 +9,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
     &__info {
         width: 100%;
         padding: 20px 0;
@@ -19,7 +17,6 @@
         justify-content: center;
         align-items: center;
         margin: 30px 0;
-
         &-item {
             display: flex;
             height: 100%;
@@ -27,25 +24,21 @@
             color: #fff;
             margin: 0 40px;
             font-weight: 500;
-
             i.fa {
                 font-size: 32px;
                 margin-right: 10px;
             }
         }
     }
-
     &__item {
         margin: 0 0 30px;
         position: relative;
         width: 49%;
-
         &:hover {
             img {
                 transform: scale(1.1);
             }
         }
-
         &:after {
             position: absolute;
             display: block;
@@ -58,16 +51,13 @@
             transition: background-color .4s ease;
             z-index: 1;
         }
-
         &:hover:after {
             background-color: rgba(0, 0, 0, 0.8);
         }
-
         &-img {
             width: 100%;
             height: 300px;
             overflow: hidden;
-
             img {
                 width: 100%;
                 height: 100%;
@@ -75,7 +65,6 @@
                 transition: transform 0.2s linear;
             }
         }
-
         &-title {
             position: absolute;
             width: 100%;
@@ -99,7 +88,6 @@
                 font-size: 13px;
             }
         }
-
         &__item {
             &-img {
                 height: 260px;
@@ -114,13 +102,11 @@
             &-item {
                 margin: 0 10px;
                 font-size: 12px;
-
                 i.fa {
                     font-size: 20px;
                 }
             }
         }
-
         &__item {
             &-img {
                 height: 200px;
@@ -133,21 +119,17 @@
     .attr {
         &__info {
             flex-wrap: wrap;
-
             &-item {
                 width: 100%;
                 height: auto;
                 margin: 10px 10%;
-
                 &:first-child {
                     margin-left: calc(10% + 4px);
                 }
             }
         }
-
         &__item {
             width: 100%;
-
             &-img {
                 height: 300px;
             }
@@ -164,4 +146,3 @@
         }
     }
 }
-
