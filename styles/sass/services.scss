@@ -1,8 +1,6 @@
 @import "style.scss";
-
-
 .intro {
-    background: url(../../img/services/services_bg.jpg) center center/cover no-repeat;
+    background: center center/cover no-repeat;
 }
 
 .services {
@@ -11,7 +9,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
     &__item {
         position: relative;
         width: 49%;
@@ -23,7 +20,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
         &:after {
             position: absolute;
             display: block;
@@ -34,20 +30,16 @@
             transition: background-color .2s linear;
             z-index: 2;
         }
-
         &:hover:after {
             background-color: rgba(0, 0, 0, 0.9);
         }
-
         &:hover ul {
             opacity: 1;
             transform: translate(30px, -50%);
         }
-
         &:hover &-title {
             transform: translateY(-110px);
         }
-
         &-title {
             font-size: 18px;
             text-transform: uppercase;
@@ -56,27 +48,21 @@
             transform: translateX(0);
             transition: transform .3s ease;
         }
-
         &:nth-child(1) {
-            background: url(../../img/services/kukly.jpg) center center/cover no-repeat;
+            background: center center/cover no-repeat;
         }
-
         &:nth-child(2) {
-            background: url(../../img/services/sferat.jpg) center center/cover no-repeat;
+            background: center center/cover no-repeat;
         }
-
         &:nth-child(3) {
-            background: url(../../img/services/app.jpg) center center/cover no-repeat;
+            background: center center/cover no-repeat;
         }
-
         &:nth-child(4) {
-            background: url(../../img/services/baza.jpg) center center/cover no-repeat;
+            background: center center/cover no-repeat;
         }
-
         * {
             z-index: 3;
         }
-
         ul {
             position: absolute;
             top: 50%;
@@ -105,32 +91,26 @@
     .services {
         &__item {
             height: 250px;
-
             &:after {
                 background-color: rgba(0, 0, 0, 0.8);
             }
-
             &:hover &-title {
                 transform: translateY(0);
             }
-
             &-title {
                 position: absolute;
                 left: 15px;
                 top: 10px;
             }
-
             ul {
                 left: 10px;
                 top: 70px;
                 opacity: 1;
                 transform: translateX(0);
             }
-
             &:hover ul {
                 transform: translate(0);
             }
-
             ul li {
                 font-size: 15px;
             }
@@ -143,7 +123,6 @@
         &__item {
             width: 100%;
             height: 350px;
-
             &-title {
                 top: 20px;
                 text-align: left;
