@@ -44,6 +44,11 @@ else
                                 <li class="nav-label"><a href="partners_add.php">Добавить партнеров</a></li>
                                 <li class="nav-label"><a href="servicesall.php">Все сервисы</a></li>
                                 <li class="nav-label"><a href="services_add.php">Добавить сервис</a></li>
+                                <li class="nav-label"><a href="docsall.php">Все документы</a></li>
+                                <li class="nav-label"><a href="docs_add.php">Добавить документ</a></li>
+                                <li class="nav-label"><a href="vacancyall.php">Все вакансии</a></li>
+                                <li class="nav-label"><a href="vacancy_add.php">Добавить вакансии</a></li>
+                                <li class="nav-label"><a href="requestall.php">Заявки на работу</a></li>
                                 
                     </ul>
                 </nav>

@@ -44,6 +44,7 @@
     ini_set('display_startup_errors', 1);
     require_once 'header.php';
     $club_id = $_GET['club_id'];
+    $cid = $_GET['club_id'];
     if (!is_numeric($club_id)) exit();
     $club = get_club_by_id($club_id);
     ?>
@@ -67,7 +68,12 @@
             </div>
         </div>
     </section>
-
+    <?php 
+            $cimg = get_clubimg($cid);
+            ?>
+            <?php foreach ($cimg as $cimgs):?>
+                <img src="admin/img/clubs/<?=$cimgs['img']?>" alt="">
+                <?php endforeach; ?>
     <?php 
     require_once 'footer.php';
     ?>

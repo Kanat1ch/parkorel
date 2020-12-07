@@ -19,18 +19,14 @@ session_start();
 <div class="page-header">
                 <h1>Все записи:</h1>
             </div>  
-            <?php $posts = get_posts();?>
-            <?php foreach ($posts as $post):?>
+            <?php $docs = get_docs();?>
+            <?php foreach ($docs as $doc):?>
             <div class="card mb-3" style="max-width: 1040px;">
   <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="img/posts/<?=$post['img']?>" class="card-img" alt="...">
-    </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title"><a href="post_info.php?attr_id=<?=$post['id'];?>"><?=$post['title']?></a></h5>
-        <p class=><a class="btn btn-dark" href="post_info.php?post_id=<?=$post['id'];?>">Читать больше</a><a class="btn btn-dark" href="post_update.php?post_id=<?=$post['id'];?>">Редактировать</a><a class="btn btn-dark" href="post_upload.php?post_id=<?=$post['id'];?>">Добавить картинку</a><a class="btn btn-red" href="post_del.php?del_post=<?=$post['id'];?>">Удалить</a></p>
-        <p class="card-text"><small class="text-muted">17 октября 2002</small> <small class="text-muted">Категория</small></p>
+        <h5 class="card-title"><a href="docs/<?=$doc['link'];?>"><?=$doc['title']?></a></h5>
+        <p class=><a class="btn btn-red" href="docs_del.php?del_docs=<?=$doc['id'];?>">Удалить</a></p>
       </div>
     </div>
   </div>

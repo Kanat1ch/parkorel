@@ -160,6 +160,9 @@
     <script src="scripts/vi/vi-preloader.js"></script>
 
     <?php 
+    ini_set('error_reporting', E_ALL);
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
     require_once 'header.php';
     ?>
     
@@ -203,37 +206,29 @@
         </div>
 
         <div class="afisha__items">
-            <a href="afisha-card.php" class="afisha__items-main">
+        <?php $lposts = get_last_posts();?>
+            <?php foreach ($lposts as $lpost):?>
+            <a href="afisha-card.php?post_id=<?=$lpost['id'];?>" class="afisha__items-main" style="background-image: url(admin/img/posts/<?=$lpost['img']?>);">
                 <div class="afisha__items-main_content">
                     <div class="main-text">
-                        <small id="date">Начало: 6 апреля 2020</small>
-                        <h2>Акарицидная обработка</h2>
-                        <p>Доводим до вашего сведения, что в связи с плановой акарицидной обработкой (обработкой против клещей), территория Городского парка культуры и отдыха будет закрыта для посещений с 6 апреля по 12 апреля, включительно.</p>
+                        <small id="date">Начало: <?=$lpost['start'];?></small>
+                        <h2><?=$lpost['title'];?></h2>
+                        <p><?=$lpost['content'];?></p>
                     </div>
                 </div>
             </a>
+            <?php endforeach; ?>
             <div class="afisha__items-others">
+            <?php $tposts = get_three_posts();?>
+            <?php foreach ($tposts as $tpost):?>
                 <hr>
                 <div class="other-afisha">
-                    <a href="#" class="other-logo"></a>
-                    <div class="other-title"><a href="#">Национальные проекты России. Опрос</a>
-                    <small id="date">Начало: 17 августа 2020</small>
+                    <a href="afisha-card.php?post_id=<?=$tpost['id'];?>" class="other-logo" style="background-image: url(admin/img/posts/<?=$tpost['img']?>);"></a>
+                    <div class="other-title"><a href="#"><?=$tpost['title'];?></a>
+                    <small id="date">Начало: <?=$tpost['start'];?></small>
                     </div>
                 </div>
-                <hr>
-                <div class="other-afisha">
-                    <a href="#" class="other-logo"></a>
-                    <div class="other-title"><a href="#">Национальные проекты России. Опрос</a>
-                    <small id="date">Начало: 17 августа 2020</small>
-                    </div>
-                </div>
-                <hr>
-                <div class="other-afisha">
-                    <a href="#" class="other-logo"></a>
-                    <div class="other-title"><a href="#">Национальные проекты России. Опрос</a>
-                    <small id="date">Начало: 17 августа 2020</small>
-                    </div>
-                </div>
+                <?php endforeach; ?>
                 <hr>
             </div>
         </div>        
@@ -268,22 +263,13 @@
 
     <div class="attr-container">
         <div class="attr-wrapper">
-            <a href="attr-card.php" class="attr-slide">
-                <img src="img/attr/koleso.jpg" alt="">
-                <div class="slide-title">Круговой обзор</div>
+        <?php $attrs = get_attrs();?>
+            <?php foreach ($attrs as $attr):?>
+            <a href="attr-card.php?attr_id=<?=$attr['id'];?>" class="attr-slide">
+                <img src="admin/img/attr/<?=$attr['img']?>" alt="">
+                <div class="slide-title"><?=$attr['title']?></div>
             </a>
-            <a href="#" class="attr-slide">
-                <img src="img/attr/extrime.jpg" alt="">
-                <div class="slide-title">Экстрим</div>
-            </a>
-            <a href="#" class="attr-slide">
-                <img src="img/attr/vihr.jpg" alt="">
-                <div class="slide-title">Вихрь</div>
-            </a>
-            <a href="#" class="attr-slide">
-                <img src="img/attr/avtodrom.jpg" alt="">
-                <div class="slide-title">Автодром</div>
-            </a>
+            <?php endforeach; ?>
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
@@ -298,107 +284,19 @@
         </div>
 
         <div class="clubs__content">
+        <?php $clubs = get_clubs();?>
+            <?php foreach ($clubs as $club):?>
             <div class="clubs__content-item">
                 <i class="fa fa-angle-down clubs-showfull" aria-hidden="true"></i>
                 <div class="clubs-title">
-                    <h2>Школа исторического танца "Империя"</h2>
-                    <span><a href="#">Узнать больше <i class="fa fa-angle-right" aria-hidden="true"></i></a></span>
+                    <h2><?=$club['title'];?></h2>
+                    <span><a href="clubs-card.php?club_id=<?=$club['id'];?>">Узнать больше <i class="fa fa-angle-right" aria-hidden="true"></i></a></span>
                 </div>
                 <div class="clubs-description">
-                    <p>Бальный этикет, мода 16 – 19 веков, основные шаги и рисунки танцев, манера исполнения, положение рук и корпуса, язык веера и «тайный» язык общения на балу – всё это и многое другое вы узнаете, посетив занятия школы.</p>
+                    <p><?=$club['content'];?></p>
                 </div>
-            </div>
-            <div class="clubs__content-item">
-                <i class="fa fa-angle-down clubs-showfull" aria-hidden="true"></i>
-                <div class="clubs-title">
-                    <h2>Школа танцев для детей и взрослых "Танцплощадка"</h2>
-                    <span><a href="#">Узнать больше <i class="fa fa-angle-right" aria-hidden="true"></i></a></span>
-                </div>
-                <div class="clubs-description">
-                    <p>Вас научат красиво двигаться, грамотно владеть своим телом, а также познакомят с различными танцевальными направлениями в хореографии</p>
-                </div>
-            </div>
-            <div class="clubs__content-item">
-                <i class="fa fa-angle-down clubs-showfull" aria-hidden="true"></i>
-                <div class="clubs-title">
-                    <h2>Школа этнического танца "Империя"
-                    </h2>
-                    <span><a href="#">Узнать больше <i class="fa fa-angle-right" aria-hidden="true"></i></a></span>
-                </div>
-                <div class="clubs-description">
-                    <p>Студия существует с 2014 года. Участницы студий многократные победители Всероссийских и Региональных конкурсов и фестивалей. Руководитель - титулованная танцовщица серебряный призер международного конкурса "Мархаба", организатор международных конкурсов, судья Общероссийской танцевальной организации.</p>
-                </div>
-            </div>
-            <div class="clubs__content-item">
-                <i class="fa fa-angle-down clubs-showfull" aria-hidden="true"></i>
-                <div class="clubs-title">
-                    <h2>Школа танца «Эмоушен»</h2>
-                    <span><a href="#">Узнать больше <i class="fa fa-angle-right" aria-hidden="true"></i></a></span>
-                </div>
-                <div class="clubs-description">
-                    <p>Красиво, профессионально, энергично и современно. Это стиль - это микс, бурное сочетание многих танцевальных стилей и направлений, костюмов, музыки! </p>
-                </div>
-            </div>
-            <div class="clubs__content-item">
-                <i class="fa fa-angle-down clubs-showfull" aria-hidden="true"></i>
-                <div class="clubs-title">
-                    <h2>Краеведчсекий отряд КПКиО «ПАРКoffKo»</h2>
-                    <span><a href="#">Узнать больше <i class="fa fa-angle-right" aria-hidden="true"></i></a></span>
-                </div>
-                <div class="clubs-description">
-                    <p>Красиво, профессионально, энергично и современно. Это стиль - это микс, бурное сочетание многих танцевальных стилей и направлений, костюмов, музыки!</p>
-                </div>
-            </div>
-            <div class="clubs__content-item">
-                <i class="fa fa-angle-down clubs-showfull" aria-hidden="true"></i>
-                <div class="clubs-title">
-                    <h2>Профессиональная школа танцев "Pro Dance"</h2>
-                    <span><a href="#">Узнать больше <i class="fa fa-angle-right" aria-hidden="true"></i></a></span>
-                </div>
-                <div class="clubs-description">
-                    <p>Школа существует более 5 лет. У нас профессиональные хореографы ,с богатым хореографическим стажем. В нашей школе преподается классическая, современная хореография, а также Брейк-Данс, Хип-Хоп хореография.</p>
-                </div>
-            </div>
-            <div class="clubs__content-item">
-                <i class="fa fa-angle-down clubs-showfull" aria-hidden="true"></i>
-                <div class="clubs-title">
-                    <h2>Студия современного танца "Plastic Line"</h2>
-                    <span><a href="#">Узнать больше <i class="fa fa-angle-right" aria-hidden="true"></i></a></span>
-                </div>
-                <div class="clubs-description">
-                    <p>Plastic Line - студия профессионального обучения танцам. Работаем с танцевальными стилями: Hip-Hop, R&B, Dancehall, Lady Dance, New Style, Juzz-Funk, Twerk, Waving.</p>
-                </div>
-            </div>
-            <div class="clubs__content-item">
-                <i class="fa fa-angle-down clubs-showfull" aria-hidden="true"></i>
-                <div class="clubs-title">
-                    <h2>Вокальная студия "Шарм"</h2>
-                    <span><a href="#">Узнать больше <i class="fa fa-angle-right" aria-hidden="true"></i></a></span>
-                </div>
-                <div class="clubs-description">
-                    <p>Вокальная студия Шарм проводит обучение искусству эстрадного вокала: постановка голоса, общее музыкальное и культурное развитие, развитие гармонического слуха и многое другое.</p>
-                </div>
-            </div>
-            <div class="clubs__content-item">
-                <i class="fa fa-angle-down clubs-showfull" aria-hidden="true"></i>
-                <div class="clubs-title">
-                    <h2>Вечерки в Орле</h2>
-                    <span><a href="#">Узнать больше <i class="fa fa-angle-right" aria-hidden="true"></i></a></span>
-                </div>
-                <div class="clubs-description">
-                    <p>На занятиях мы учим песни, играем в традиционные игры, поём и пляшем, изучаем традиционные праздники и готовимся к ним.</p>
-                </div>
-            </div>
-            <div class="clubs__content-item">
-                <i class="fa fa-angle-down clubs-showfull" aria-hidden="true"></i>
-                <div class="clubs-title">
-                    <h2>Клуб лазертаг игр КОМБАТ 57</h2>
-                    <span><a href="clubs-card.php">Узнать больше <i class="fa fa-angle-right" aria-hidden="true"></i></a></span>
-                </div>
-                <div class="clubs-description">
-                    <p>Лазертаг или лазерный бой — происходящая в реальном времени и пространстве активная игра, суть которой заключается в поражении игроков и специальных интерактивных мишеней (АУЛов) — «баз», «мин» и т.п. — безопасными «лазерными» выстрелами из «бластера».</p>
-                </div>
-            </div>
+            </div> 
+            <?php endforeach; ?>
         </div>
     </section>
 

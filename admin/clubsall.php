@@ -29,7 +29,7 @@ session_start();
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title"><a href="club_info.php?club_id=<?=$club['id'];?>"><?=$club['title']?></a></h5>
-        <p class=><a class="btn btn-dark" href="club_info.php?club_id=<?=$club['id'];?>">Читать больше</a><a class="btn btn-dark" href="club_update.php?club_id=<?=$club['id'];?>">Редактировать</a><a class="btn btn-dark" href="upload_post.php?post_id=<?=$post['id'];?>">Добавить картинку</a><a class="btn btn-red" href="club_del.php?del_club=<?=$club['id'];?>">Удалить</a></p>
+        <p class=><a class="btn btn-dark" href="club_info.php?club_id=<?=$club['id'];?>">Читать больше</a><a class="btn btn-dark" href="club_update.php?club_id=<?=$club['id'];?>">Редактировать</a><a class="btn btn-dark" href="upload_club.php?club_id=<?=$club['id'];?>">Добавить картинку</a><a class="btn btn-red" href="club_del.php?del_club=<?=$club['id'];?>">Удалить</a></p>
         <p class="card-text"><small class="text-muted">17 октября 2002</small> <small class="text-muted">Категория</small></p>
       </div>
     </div>

@@ -44,6 +44,7 @@
     ini_set('display_startup_errors', 1);
     require_once 'header.php';
     $post_id = $_GET['post_id'];
+    $pid = $_GET['post_id'];
     if (!is_numeric($post_id)) exit();
     $post = get_post_by_id($post_id);
     ?>
@@ -60,9 +61,13 @@
             <div class="afisha-card__content_text">
             <?=$post['content'];?>
             </div>
-
             <!-- Если есть изображения -->
-            <!-- <img src="img/main/intro1.jpg" alt=""> -->
+             <?php 
+            $pimg = get_postimg($pid);
+            ?>
+            <?php foreach ($pimg as $pimgs):?>
+                <img src="admin/img/posts/<?=$pimgs['img']?>" alt="">
+                <?php endforeach; ?>
         </div>
     </section>
 

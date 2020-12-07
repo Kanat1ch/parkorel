@@ -39,70 +39,77 @@
     <script src="scripts/vi/vi-preloader.js"></script>
 
     <?php 
+    ini_set('error_reporting', E_ALL);
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
     require_once 'header.php';
+    $vacancy_id = $_GET['vacancy_id'];
+    if (!is_numeric($vacancy_id)) exit();
+    $vacancy = get_vacancy_by_id($vacancy_id);
     ?>
     
-    <section class="vacancy-card">
+    <section class="vacancy-card" style="background-image: url(admin/img/vacancy/<?=$vacancy['img']?>);">
         <div class="blur"></div>
         <div class="vacancy-card__content">
             <a href="vacancy.php" class="to-prev-page">
                 <img src="img/arrow-left.png" alt="to-prev-page">
             </a>
-            <h2>Подсобный рабочий</h2>
+            <h2><?=$vacancy['title']?></h2>
 
             <div class="salary">
-                <p>Заработная плата: <span>11000 руб.</span></p>
+                <p>Заработная плата: <span><?=$vacancy['price']?> руб.</span></p>
             </div>
 
             <div class="requirements">
                 <h4>Требования:</h4>
                 <ul>
-                    <li>— Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, eius cumque.</li>
-                    <li>— Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
-                    <li>— Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit sunt temporibus eligendi similique. Unde, laboriosam?</li>
-                    <li>— Lorem ipsum dolor sit amet consectetur adipisicing.</li>
-                    <li>— Lorem ipsum dolor sit amet.</li>
+                    <li><?=$vacancy['claim']?></li>
                 </ul>
             </div>
 
             <div class="duties">
                 <h4>Обязанности:</h4>
                 <ul>
-                    <li>— Lorem ipsum dolor, sit amet consectetur adipisicing.</li>
-                    <li>— Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, officiis.</li>
-                    <li>— Lorem ipsum dolor sit.</li>
+                    <li><?=$vacancy['abligation']?></li>
                 </ul>
             </div>
 
             <button class="send-request" id="sendRequest">Оставить заявку</button>
         </div>
     </section>
-
+        <?php 
+        $title = $vacancy['title'];
+        if(isset($_POST['submit']))   
+        {
+        $sql = "INSERT INTO requests(vacancy, surname, name, patronymic, phone) VALUE('".$title."','".$_POST['v_surname']."','".$_POST['v_name']."','".$_POST['v_patronymic']."','".$_POST['v_phone']."')";
+            mysqli_query($link, $sql); 
+        }
+        ?>
     <div class="request-form">
         <h3>Заявка на должность "<span></span>"</h3>
-        <form action="">
+        <form action="" method='post'>
             <div class="form-item">
                 <label for="surname">Фамилия</label>
-                <input type="text" id="surname" name="surname" required>
+                <input type="text" id="surname" name="v_surname" required>
             </div>
             <div class="form-item">
                 <label for="name">Имя</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="v_name" required>
             </div>
             <div class="form-item">
                 <label for="middle-name">Отчество</label>
-                <input type="text" id="middle-name" name="middle-name" required>
+                <input type="text" id="middle-name" name="v_patronymic" required>
             </div>
             <div class="form-item">
                 <label for="phone">Контактный телефон</label>
-                <input type="text" id="phone" name="phone" required>
+                <input type="text" id="phone" name="v_phone" required>
             </div>
             <div class="form-item personal">
                 <input type="checkbox" id="personalData" name="personalData" required>
                 <label for="personalData">Даю согласие на обработку персональных данных</label>
             </div>
             <div class="form-item">
-                <button>Оставить заявку</button>
+            <input type="submit" name="submit" class="btn btn-success" value="Отправить">
             </div>
             <div class="close-modal">
                 &times;
@@ -171,7 +178,7 @@
             });
         });
 
-        var element = document.getElementById('phone');
+        var element = document.getElementById('v_phone');
         var maskOptions = {
         mask: '+{7} (000) 000-00-00'
         };

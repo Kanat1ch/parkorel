@@ -39,6 +39,9 @@
     <script src="scripts/vi/vi-preloader.js"></script>
 
     <?php 
+    ini_set('error_reporting', E_ALL);
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
     require_once 'header.php';
     ?>
 
@@ -49,24 +52,26 @@
     
     <!-- Vacancy -->
     <section class="vacancy">
-        <a href="vacancy-card.php" class="vacancy__item">
-            <div class="vacancy__item-img"><img src="img/vacancy/podsobniy.jpg" alt=""></div>
+        <?php 
+        $rows = mysqli_query($link, "SELECT * FROM vacancy");
+        $num_rows = mysqli_num_rows( $rows );
+        if ($num_rows >! [1]) {
+            ?>
+            <?php $vacancies = get_vacancies();?>
+            <?php foreach ($vacancies as $vacancy):?>
+        <a href="vacancy-card.php?vacancy_id=<?=$vacancy['id'];?>" class="vacancy__item">
+            <div class="vacancy__item-img"><img src="admin/img/vacancy/<?=$vacancy['img']?>" alt=""></div>
             <div class="vacancy__item-title">
-                Подсобный рабочий
+            <?=$vacancy['title']?>
             </div>
         </a>
-        <a href="#" class="vacancy__item">
-            <div class="vacancy__item-img"><img src="img/vacancy/electric.jpg" alt=""></div>
-            <div class="vacancy__item-title">
-                Электрик
-            </div>
-        </a>
-        <a href="#" class="vacancy__item">
-            <div class="vacancy__item-img"><img src="img/vacancy/driver.jpg" alt=""></div>
-            <div class="vacancy__item-title">
-                Водитель
-            </div>
-        </a>
+        <?php endforeach; ?>
+    </section>
+            <?php
+        }
+        else {
+            echo 'сейчас нет свободных вакансий';
+        }?>
     </section>
 
     <?php 

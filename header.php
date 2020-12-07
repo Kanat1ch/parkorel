@@ -59,9 +59,10 @@ include_once 'app/functions.php';
                     </ul>
                 </li>
                 <div class="search">
-                        <button class="search-btn"><i class="fa fa-search" aria-hidden="true"></i>
-                        </button>
-                        <input type="text" placeholder="Я ищу...">
+                <button class="search-btn" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <form action="search.php" method="get">
+                        <input type="search" name="search" placeholder="Поиск...">
+                        </form>
                 </div>
             </ul>
         </div>
