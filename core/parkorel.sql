@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Дек 07 2020 г., 15:43
+-- Время создания: Дек 13 2020 г., 17:39
 -- Версия сервера: 5.7.24
 -- Версия PHP: 7.4.1
 
@@ -80,25 +80,30 @@ CREATE TABLE `attr` (
   `time` varchar(20) NOT NULL,
   `places` varchar(20) NOT NULL,
   `age` varchar(20) NOT NULL,
-  `ban` varchar(255) NOT NULL,
-  `obligation` varchar(255) NOT NULL,
+  `ban` text NOT NULL,
+  `obligation` text NOT NULL,
+  `checkbox` varchar(255) DEFAULT NULL,
+  `img` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `attrimg`
+--
+
+CREATE TABLE `attrimg` (
+  `id` int(11) NOT NULL,
+  `aid` varchar(255) NOT NULL,
   `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `attr`
+-- Дамп данных таблицы `attrimg`
 --
 
-INSERT INTO `attr` (`id`, `title`, `adult`, `child`, `time`, `places`, `age`, `ban`, `obligation`, `img`) VALUES
-(4, 'dsdsds', 'dsds', '800', '2 часа', '10', 'dsds', '<p>gddgdgdgd</p>', '<p>gdgdgd</p>', '5fc9122c41a05.png'),
-(5, 'vfgdfgf', 'fg', 'fgfgf', 'gfgf', 'gfgfg', 'fgfg', 'gfgfgfg', 'gfgfgf', 'https://via.placeholder.com/150\r\n'),
-(6, 'vfgdfgf', 'fg', 'fgfgf', 'gfgf', 'gfgfg', 'fgfg', 'gfgfgfg', 'gfgfgf', 'https://via.placeholder.com/150\r\n'),
-(7, 'vfgdfgf', 'fg', 'fgfgf', 'gfgf', 'gfgfg', 'fgfg', 'gfgfgfg', 'gfgfgf', 'https://via.placeholder.com/150\r\n'),
-(8, 'Максим пидор', '20 руб.', '100 руб.', '30 мин.', '150', '100', 'Бля, ну Максиму точно нельзя', 'Состаь хуй у Максима', 'https://via.placeholder.com/150'),
-(9, 'asasa', 'saa', 'sa', 'sa', 'asa', 'saas', '<p>asasa</p>', '<p>asasasa</p>', '5fc8cfba0ca39.png'),
-(10, 'dsdsds', 'dsds', 'sdds', 'dsds', 'dsds', 'dsds', '<p>sddsd</p>', '<p><strong>dsds</strong><em>dsds</em>dsds</p>', '5fc8d202f0539.png'),
-(11, 'Бухич на чентральной площади в 21:00', '1000', '800', '2 часа', '10', 'от 12 до 28', '<p>Пить пиво после водки, ну чуть чуть если тока</p>', '<p>Стрельнуть сижку если его попросят, из уважения к организаторам желательно стрельнуть 2 сиги</p>', '5fc8d3b36a9ae.jpg'),
-(12, 'asasa', 'аававфы', 'авфафаф', 'фафаф', 'фаафафаф', 'афафафафаф', '<p>-Привет</p>\r\n<p>-Пошел нахуй&nbsp;<strong>пидорас</strong></p>', '<p>-Привет</p>\r\n<p>-Пошел нахуй&nbsp;<strong>пидорас</strong></p>', '5fca12259c2bc.jpg');
+INSERT INTO `attrimg` (`id`, `aid`, `img`) VALUES
+(3, '18', '5fd4769db8e7c.jpg');
 
 -- --------------------------------------------------------
 
@@ -117,7 +122,18 @@ CREATE TABLE `clubimg` (
 --
 
 INSERT INTO `clubimg` (`id`, `cid`, `img`) VALUES
-(5, '1', '5fce3adf76a26.png');
+(5, '1', '5fce3adf76a26.png'),
+(6, '1', '5fd38c2c0d3ff.jpg'),
+(25, '19', '5fd45a821995f.jpg'),
+(27, '19', '5fd45b131b5e2.jpg'),
+(28, '19', '5fd45b793a53e.jpg'),
+(29, '19', '5fd45cbfc6563.jpg'),
+(30, '19', '5fd45d3a2b697.jpg'),
+(31, '19', '5fd45e22b3875.jpg'),
+(32, '19', '5fd46150d5b21.jpg'),
+(33, '19', '5fd46232bc8cf.jpg'),
+(34, '19', '5fd464619e031.jpg'),
+(35, '19', '5fd465af54913.jpg');
 
 -- --------------------------------------------------------
 
@@ -128,18 +144,12 @@ INSERT INTO `clubimg` (`id`, `cid`, `img`) VALUES
 CREATE TABLE `clubs` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
+  `scontent` varchar(255) NOT NULL,
   `director` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
-  `content` varchar(255) NOT NULL,
+  `content` text NOT NULL,
   `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `clubs`
---
-
-INSERT INTO `clubs` (`id`, `title`, `director`, `phone`, `content`, `img`) VALUES
-(1, 'fdfdfd', 'gfghgf', '+7 (903)614 50-77', '<p>авававава&nbsp; авав</p>\r\n<p><strong>авававав</strong></p>', '5fca0ff7520c7.png');
 
 -- --------------------------------------------------------
 
@@ -153,14 +163,6 @@ CREATE TABLE `docs` (
   `link` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Дамп данных таблицы `docs`
---
-
-INSERT INTO `docs` (`id`, `title`, `link`) VALUES
-(8, 'Писюн', 'Задание по инженерному проекту осень 2020 (2).pdf.pdf'),
-(9, 'Новый писюн', 'Извещение об организации праздничной торговли 05 августа.docx.docx');
-
 -- --------------------------------------------------------
 
 --
@@ -173,13 +175,6 @@ CREATE TABLE `partners` (
   `link` varchar(255) NOT NULL,
   `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `partners`
---
-
-INSERT INTO `partners` (`id`, `title`, `link`, `img`) VALUES
-(2, 'MosPolytech', 'https://new.mospolytech.ru/', '5fc93c23cea86.png');
 
 -- --------------------------------------------------------
 
@@ -198,14 +193,22 @@ CREATE TABLE `postimg` (
 --
 
 INSERT INTO `postimg` (`id`, `pid`, `img`) VALUES
-(28, '5', '5fcd1c24a44f2.png'),
-(30, '5', '5fcd1c32c25f1.png'),
-(32, '2', '5fcd1c47b406a.jpg'),
-(34, '4', '5fcd1d4342620.jpg'),
-(35, '4', '5fcd1d4a7909f.png'),
-(36, '4', '5fcd1d682ee17.png'),
-(52, '7', '5fce269d19ad0.png'),
-(53, '7', '5fce26a2e9d7d.png');
+(69, '17', '5fd3a8c6ec9a9.jpg'),
+(70, '17', '5fd3a8f736d35.jpg'),
+(71, '17', '5fd3a91ce3cc8.jpg'),
+(72, '17', '5fd3a941b3dd8.jpg'),
+(73, '17', '5fd3a95b71fda.jpg'),
+(74, '', '5fd42551c7c7d.jpg'),
+(75, '', '5fd4255b8ebb2.jpg'),
+(76, '', '5fd4256e183aa.jpg'),
+(77, '', '5fd4259e035af.jpg'),
+(78, '', '5fd425d5ae5f2.jpg'),
+(79, '', '5fd425e58ffd0.jpg'),
+(86, '23', '5fd4281a4d6c0.jpg'),
+(112, '23', '5fd43ecaaec66.jpg'),
+(120, '20', '5fd4fb817093c.jpg'),
+(122, '19', '5fd63be20233c.jpg'),
+(123, '25', '5fd64b881da8f.jpg');
 
 -- --------------------------------------------------------
 
@@ -216,7 +219,8 @@ INSERT INTO `postimg` (`id`, `pid`, `img`) VALUES
 CREATE TABLE `posts` (
   `id` int(11) NOT NULL,
   `title` varchar(256) NOT NULL,
-  `content` varchar(256) NOT NULL,
+  `scontent` varchar(255) NOT NULL,
+  `content` text NOT NULL,
   `start` varchar(255) NOT NULL,
   `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -225,13 +229,8 @@ CREATE TABLE `posts` (
 -- Дамп данных таблицы `posts`
 --
 
-INSERT INTO `posts` (`id`, `title`, `content`, `start`, `img`) VALUES
-(2, 'gfgfdgfdgdf', '<p>ddggddgdgd</p>', 'gddgdgd', '5fca7821c9c03.jpg'),
-(3, 'fdgfdgdf', '<p>gdgdgdgdgdgd</p>', 'gdgdgd', '5fcbd109d42e1.jpg'),
-(4, 'dfgfdgdf', '<p>hdhdhdhd</p>', 'gdhdhgdfhd', '5fcbd12041616.png'),
-(5, 'gfdgfdgdf', '<p>dgdgdgdg</p>', 'gdgdgdgd', '5fcbd129d46a1.png'),
-(6, 'аолвыоалтыволаыв', '<p>кпукпекпек</p>', 'авыолатвгшыаывавы', '5fcbe08a46e5e.png'),
-(7, 'авыавыаываываывпварпорпорвпв', '<p>длрдрлдродрдгшлгшд<strong>шгдшгдшг<em>дшгдгшдшг</em>гш</strong>дшгдшгдшгдгшдлгш</p>', 'опрорпорпллорлордордолд', '5fcbf23c14a3c.png');
+INSERT INTO `posts` (`id`, `title`, `scontent`, `content`, `start`, `img`) VALUES
+(26, 'Афиша 1', 'Краткое описание к афише 1', '<p>Описание к афише 1</p>', '13.12.2020', '5fd6503410f6c.jpg');
 
 -- --------------------------------------------------------
 
@@ -248,13 +247,6 @@ CREATE TABLE `requests` (
   `phone` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Дамп данных таблицы `requests`
---
-
-INSERT INTO `requests` (`id`, `vacancy`, `surname`, `name`, `patronymic`, `phone`) VALUES
-(1, 'bgfbgfbgf', 'апавпва', 'пвпва', 'пвапва', 'пвпвпв');
-
 -- --------------------------------------------------------
 
 --
@@ -269,13 +261,6 @@ CREATE TABLE `services` (
   `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Дамп данных таблицы `services`
---
-
-INSERT INTO `services` (`id`, `title`, `content`, `phone`, `img`) VALUES
-(1, 'fsfsafafdas', 'fsafasfasgfgdf', 'hghghg', '5fc949e56048c.jpg');
-
 -- --------------------------------------------------------
 
 --
@@ -286,18 +271,10 @@ CREATE TABLE `vacancy` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `price` varchar(30) NOT NULL,
-  `claim` varchar(255) NOT NULL,
-  `abligation` varchar(255) NOT NULL,
+  `claim` text NOT NULL,
+  `abligation` text NOT NULL,
   `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `vacancy`
---
-
-INSERT INTO `vacancy` (`id`, `title`, `price`, `claim`, `abligation`, `img`) VALUES
-(6, 'hgfhgf', 'jfjf', 'jffj', 'jfjffj', 'fjjfjf'),
-(7, 'bgfbgfbgf', 'bgfbgfbgfbgf', '<p>bgfbgfbgf</p>', '<p>bgfbgfbgfbgf</p>', '5fcced7d60864.png');
 
 --
 -- Индексы сохранённых таблиц
@@ -319,6 +296,12 @@ ALTER TABLE `admin_codes`
 -- Индексы таблицы `attr`
 --
 ALTER TABLE `attr`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `attrimg`
+--
+ALTER TABLE `attrimg`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -395,61 +378,67 @@ ALTER TABLE `admin_codes`
 -- AUTO_INCREMENT для таблицы `attr`
 --
 ALTER TABLE `attr`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT для таблицы `attrimg`
+--
+ALTER TABLE `attrimg`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `clubimg`
 --
 ALTER TABLE `clubimg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT для таблицы `clubs`
 --
 ALTER TABLE `clubs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT для таблицы `docs`
 --
 ALTER TABLE `docs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT для таблицы `partners`
 --
 ALTER TABLE `partners`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `postimg`
 --
 ALTER TABLE `postimg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT для таблицы `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT для таблицы `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `vacancy`
 --
 ALTER TABLE `vacancy`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
