@@ -5,7 +5,7 @@
 }
 
 .fullattr {
-    background: none;
+    background: none !important;
     padding-top: 70px;
 
     &:after {
@@ -40,7 +40,9 @@
         }
 
         .forbid, .respons {
-            color: #000;
+            * {
+                color: #000 !important;
+            }
         }
     }
 }

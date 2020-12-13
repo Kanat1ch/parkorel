@@ -15,7 +15,6 @@
     <script src="https://use.fontawesome.com/4f5cd90764.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <!-- Scripts -->
-    <script src="scripts/realtime.js" defer></script>
     <script src="scripts/script.js" defer></script>
     <script src="scripts/main.js" defer></script>
     <script src="scripts/vi/vi-main.js" defer></script>
@@ -138,32 +137,16 @@
         }
     </script>
 
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-    
-        ym(69762088, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
-        });
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/69762088" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
-
     <div class="cssload-container">
         <div class="cssload-whirlpool"></div>
     </div>
     <script src="scripts/vi/vi-preloader.js"></script>
 
     <?php 
-    ini_set('error_reporting', E_ALL);
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    require_once 'header.php';
+    // ini_set('error_reporting', E_ALL);
+    // ini_set('display_errors', 1);
+    // ini_set('display_startup_errors', 1);
+    require_once 'templates/header.php';
     ?>
     
     <!-- Intro -->
@@ -213,10 +196,11 @@
                     <div class="main-text">
                         <small id="date">Начало: <?=$lpost['start'];?></small>
                         <h2><?=$lpost['title'];?></h2>
-                        <p><?=$lpost['content'];?></p>
+                        <p><?=$lpost['scontent'];?></p>
                     </div>
                 </div>
             </a>
+            
             <?php endforeach; ?>
             <div class="afisha__items-others">
             <?php $tposts = get_three_posts();?>
@@ -234,7 +218,7 @@
         </div>        
     </section>
 
-    <!-- BLOCK: Weather -->
+    <!-- BLOCK: Realtime -->
     <section class="realtime">
         <div class="realtime__content">
             <div class="date">
@@ -253,6 +237,7 @@
             </div>
         </div>
     </section>
+    <script src="scripts/realtime.js"></script>
 
     <!-- BLOCK: Attractions -->
     <section class="attr">
@@ -293,7 +278,7 @@
                     <span><a href="clubs-card.php?club_id=<?=$club['id'];?>">Узнать больше <i class="fa fa-angle-right" aria-hidden="true"></i></a></span>
                 </div>
                 <div class="clubs-description">
-                    <p><?=$club['content'];?></p>
+                    <p><?=$club['scontent'];?></p>
                 </div>
             </div> 
             <?php endforeach; ?>
@@ -347,7 +332,7 @@
     </section>
 
     <?php 
-    require_once 'footer.php';
+    require_once 'templates/footer.php';
     ?>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>

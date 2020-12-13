@@ -39,7 +39,7 @@
     <script src="scripts/vi/vi-preloader.js"></script>
 
     <?php 
-    require_once 'header.php';
+    require_once 'templates/header.php';
     ?>
     
     <!-- Intro -->
@@ -89,7 +89,7 @@
     </section>
 
     <?php 
-    require_once 'footer.php';
+    require_once 'templates/footer.php';
     ?>
 </body>
 </html>

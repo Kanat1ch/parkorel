@@ -39,10 +39,7 @@
     <script src="scripts/vi/vi-preloader.js"></script>
 
     <?php 
-    ini_set('error_reporting', E_ALL);
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    require_once 'header.php';
+    require_once 'templates/header.php';
     ?>
 
     <!-- Intro -->
@@ -69,7 +66,7 @@
     </section>
 
     <?php 
-    require_once 'footer.php';
+    require_once 'templates/footer.php';
     ?>
 </body>
 </html>

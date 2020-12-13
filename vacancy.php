@@ -39,10 +39,7 @@
     <script src="scripts/vi/vi-preloader.js"></script>
 
     <?php 
-    ini_set('error_reporting', E_ALL);
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    require_once 'header.php';
+    require_once 'templates/header.php';
     ?>
 
     <!-- Intro -->
@@ -61,21 +58,20 @@
             <?php foreach ($vacancies as $vacancy):?>
         <a href="vacancy-card.php?vacancy_id=<?=$vacancy['id'];?>" class="vacancy__item">
             <div class="vacancy__item-img"><img src="admin/img/vacancy/<?=$vacancy['img']?>" alt=""></div>
-            <div class="vacancy__item-title">
-            <?=$vacancy['title']?>
-            </div>
+            <div class="vacancy__item-title"><?=$vacancy['title']?></div>
         </a>
         <?php endforeach; ?>
-    </section>
             <?php
         }
         else {
-            echo 'сейчас нет свободных вакансий';
+            echo '<div class="vacancy__info">
+                    К сожалению, сейчас нет свободных вакансий <img src="img/vacancy/sad-emoji.png" alt="sad-emoji" style="width: 20px; height: 20px; margin-left: 10px;">
+            </div>';
         }?>
     </section>
 
     <?php 
-    require_once 'footer.php';
+    require_once 'templates/footer.php';
     ?>
 </body>
 </html>

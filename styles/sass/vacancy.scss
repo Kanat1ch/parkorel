@@ -11,16 +11,18 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    min-height: calc(60vh - 150px);
 
     &__info {
         width: 100%;
-        padding: 20px 30px;
-        margin-top: 30px;
-        background-color: rgba(6, 37, 26, 0.9);
+        padding: 40px 30px;
+        height: fit-content;
+        background-color: rgb(235, 175, 175);
         display: flex;
         justify-content: center;
         align-items: center;
-        color: #fff;
+        color: rgb(117, 9, 9);
+        border: 1px solid rgb(117, 9, 9);
         font-size: 18px;
         font-weight: 500;
     }

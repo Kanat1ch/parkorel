@@ -1,5 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
+<?php 
+    // ini_set('error_reporting', E_ALL);
+    // ini_set('display_errors', 1);
+    // ini_set('display_startup_errors', 1);
+    include_once 'core/database.php';
+    include_once 'core/functions.php';
+    $attr_id = $_GET['attr_id'];
+    $aid = $_GET['attr_id'];
+    if (!is_numeric($attr_id)) exit();
+    $attr = get_attr_by_id($attr_id);
+    $checkbox = $attr['checkbox'];
+    ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +25,8 @@
     <!-- Scripts -->
     <script src="scripts/script.js" defer></script>
     <script src="scripts/vi/vi-attr-card.js" defer></script>
-    <title>Вихрь - Городской парк куьтуры и отдыха г. Орла</title>
+    <script src="scripts/fullsize-image.js" defer></script>
+    <title><?=$attr['title']?> - Городской парк куьтуры и отдыха г. Орла</title>
 </head>
 <body>
     <script>
@@ -38,15 +51,7 @@
     </div>
     <script src="scripts/vi/vi-preloader.js"></script>
 
-    <?php 
-    ini_set('error_reporting', E_ALL);
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    require_once 'header.php';
-    $attr_id = $_GET['attr_id'];
-    if (!is_numeric($attr_id)) exit();
-    $attr = get_attr_by_id($attr_id);
-    ?>
+    <?php require_once 'templates/header.php';?>
     
     <section class="fullattr" style="background-image: url(admin/img/attr/<?=$attr['img']?>);">
         <div class="blur"></div>
@@ -70,7 +75,16 @@
             </div>
             <div class="age-limit">
                 <p>Возрастное ограничение: <span>от <?=$attr['age']?> лет*</span></p>
+                <?php
+                if ($checkbox == 'on'){
+                    ?>
                 <small>* Дети до <?=$attr['age']?> лет только в сопровождении взрослого</small>
+                <?php
+                    }
+                    else {
+                        echo ' ';
+                    }
+                ?>
             </div>
 
 
@@ -83,11 +97,46 @@
                 <h4>Посетитель обязан:</h4>
                 <?=$attr['obligation']?>
             </div>
+
+            <?php
+            $sql = "SELECT * FROM attrimg WHERE aid='".$aid."' "  ;
+            $result = mysqli_query($link, $sql);
+            $rows = mysqli_num_rows($result);
+            if ($rows >! [1]) {
+            ?>
+            <div class="view-images">Посмотреть изображения</div>
+            <?php
+            }
+            else {
+                echo ' ';
+            }
+            ?>
         </div>
     </section>
 
+    <section class="images">
+        <div class="content">
+            <div class="fullsize-image"></div>
+            <div class="close-images">&times;</div>
+            <?php 
+            $aimg = get_attrimg($aid);
+            ?>
+            <?php foreach ($aimg as $aimgs):?>
+            <div class="image">
+                <div class=loupe></div>
+                <img src="admin/img/attr/<?=$aimgs['img']?>" alt="image">
+            </div>
+            <?php endforeach; ?>
+        </div>
+
+        <div class="overlay"></div>
+    </section>
+
+    <div class="box-shadow-start"></div>
+    <div class="box-shadow-end"></div>
+
     <?php 
-    require_once 'footer.php';
+    require_once 'templates/footer.php';
     ?>
 </body>
 </html>

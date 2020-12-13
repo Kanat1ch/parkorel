@@ -23,7 +23,10 @@ section, header, footer {
 button, a,
 .menu-btn, .menu-btn:focus, .menu-btn:active,
 button:focus, button:active,
-a:focus, a:active {
+a:focus, a:active,
+.view-images, .view-images:focus, .view-images:active,
+.close-images, .close-images:focus, .close-images:active,
+ {
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     -webkit-tap-highlight-color: transparent;
     border: none;

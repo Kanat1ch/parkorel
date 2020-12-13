@@ -40,10 +40,7 @@
     <script src="scripts/vi/vi-preloader.js"></script>
      <!-- Header -->
      <?php 
-    ini_set('error_reporting', E_ALL);
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    require_once 'header.php';
+    require_once 'templates/header.php';
     ?>
     
     <!-- Intro -->
@@ -58,7 +55,7 @@
             <div class="afisha__item-img"><a href="afisha-card.php?post_id=<?=$post['id'];?>"><img src="admin/img/posts/<?=$post['img']?>" alt=""></a></div>
             <div class="afisha__item-text">
                 <h2 class="title"><a href="afisha-card.php?post_id=<?=$post['id'];?>"><?=$post['title'];?></a></h2>
-                <p class="description"><?=$post['content'];?></p>
+                <p class="description"><?=$post['scontent'];?></p>
                 <a href="afisha-card.php?post_id=<?=$post['id'];?>" class="more">Читать далее ></a>
                 <small class="date">Начало: <?=$post['start'];?></small>
             </div>
@@ -67,7 +64,7 @@
     </section>
 
     <?php 
-    require_once 'footer.php';
+    require_once 'templates/footer.php';
     ?>
 </body>
 </html>

@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" >
 <?php
-//ini_set('error_reporting', E_ALL);
-//ini_set('display_errors', 1);
-//ini_set('display_startup_errors', 1);
-include("../app/database.php");
+include("../core/database.php");
 session_start();
 if(isset($_POST['submit']))
 {
@@ -16,15 +13,15 @@ if(isset($_POST['submit']))
 	$result=mysqli_query($link, $loginquery);
 	$row=mysqli_fetch_array($result);
 	
-	                        if(is_array($row))
-								{
-                                    	$_SESSION["adm_id"] = $row['adm_id'];
-										 header("refresh:1;url=dashboard.php");
-	                            } 
-							else
-							    {
-                                      	$message = "Invalid Username or Password!";
-                                }
+	if(is_array($row))
+		{
+				$_SESSION["adm_id"] = $row['adm_id'];
+					header("refresh:1;url=dashboard.php");
+		} 
+	else
+		{
+				$message = "Неверное имя пользователя или пароль";
+		}
 	 }
 }
 if(isset($_POST['submit1'] ))
@@ -63,45 +60,38 @@ if(isset($_POST['submit1'] ))
              }
 	else{
        $result = mysqli_query($db,"SELECT id FROM admin_codes WHERE codes =  '".$_POST['code']."'");  //query to select the id of the valid code enter by user! 
-                     if(mysqli_num_rows($result) == 0)
-						 {
-			                 $message = "invalid code!";
-                         } 
-                      else 
-					     {
-									$mql = "INSERT INTO admin (username,password,email,code) VALUES ('".$_POST['cr_user']."','".md5($_POST['cr_pass'])."','".$_POST['cr_email']."','".$_POST['code']."')";
-								mysqli_query($db, $mql);
-									$success = "Admin Added successfully!";
-						 }
+			if(mysqli_num_rows($result) == 0)
+				{
+					$message = "invalid code!";
+				} 
+			else 
+				{
+						$mql = "INSERT INTO admin (username,password,email,code) VALUES ('".$_POST['cr_user']."','".md5($_POST['cr_pass'])."','".$_POST['cr_email']."','".$_POST['code']."')";
+					mysqli_query($db, $mql);
+						$success = "Admin Added successfully!";
+				}
         }
 	}
 }
 ?>
 <head>
-<meta charset="UTF-8">
-<title>Логин</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'>
-<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Montserrat:400,700'>
-<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-<link rel="stylesheet" href="css/login.css"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/css/index.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Admin Login</title>
 </head>
 <body>
-<div class="container">
-  <div class="info">
-    <h1>Админ </h1><span> зайти в аккаунт</span>
-  </div>
-</div>
-<div class="form">
-  <span style="color:red;"><?php echo $message; ?></span>
-   <span style="color:green;"><?php echo $success; ?></span>
-  <form class="login-form" action="index.php" method="post">
-    <input type="text" placeholder="Пользователь" name="username"/>
-    <input type="password" placeholder="пароль" name="password"/>
-    <input type="submit"  name="submit" value="Войти" />
-  </form>
-</div>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-  <script src='js/index.js'></script>
+    <div class="container">
+		<h1>Панель администратора</h1>
+        <form action="index.php" method="POST">
+            <input type="text" name="username" placeholder="Пользователь">
+			<input type="password" name="password" placeholder="Пароль">
+			<input type="submit" name="submit" value="Войти">
+			<p style="color:red;"><?php echo $message; ?></p>
+			<p style="color:green;"><?php echo $success; ?></p>
+        </form>
+        
+    </div>
 </body>
 </html>

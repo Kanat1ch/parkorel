@@ -5,7 +5,7 @@
 }
 
 .afisha-card {
-    background: none;
+    background: none !important;
     padding-top: 70px;
 
     &:after {
@@ -27,8 +27,16 @@
             color: #000;
         }
 
+        p {
+            color: #000 !important;
+        }
+
         &_text {
             color: #000;
+        }
+
+        .view-images {
+            display: none;
         }
     }
 }

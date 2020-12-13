@@ -7,6 +7,7 @@
 .vacancy-card {
     background: none;
     padding-top: 70px;
+    background: none !important;
 
     &:after {
         display: none;
@@ -28,15 +29,19 @@
         }
 
         &_text {
-            color: #000;
+            color: #000 !important;
+        }
+
+        p {
+            color: #000 !important;
         }
 
         .salary {
-            color: #000;
+            color: #000 !important;
         }
 
         .requirements, .duties {
-            color: #000;
+            color: #000 !important;
         }   
 
         .send-request {
@@ -73,7 +78,7 @@
                 padding: 5px;
             }
 
-            button {
+            input[type="submit"] {
                 background-color: rgb(129, 255, 129);
                 border: 1px solid #000;
             }
@@ -133,9 +138,10 @@
                     color: #fff !important;
                 }
     
-                button {
+                input[type="submit"] {
                     background-color: rgb(255, 255, 255);
                     border: 1px solid #fff;
+                    color: #000 !important;
                 }
 
                 input:-webkit-autofill,

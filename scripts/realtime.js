@@ -15,9 +15,26 @@ fetch('https://api.openweathermap.org/data/2.5/weather?id=515012&appid=cd0d813f0
         document.querySelector('.weather').remove();
     });
 
-
+const realtime = document.querySelector('.realtime');
 const monthArray = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
-const weekDayArray = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'];
+const weekDayArray = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
+
+const currentDate = new Date();
+console.log(currentDate.getDay()); 
+
+const currentMonth = currentDate.getMonth();
+if (currentMonth == 0 || currentMonth == 1 || currentMonth == 11) {
+    realtime.style.backgroundImage = 'url(img/main/realtime_winter.jpg)';
+} else if (currentMonth == 2 || currentMonth == 3 || currentMonth == 4) {
+    realtime.style.backgroundImage = 'url(img/main/realtime_spring.jpg)';
+} else if (currentMonth == 5 || currentMonth == 6 || currentMonth == 7) {
+    realtime.style.backgroundImage = 'url(img/main/realtime_summer.jpg)';
+} else if (currentMonth == 8 || currentMonth == 9 || currentMonth == 10) {
+    realtime.style.backgroundImage = 'url(img/main/realtime_autumn.jpg)';
+} else {
+    realtime.style.backgroundImage = 'url(img/main/realtime_winter.jpg)';
+}
+
 setInterval(() => {
     const date = new Date();
     const day = date.getDate();
@@ -34,6 +51,6 @@ setInterval(() => {
         return count;
     }
 
-    document.querySelector('.date p').textContent = `${day} ${monthArray[month]}, ${weekDayArray[weekDay - 1]}`;
+    document.querySelector('.date p').textContent = `${day} ${monthArray[month]}, ${weekDayArray[weekDay]}`;
     document.querySelector('.time p').textContent = `${hours}:${minutes}`;
 }, 3000);

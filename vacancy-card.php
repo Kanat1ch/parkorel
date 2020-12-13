@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
+<?php 
+    include_once 'core/database.php';
+    include_once 'core/functions.php';
+    $vacancy_id = $_GET['vacancy_id'];
+    if (!is_numeric($vacancy_id)) exit();
+    $vacancy = get_vacancy_by_id($vacancy_id);
+    ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +20,7 @@
     <!-- Scripts -->
     <script src="scripts/script.js" defer></script>
     <script src="scripts/vi/vi-vacancy-card.js" defer></script>
-    <title>Подсобный рабочий - Городской парк куьтуры и отдыха г. Орла</title>
+    <title><?=$vacancy['title']?> - Городской парк куьтуры и отдыха г. Орла</title>
 </head>
 <body>
     <script>
@@ -38,15 +45,7 @@
     </div>
     <script src="scripts/vi/vi-preloader.js"></script>
 
-    <?php 
-    ini_set('error_reporting', E_ALL);
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    require_once 'header.php';
-    $vacancy_id = $_GET['vacancy_id'];
-    if (!is_numeric($vacancy_id)) exit();
-    $vacancy = get_vacancy_by_id($vacancy_id);
-    ?>
+    <?php require_once 'templates/header.php';?>
     
     <section class="vacancy-card" style="background-image: url(admin/img/vacancy/<?=$vacancy['img']?>);">
         <div class="blur"></div>
@@ -83,6 +82,7 @@
         {
         $sql = "INSERT INTO requests(vacancy, surname, name, patronymic, phone) VALUE('".$title."','".$_POST['v_surname']."','".$_POST['v_name']."','".$_POST['v_patronymic']."','".$_POST['v_phone']."')";
             mysqli_query($link, $sql); 
+            header("location:vacancy-card.php?vacancy_id=$vacancy_id");
         }
         ?>
     <div class="request-form">
@@ -102,7 +102,7 @@
             </div>
             <div class="form-item">
                 <label for="phone">Контактный телефон</label>
-                <input type="text" id="phone" name="v_phone" required>
+                <input type="text" id="phone" name="v_phone" required pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}">
             </div>
             <div class="form-item personal">
                 <input type="checkbox" id="personalData" name="personalData" required>
@@ -119,7 +119,8 @@
     <div class="overlay"></div>
 
     <?php 
-    require_once 'footer.php';
+    
+    require_once 'templates/footer.php';
     ?>
 
     <script src="https://unpkg.com/imask"></script>
@@ -178,11 +179,11 @@
             });
         });
 
-        var element = document.getElementById('v_phone');
-        var maskOptions = {
+        let element = document.getElementById('phone');
+        let maskOptions = {
         mask: '+{7} (000) 000-00-00'
         };
-        var mask = IMask(element, maskOptions);
+        let mask = IMask(element, maskOptions);
     </script>
 </body>
 </html>

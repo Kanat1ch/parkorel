@@ -1,10 +1,21 @@
 @import 'vi.scss';
 
+.vacancy__info {
+    background: transparent;
+    border: 2px solid #000;
+    color: #000;
+
+    img {
+        display: none;
+    }
+}
+
 .vacancy {
     &__item {
         border: 1px dashed #000;
         padding: 30px 0;
         text-decoration: none;
+        background: none !important;
 
         &:after {
             display: none;
@@ -30,7 +41,7 @@
 }
 
 .vi-dark {
-    h1, h2, h3, a, p, span, .vacancy__item-title {
+    h1, h2, h3, a, p, span, .vacancy__item-title, .vacancy__info {
         color: #fff !important;
     }
 

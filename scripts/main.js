@@ -20,6 +20,19 @@ const swiper = new Swiper('.attr-container', {
     updateOnWindowResize: false
   });
 
+  swiper.autoplay.stop();
+
+
+  const attr = document.querySelector('.attr');
+  window.addEventListener('scroll', () => {
+    const scrollTop = attr.getBoundingClientRect().top;
+    if (scrollTop < 100 && scrollTop > -500) {
+      swiper.autoplay.start();
+    } else {
+      swiper.autoplay.stop();
+    }
+  });
+
 // Clubs Tabs
 const clubsItems = document.querySelectorAll('.clubs__content-item');
 
